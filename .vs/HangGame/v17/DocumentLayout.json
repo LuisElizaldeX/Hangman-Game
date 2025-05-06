@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\danie\\Desktop\\Hangman-Game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangamecliente\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|solutionrelative:hangmangamecliente\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangamecliente\\cliente\\vistas\\saladeespera.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|solutionrelative:hangmangamecliente\\cliente\\vistas\\saladeespera.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangamecliente\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|solutionrelative:hangmangamecliente\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangamecliente\\cliente\\vistas\\partidaahorcado.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|solutionrelative:hangmangamecliente\\cliente\\vistas\\partidaahorcado.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{581C7049-3BB5-4A12-8792-CBC4C893D8FF}|HangmanGameServidor\\HangmanGameServidor.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangameservidor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{581C7049-3BB5-4A12-8792-CBC4C893D8FF}|HangmanGameServidor\\HangmanGameServidor.csproj|solutionrelative:hangmangameservidor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangamecliente\\cliente\\vistas\\listapartidasdisponibles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|solutionrelative:hangmangamecliente\\cliente\\vistas\\listapartidasdisponibles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{581C7049-3BB5-4A12-8792-CBC4C893D8FF}|HangmanGameServidor\\HangmanGameServidor.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangameservidor\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{581C7049-3BB5-4A12-8792-CBC4C893D8FF}|HangmanGameServidor\\HangmanGameServidor.csproj|solutionrelative:hangmangameservidor\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangamecliente\\cliente\\vistas\\iniciarsesion.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|solutionrelative:hangmangamecliente\\cliente\\vistas\\iniciarsesion.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangamecliente\\cliente\\vistas\\formulariousuario.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|solutionrelative:hangmangamecliente\\cliente\\vistas\\formulariousuario.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangamecliente\\cliente\\vistas\\formulariopartida.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|solutionrelative:hangmangamecliente\\cliente\\vistas\\formulariopartida.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangamecliente\\cliente\\vistas\\estadisticas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{900DB4C8-1FFE-42F7-BF8D-DCA73C849423}|HangmanGameCliente\\HangmanGameCliente.csproj|solutionrelative:hangmangamecliente\\cliente\\vistas\\estadisticas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,50 +58,87 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Estadisticas.xaml",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\Estadisticas.xaml",
+              "RelativeDocumentMoniker": "HangmanGameCliente\\Cliente\\Vistas\\Estadisticas.xaml",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\Estadisticas.xaml",
+              "RelativeToolTip": "HangmanGameCliente\\Cliente\\Vistas\\Estadisticas.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T03:13:03.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormularioPartida.xaml",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\FormularioPartida.xaml",
+              "RelativeDocumentMoniker": "HangmanGameCliente\\Cliente\\Vistas\\FormularioPartida.xaml",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\FormularioPartida.xaml",
+              "RelativeToolTip": "HangmanGameCliente\\Cliente\\Vistas\\FormularioPartida.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T03:12:43.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PartidaAhorcado.xaml",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\PartidaAhorcado.xaml",
+              "RelativeDocumentMoniker": "HangmanGameCliente\\Cliente\\Vistas\\PartidaAhorcado.xaml",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\PartidaAhorcado.xaml",
+              "RelativeToolTip": "HangmanGameCliente\\Cliente\\Vistas\\PartidaAhorcado.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T03:12:16.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "HangmanGameCliente\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\MainWindow.xaml.cs",
-              "RelativeToolTip": "HangmanGameCliente\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T14:57:52.758Z",
+              "Title": "SalaDeEspera.xaml",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\SalaDeEspera.xaml",
+              "RelativeDocumentMoniker": "HangmanGameCliente\\Cliente\\Vistas\\SalaDeEspera.xaml",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\SalaDeEspera.xaml",
+              "RelativeToolTip": "HangmanGameCliente\\Cliente\\Vistas\\SalaDeEspera.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T03:11:25.177Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameServidor\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "HangmanGameServidor\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameServidor\\MainWindow.xaml",
-              "RelativeToolTip": "HangmanGameServidor\\MainWindow.xaml",
+              "Title": "ListaPartidasDisponibles.xaml",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\ListaPartidasDisponibles.xaml",
+              "RelativeDocumentMoniker": "HangmanGameCliente\\Cliente\\Vistas\\ListaPartidasDisponibles.xaml",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\ListaPartidasDisponibles.xaml",
+              "RelativeToolTip": "HangmanGameCliente\\Cliente\\Vistas\\ListaPartidasDisponibles.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-06T14:57:52.704Z"
+              "WhenOpened": "2025-05-06T03:11:08.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormularioUsuario.xaml",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\FormularioUsuario.xaml",
+              "RelativeDocumentMoniker": "HangmanGameCliente\\Cliente\\Vistas\\FormularioUsuario.xaml",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\FormularioUsuario.xaml",
+              "RelativeToolTip": "HangmanGameCliente\\Cliente\\Vistas\\FormularioUsuario.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-06T03:10:38.042Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameServidor\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "HangmanGameServidor\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameServidor\\MainWindow.xaml.cs",
-              "RelativeToolTip": "HangmanGameServidor\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T14:57:52.751Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "HangmanGameCliente\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\MainWindow.xaml",
-              "RelativeToolTip": "HangmanGameCliente\\MainWindow.xaml",
+              "Title": "IniciarSesion.xaml",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\IniciarSesion.xaml",
+              "RelativeDocumentMoniker": "HangmanGameCliente\\Cliente\\Vistas\\IniciarSesion.xaml",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGameCliente\\Cliente\\Vistas\\IniciarSesion.xaml",
+              "RelativeToolTip": "HangmanGameCliente\\Cliente\\Vistas\\IniciarSesion.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-06T14:57:52.755Z"
+              "WhenOpened": "2025-05-06T03:10:35.777Z",
+              "EditorCaption": ""
             }
           ]
         }
