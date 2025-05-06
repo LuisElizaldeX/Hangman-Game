@@ -7,6 +7,41 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Cliente\Alertas\Correcto.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Cliente\Alertas\Derrota.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Cliente\Alertas\Error.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Cliente\Alertas\Victoria.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Cliente\Vistas\Estadisticas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Cliente\Vistas\FormularioPartida.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Cliente\Vistas\FormularioUsuario.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Cliente\Vistas\IniciarSesion.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Cliente\Vistas\ListaPartidasDisponibles.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Cliente\Vistas\PartidaAhorcado.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Cliente\Vistas\SalaDeEspera.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
