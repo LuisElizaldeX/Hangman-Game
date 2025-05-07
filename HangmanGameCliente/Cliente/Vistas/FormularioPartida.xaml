@@ -5,13 +5,84 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HangmanGameCliente.Paginas"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1280"
+      d:DesignHeight="720" d:DesignWidth="1280"
       Title="FormularioPartida">
 
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Cliente/Recursos/makingMatchBackground.png"/>
         </Grid.Background>
-
+        <Button Content="Musica" HorizontalAlignment="Left" Margin="47,193,0,0" VerticalAlignment="Top" Width="182" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="CategoriaMusica">
+            <Button.Background>
+                <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Videojuegos" HorizontalAlignment="Left" Margin="47,276,0,0" VerticalAlignment="Top" Width="244" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="CategoriaVideojuegos">
+            <Button.Background>
+                <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Peliculas" HorizontalAlignment="Left" Margin="47,354,0,0" VerticalAlignment="Top" Width="182" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="CategoriaPeliculas">
+            <Button.Background>
+                <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
+            </Button.Background>
+        </Button>
+        <ListView Name="listViewPalabras" Margin="392,175,138,272" BorderBrush="Black" Foreground="#E5000000" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="12" BorderThickness="1,1,1,1" SnapsToDevicePixels="False" d:ItemsSource="{d:SampleData ItemCount=3}">
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="FontFamily" Value="pack://application:,,,/Font/#MedievalSharp"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </ListView.Resources>
+            <ListView.Background>
+                <ImageBrush ImageSource="/Cliente/Recursos/tableBackground.png"/>
+            </ListView.Background>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header=" " Width="230">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Unirse" Width="149" Height="40" 
+                                Background="#00008B" Foreground="White" FontSize="16" 
+                                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontWeight="Bold" Click="Modificar"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header=" " Width="230">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Unirse" Width="149" Height="40" 
+                                Background="#00008B" Foreground="White" FontSize="16" 
+                                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontWeight="Bold" Click="Modificar"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header=" " Width="230">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Unirse" Width="149" Height="40" 
+                                Background="#00008B" Foreground="White" FontSize="16" 
+                                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontWeight="Bold" Click="Modificar"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="552,604,0,0" VerticalAlignment="Top" Width="182" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="CancelarCreacionPartida">
+            <Button.Background>
+                <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Page>

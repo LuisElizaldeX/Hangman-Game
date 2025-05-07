@@ -3,8 +3,9 @@
     "",
     "\\HangmanGameCliente",
     "\\HangmanGameCliente\\Cliente",
+    "\\HangmanGameCliente\\Cliente\\Alertas",
     "\\HangmanGameCliente\\Cliente\\Vistas"
   ],
-  "SelectedNode": "\\HangmanGameCliente\\Cliente\\Vistas\\SalaDeEspera.xaml",
+  "SelectedNode": "\\HangmanGameCliente\\Cliente\\Alertas\\Correcto.xaml",
   "PreviewInSolutionExplorer": false
 }
