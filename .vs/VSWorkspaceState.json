@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\HangmanGameCliente"
+    "\\HangmanGameCliente",
+    "\\HangmanGameCliente\\Cliente",
+    "\\HangmanGameCliente\\Cliente\\Vistas"
   ],
-  "SelectedNode": "\\HangmanGameCliente\\MainWindow.xaml.cs",
+  "SelectedNode": "\\HangmanGameCliente\\Cliente\\Vistas\\SalaDeEspera.xaml",
   "PreviewInSolutionExplorer": false
 }
