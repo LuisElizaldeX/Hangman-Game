@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HangmanModelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="id_categoria" />
+    </Key>
+    <Property Name="id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_en" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="palabra" Relationship="Self.FK_word_category" FromRole="categoria" ToRole="palabra" />
+  </EntityType>
+  <EntityType Name="estado_partida">
+    <Key>
+      <PropertyRef Name="id_estado_partida" />
+    </Key>
+    <Property Name="id_estado_partida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="Int32" />
+    <NavigationProperty Name="partida" Relationship="Self.FK_gamematch_match_status" FromRole="estado_partida" ToRole="partida" />
+  </EntityType>
+  <EntityType Name="idioma_partida">
+    <Key>
+      <PropertyRef Name="id_idioma_partida" />
+    </Key>
+    <Property Name="id_idioma_partida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="Int32" />
+    <NavigationProperty Name="partida" Relationship="Self.FK_gamematch_match_language" FromRole="idioma_partida" ToRole="partida" />
+  </EntityType>
+  <EntityType Name="jugador">
+    <Key>
+      <PropertyRef Name="id_jugador" />
+    </Key>
+    <Property Name="id_jugador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_nacimiento" Type="DateTime" Precision="0" />
+    <Property Name="telefono" Type="Int32" />
+    <Property Name="correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="contrasena" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="puntuacion" Type="Int32" />
+    <NavigationProperty Name="partida" Relationship="Self.FK_gamematch_challenger" FromRole="jugador" ToRole="partida" />
+    <NavigationProperty Name="partida1" Relationship="Self.FK_gamematch_guesser" FromRole="jugador" ToRole="partida" />
+  </EntityType>
+  <EntityType Name="palabra">
+    <Key>
+      <PropertyRef Name="id_palabra" />
+    </Key>
+    <Property Name="id_palabra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_en" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="pista" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion_en" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="id_categoria" Type="Int32" />
+    <NavigationProperty Name="categoria" Relationship="Self.FK_word_category" FromRole="palabra" ToRole="categoria" />
+    <NavigationProperty Name="partida" Relationship="Self.FK_gamematch_word" FromRole="palabra" ToRole="partida" />
+  </EntityType>
+  <EntityType Name="partida">
+    <Key>
+      <PropertyRef Name="id_partida" />
+    </Key>
+    <Property Name="id_partida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="idioma" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="id_palabra" Type="Int32" />
+    <Property Name="id_retador" Type="Int32" />
+    <Property Name="id_adivinador" Type="Int32" />
+    <Property Name="id_estado_partida" Type="Int32" />
+    <Property Name="id_idioma_partida" Type="Int32" />
+    <NavigationProperty Name="estado_partida" Relationship="Self.FK_gamematch_match_status" FromRole="partida" ToRole="estado_partida" />
+    <NavigationProperty Name="idioma_partida" Relationship="Self.FK_gamematch_match_language" FromRole="partida" ToRole="idioma_partida" />
+    <NavigationProperty Name="jugador" Relationship="Self.FK_gamematch_challenger" FromRole="partida" ToRole="jugador" />
+    <NavigationProperty Name="jugador1" Relationship="Self.FK_gamematch_guesser" FromRole="partida" ToRole="jugador" />
+    <NavigationProperty Name="palabra" Relationship="Self.FK_gamematch_word" FromRole="partida" ToRole="palabra" />
+  </EntityType>
+  <Association Name="FK_word_category">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="palabra" Type="Self.palabra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="id_categoria" />
+      </Principal>
+      <Dependent Role="palabra">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gamematch_match_status">
+    <End Role="estado_partida" Type="Self.estado_partida" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="partida" Type="Self.partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estado_partida">
+        <PropertyRef Name="id_estado_partida" />
+      </Principal>
+      <Dependent Role="partida">
+        <PropertyRef Name="id_estado_partida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gamematch_match_language">
+    <End Role="idioma_partida" Type="Self.idioma_partida" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="partida" Type="Self.partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="idioma_partida">
+        <PropertyRef Name="id_idioma_partida" />
+      </Principal>
+      <Dependent Role="partida">
+        <PropertyRef Name="id_idioma_partida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gamematch_challenger">
+    <End Role="jugador" Type="Self.jugador" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="partida" Type="Self.partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jugador">
+        <PropertyRef Name="id_jugador" />
+      </Principal>
+      <Dependent Role="partida">
+        <PropertyRef Name="id_retador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gamematch_guesser">
+    <End Role="jugador" Type="Self.jugador" Multiplicity="0..1" />
+    <End Role="partida" Type="Self.partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jugador">
+        <PropertyRef Name="id_jugador" />
+      </Principal>
+      <Dependent Role="partida">
+        <PropertyRef Name="id_adivinador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gamematch_word">
+    <End Role="palabra" Type="Self.palabra" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="partida" Type="Self.partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="palabra">
+        <PropertyRef Name="id_palabra" />
+      </Principal>
+      <Dependent Role="partida">
+        <PropertyRef Name="id_palabra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HangmanEntidades" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categoria" EntityType="Self.categoria" />
+    <EntitySet Name="estado_partida" EntityType="Self.estado_partida" />
+    <EntitySet Name="idioma_partida" EntityType="Self.idioma_partida" />
+    <EntitySet Name="jugador" EntityType="Self.jugador" />
+    <EntitySet Name="palabra" EntityType="Self.palabra" />
+    <EntitySet Name="partida" EntityType="Self.partida" />
+    <AssociationSet Name="FK_word_category" Association="Self.FK_word_category">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="palabra" EntitySet="palabra" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gamematch_match_status" Association="Self.FK_gamematch_match_status">
+      <End Role="estado_partida" EntitySet="estado_partida" />
+      <End Role="partida" EntitySet="partida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gamematch_match_language" Association="Self.FK_gamematch_match_language">
+      <End Role="idioma_partida" EntitySet="idioma_partida" />
+      <End Role="partida" EntitySet="partida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gamematch_challenger" Association="Self.FK_gamematch_challenger">
+      <End Role="jugador" EntitySet="jugador" />
+      <End Role="partida" EntitySet="partida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gamematch_guesser" Association="Self.FK_gamematch_guesser">
+      <End Role="jugador" EntitySet="jugador" />
+      <End Role="partida" EntitySet="partida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gamematch_word" Association="Self.FK_gamematch_word">
+      <End Role="palabra" EntitySet="palabra" />
+      <End Role="partida" EntitySet="partida" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

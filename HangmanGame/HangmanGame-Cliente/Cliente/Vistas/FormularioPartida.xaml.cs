@@ -24,5 +24,31 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         {
             InitializeComponent();
         }
+
+        private void Modificar(object sender, RoutedEventArgs e)
+        {
+            // Cierra la ventana actual
+            Window.GetWindow(this)?.Close();
+        }
+
+        private void btnCancelarCreacionPartida_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.GoBack();
+        }
+
+        private void btnCategoriaMusica_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCategoriaSeries_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCategoriaPeliculas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

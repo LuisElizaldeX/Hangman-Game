@@ -15,14 +15,22 @@ using System.Windows.Shapes;
 
 namespace HangmanGame_Cliente.Cliente.Vistas
 {
-    /// <summary>
-    /// Lógica de interacción para FormularioUsuario.xaml
-    /// </summary>
+
     public partial class FormularioUsuario : Page
     {
         public FormularioUsuario()
         {
             InitializeComponent();
+        }
+
+        private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.GoBack();
         }
     }
 }

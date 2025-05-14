@@ -15,14 +15,26 @@ using System.Windows.Shapes;
 
 namespace HangmanGame_Cliente.Cliente.Vistas
 {
-    /// <summary>
-    /// Lógica de interacción para ListaPartidasDisponibles.xaml
-    /// </summary>
     public partial class ListaPartidasDisponibles : Page
     {
         public ListaPartidasDisponibles()
         {
             InitializeComponent();
+        }
+
+        private void btnGenerarPartida_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnIngresarCodigo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Modificar(object sender, RoutedEventArgs e)
+        {
+            // Lógica para modificar la partida seleccionada
         }
     }
 }

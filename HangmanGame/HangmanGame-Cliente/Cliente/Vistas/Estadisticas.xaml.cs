@@ -15,14 +15,16 @@ using System.Windows.Shapes;
 
 namespace HangmanGame_Cliente.Cliente.Vistas
 {
-    /// <summary>
-    /// Lógica de interacción para Estadisticas.xaml
-    /// </summary>
     public partial class Estadisticas : Page
     {
         public Estadisticas()
         {
             InitializeComponent();
+        }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.GoBack();
         }
     }
 }

@@ -12,8 +12,14 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Cliente/Recursos/loginBackground.png"/>
         </Grid.Background>
-        <Image HorizontalAlignment="Center" Height="164" Margin="0,29,0,0" VerticalAlignment="Top" Width="776" Source="/Cliente/Recursos/hangmanLogoSPN.png" RenderTransformOrigin="0.784,-0.329"/>
-        <Label Content="Correo Electrónico:" HorizontalAlignment="Center" Margin="0,202,0,0" VerticalAlignment="Top" Height="53" Width="356" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center">
+        <Image x:Name="imgTituloES" HorizontalAlignment="Center" Height="164" Margin="0,29,0,0" VerticalAlignment="Top" Width="776" Source="/Cliente/Recursos/hangmanLogoSPN.png" RenderTransformOrigin="0.784,-0.329" Visibility="Visible"/>
+        <Image x:Name="imgTituloEN" HorizontalAlignment="Center" Height="164" Margin="0,29,0,0" VerticalAlignment="Top" Width="776" Source="/Cliente/Recursos/hangmanLogoENG.png" RenderTransformOrigin="0.784,-0.329" Visibility="Collapsed"/>
+        <Button x:Name="btnIdioma" Tag="en" Content="{DynamicResource btnIdioma}" HorizontalAlignment="Left" Margin="27,47,0,0" VerticalAlignment="Top" Width="154" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="btnCambiarIdioma_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
+            </Button.Background>
+        </Button>
+        <Label  HorizontalAlignment="Center" Margin="0,202,0,0" VerticalAlignment="Top" Height="53" Width="356" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center" Content="{DynamicResource lblCorreo}">
             <Label.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
@@ -23,7 +29,7 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </TextBox.Background>
         </TextBox>
-        <Label Content="Contraseña:" HorizontalAlignment="Center" Margin="0,358,0,0" VerticalAlignment="Top" Height="53" Width="356" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center">
+        <Label x:Name="lblContrasenia" HorizontalAlignment="Center" Margin="0,358,0,0" VerticalAlignment="Top" Height="53" Width="356" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center" Content="{DynamicResource lblContrasenia}">
             <Label.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
@@ -33,12 +39,12 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </PasswordBox.Background>
         </PasswordBox>
-        <Button Content="¿No tienes una cuenta? Registrate aquí" HorizontalAlignment="Center" Margin="0,475,0,0" VerticalAlignment="Top" FontFamily="pack://application:,,,/Font/#MedievalSharp" Foreground="White" FontSize="30" Width="560" BorderBrush="{x:Null}" Click="DarAltaUsuario">
+        <Button x:Name="btnRegistrarse" Content="{DynamicResource btnRegistrarse}" HorizontalAlignment="Center" Margin="0,475,0,0" VerticalAlignment="Top" FontFamily="pack://application:,,,/Font/#MedievalSharp" Foreground="White" FontSize="30" Width="560" BorderBrush="{x:Null}" Click="btnRegistrarse_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Button.Background>
         </Button>
-        <Button Content="Entrar" HorizontalAlignment="Center" Margin="0,536,0,0" VerticalAlignment="Top" Width="154" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="IniciarSesion">
+        <Button x:Name="btnEntrar" Content="{DynamicResource btnEntrar}" HorizontalAlignment="Center" Margin="0,536,0,0" VerticalAlignment="Top" Width="154" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="btnEntrar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>

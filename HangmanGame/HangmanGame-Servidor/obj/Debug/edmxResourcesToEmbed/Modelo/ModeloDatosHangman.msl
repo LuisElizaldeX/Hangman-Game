@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HangmanModeloStoreContainer" CdmEntityContainer="HangmanEntidades">
+    <EntitySetMapping Name="categoria">
+      <EntityTypeMapping TypeName="HangmanModelo.categoria">
+        <MappingFragment StoreEntitySet="categoria">
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="nombre_en" ColumnName="nombre_en" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estado_partida">
+      <EntityTypeMapping TypeName="HangmanModelo.estado_partida">
+        <MappingFragment StoreEntitySet="estado_partida">
+          <ScalarProperty Name="id_estado_partida" ColumnName="id_estado_partida" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="idioma_partida">
+      <EntityTypeMapping TypeName="HangmanModelo.idioma_partida">
+        <MappingFragment StoreEntitySet="idioma_partida">
+          <ScalarProperty Name="id_idioma_partida" ColumnName="id_idioma_partida" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jugador">
+      <EntityTypeMapping TypeName="HangmanModelo.jugador">
+        <MappingFragment StoreEntitySet="jugador">
+          <ScalarProperty Name="id_jugador" ColumnName="id_jugador" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="puntuacion" ColumnName="puntuacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="palabra">
+      <EntityTypeMapping TypeName="HangmanModelo.palabra">
+        <MappingFragment StoreEntitySet="palabra">
+          <ScalarProperty Name="id_palabra" ColumnName="id_palabra" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="nombre_en" ColumnName="nombre_en" />
+          <ScalarProperty Name="pista" ColumnName="pista" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="descripcion_en" ColumnName="descripcion_en" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="partida">
+      <EntityTypeMapping TypeName="HangmanModelo.partida">
+        <MappingFragment StoreEntitySet="partida">
+          <ScalarProperty Name="id_partida" ColumnName="id_partida" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="idioma" ColumnName="idioma" />
+          <ScalarProperty Name="id_palabra" ColumnName="id_palabra" />
+          <ScalarProperty Name="id_retador" ColumnName="id_retador" />
+          <ScalarProperty Name="id_adivinador" ColumnName="id_adivinador" />
+          <ScalarProperty Name="id_estado_partida" ColumnName="id_estado_partida" />
+          <ScalarProperty Name="id_idioma_partida" ColumnName="id_idioma_partida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

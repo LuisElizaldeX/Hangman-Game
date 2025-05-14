@@ -15,14 +15,17 @@ using System.Windows.Shapes;
 
 namespace HangmanGame_Cliente.Cliente.Vistas
 {
-    /// <summary>
-    /// Lógica de interacción para SalaDeEspera.xaml
-    /// </summary>
+
     public partial class SalaDeEspera : Page
     {
         public SalaDeEspera()
         {
             InitializeComponent();
+        }
+
+        private void btnCancelarIniciarPartida_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.GoBack();
         }
     }
 }
