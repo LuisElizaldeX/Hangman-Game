@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\HangmanGameCliente",
-    "\\HangmanGameCliente\\Cliente",
-    "\\HangmanGameCliente\\Cliente\\Alertas",
-    "\\HangmanGameCliente\\Cliente\\Vistas"
+    ""
   ],
-  "SelectedNode": "\\HangmanGameCliente\\Cliente\\Alertas\\Correcto.xaml",
+  "SelectedNode": "\\HangGame.sln",
   "PreviewInSolutionExplorer": false
 }

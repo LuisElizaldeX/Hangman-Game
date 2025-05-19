@@ -61,3 +61,11 @@ C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cl
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\PartidaCancelada.baml
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\SinConexionBaseDatos.baml
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\SinConexionServidor.baml
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\CamposErroneos.g.cs
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\CorreoElectronicoEnUso.g.cs
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\CamposErroneos.baml
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\CorreoElectronicoEnUso.baml
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\FechaNacimientoErroneo.g.cs
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\FechaNacimientoErroneo.baml
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\ContraseniaErronea.g.cs
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\ContraseniaErronea.baml

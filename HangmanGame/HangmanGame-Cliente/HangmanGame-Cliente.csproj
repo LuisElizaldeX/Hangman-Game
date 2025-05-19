@@ -65,7 +65,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Cliente\Alertas\CamposErroneos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Cliente\Alertas\CamposVacios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\ContraseniaErronea.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\CorreoElectronicoEnUso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -82,6 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Cliente\Alertas\EliminarUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\FechaNacimientoErroneo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,8 +173,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Cliente\Alertas\CamposErroneos.xaml.cs">
+      <DependentUpon>CamposErroneos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\Alertas\CamposVacios.xaml.cs">
       <DependentUpon>CamposVacios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\ContraseniaErronea.xaml.cs">
+      <DependentUpon>ContraseniaErronea.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\CorreoElectronicoEnUso.xaml.cs">
+      <DependentUpon>CorreoElectronicoEnUso.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cliente\Alertas\CorreoElectronicoErroneo.xaml.cs">
       <DependentUpon>CorreoElectronicoErroneo.xaml</DependentUpon>
@@ -171,6 +196,9 @@
     </Compile>
     <Compile Include="Cliente\Alertas\EliminarUsuario.xaml.cs">
       <DependentUpon>EliminarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\FechaNacimientoErroneo.xaml.cs">
+      <DependentUpon>FechaNacimientoErroneo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cliente\Alertas\InicioSesionExitoso.xaml.cs">
       <DependentUpon>InicioSesionExitoso.xaml</DependentUpon>
@@ -193,6 +221,7 @@
     <Compile Include="Cliente\Alertas\SinConexionServidor.xaml.cs">
       <DependentUpon>SinConexionServidor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dominio\JugadorDTO.cs" />
     <Compile Include="Cliente\Vistas\Estadisticas.xaml.cs">
       <DependentUpon>Estadisticas.xaml</DependentUpon>
     </Compile>
@@ -298,7 +327,9 @@
   <ItemGroup>
     <Resource Include="Cliente\Recursos\titleBackground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

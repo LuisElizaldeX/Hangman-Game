@@ -3,7 +3,12 @@
     "",
     "\\HangmanGame-Cliente",
     "\\HangmanGame-Cliente\\Cliente",
-    "\\HangmanGame-Cliente\\Cliente\\Vistas"
+    "\\HangmanGame-Cliente\\Cliente\\Alertas",
+    "\\HangmanGame-Cliente\\Cliente\\Vistas",
+    "\\HangmanGame-Cliente\\Dominio",
+    "\\HangmanGame-Servidor",
+    "\\HangmanGame-Servidor\\Logica",
+    "\\HangmanGame-Servidor\\Modelo"
   ],
   "SelectedNode": "\\HangmanGame.sln",
   "PreviewInSolutionExplorer": false

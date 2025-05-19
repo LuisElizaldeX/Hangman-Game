@@ -47,6 +47,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comunicacion\IJugadorService.cs" />
+    <Compile Include="Dominio\JugadorDTO.cs" />
+    <Compile Include="Logica\JugadorService.cs" />
     <Compile Include="Modelo\categoria.cs">
       <DependentUpon>ModeloDatosHangman.tt</DependentUpon>
     </Compile>

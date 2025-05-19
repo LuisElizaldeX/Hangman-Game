@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\App.xaml
-22-972679802
+26497146838
 
-24-1546867869
+2958646155
 1631739861
-Cliente\Alertas\CamposVacios.xaml;Cliente\Alertas\CorreoElectronicoErroneo.xaml;Cliente\Alertas\CreacionUsuarioCorrecto.xaml;Cliente\Alertas\CredencialesEroneas.xaml;Cliente\Alertas\EliminarUsuario.xaml;Cliente\Alertas\InicioSesionExitoso.xaml;Cliente\Alertas\ModificacionUsuarioCorrecto.xaml;Cliente\Alertas\PalabraAdivinada.xaml;Cliente\Alertas\PalabraNoAdivinada.xaml;Cliente\Alertas\PartidaCancelada.xaml;Cliente\Alertas\SinConexionBaseDatos.xaml;Cliente\Alertas\SinConexionServidor.xaml;Cliente\Vistas\Estadisticas.xaml;Cliente\Vistas\FormularioPartida.xaml;Cliente\Vistas\FormularioUsuario.xaml;Cliente\Vistas\IniciarSesion.xaml;Cliente\Vistas\ListaPartidasDisponibles.xaml;Cliente\Vistas\PartidaAhorcado.xaml;Cliente\Vistas\SalaDeEspera.xaml;Dictionary-en.xaml;Dictionary-es.xaml;MainWindow.xaml;
+Cliente\Alertas\CamposErroneos.xaml;Cliente\Alertas\CamposVacios.xaml;Cliente\Alertas\ContraseniaErronea.xaml;Cliente\Alertas\CorreoElectronicoEnUso.xaml;Cliente\Alertas\CorreoElectronicoErroneo.xaml;Cliente\Alertas\CreacionUsuarioCorrecto.xaml;Cliente\Alertas\CredencialesEroneas.xaml;Cliente\Alertas\EliminarUsuario.xaml;Cliente\Alertas\FechaNacimientoErroneo.xaml;Cliente\Alertas\InicioSesionExitoso.xaml;Cliente\Alertas\ModificacionUsuarioCorrecto.xaml;Cliente\Alertas\PalabraAdivinada.xaml;Cliente\Alertas\PalabraNoAdivinada.xaml;Cliente\Alertas\PartidaCancelada.xaml;Cliente\Alertas\SinConexionBaseDatos.xaml;Cliente\Alertas\SinConexionServidor.xaml;Cliente\Vistas\Estadisticas.xaml;Cliente\Vistas\FormularioPartida.xaml;Cliente\Vistas\FormularioUsuario.xaml;Cliente\Vistas\IniciarSesion.xaml;Cliente\Vistas\ListaPartidasDisponibles.xaml;Cliente\Vistas\PartidaAhorcado.xaml;Cliente\Vistas\SalaDeEspera.xaml;Dictionary-en.xaml;Dictionary-es.xaml;MainWindow.xaml;
 
-False
+True
 

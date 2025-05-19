@@ -22,17 +22,17 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <TextBox x:Name="cuadroTextoNickname" HorizontalAlignment="Left" Margin="91,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="504" Height="50" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="30"  TextAlignment="Center"  Foreground="White" BorderBrush="{x:Null}" >
+        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Margin="91,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="504" Height="35" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="30"  TextAlignment="Center"  Foreground="White" BorderBrush="{x:Null}" TextChanged="txtUsuarioChanged">
             <TextBox.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </TextBox.Background>
         </TextBox>
-        <Label x:Name="lblNombreCompleto" Content="{DynamicResource lblNombreCompleto}" HorizontalAlignment="Left" Margin="735,167,0,0" VerticalAlignment="Top" Height="52" Width="356" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center">
+        <Label x:Name="lblNombreCompleto" Content="{DynamicResource lblNombreCompleto}" HorizontalAlignment="Left" Margin="735,173,0,0" VerticalAlignment="Top" Height="52" Width="356" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center">
             <Label.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <TextBox x:Name="cuadroTextoNombreCompleto" HorizontalAlignment="Left" Margin="660,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="504" Height="50" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="30"  TextAlignment="Center"  Foreground="White" BorderBrush="{x:Null}" >
+        <TextBox x:Name="txtNombreCompleto" HorizontalAlignment="Left" Margin="660,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="504" Height="36" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="30"  TextAlignment="Center"  Foreground="White" BorderBrush="{x:Null}" TextChanged="txtNombreCompletoChanged">
             <TextBox.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </TextBox.Background>
@@ -42,7 +42,7 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <TextBox x:Name="cuadroTextoFechaNacimiento" HorizontalAlignment="Left" Margin="91,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="504" Height="50" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="30"  TextAlignment="Center"  Foreground="White" BorderBrush="{x:Null}" >
+        <TextBox x:Name="txtFechaNacimiento" HorizontalAlignment="Left" Margin="91,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="504" Height="35" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="30"  TextAlignment="Center"  Foreground="White" BorderBrush="{x:Null}" TextChanged="txtFechaNacimientoChanged">
             <TextBox.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </TextBox.Background>
@@ -52,7 +52,7 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <TextBox x:Name="cuadroTextoTelefonoCelular" HorizontalAlignment="Left" Margin="662,359,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="504" Height="50" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="30"  TextAlignment="Center"  Foreground="White" BorderBrush="{x:Null}" >
+        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Margin="664,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="504" Height="35" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="30"  TextAlignment="Center"  Foreground="White" BorderBrush="{x:Null}" TextChanged="txtTelefonoChanged" >
             <TextBox.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </TextBox.Background>
@@ -62,7 +62,7 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <TextBox x:Name="cuadroTextoCorreoElectronico" HorizontalAlignment="Left" Margin="91,510,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="504" Height="50" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="30"  TextAlignment="Center"  Foreground="White" BorderBrush="{x:Null}" >
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="91,517,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="504" Height="36" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="30"  TextAlignment="Center"  Foreground="White" BorderBrush="{x:Null}" TextChanged="txtCorreoChanged">
             <TextBox.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </TextBox.Background>
@@ -72,11 +72,19 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <TextBox x:Name="cuadroTextoContrasenia" HorizontalAlignment="Left" Margin="661,516,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="504" Height="50" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="30"  TextAlignment="Center"  Foreground="White" BorderBrush="{x:Null}" >
-            <TextBox.Background>
+        <PasswordBox x:Name="psBContrasenia" HorizontalAlignment="Left" Margin="668,520,0,0" VerticalAlignment="Top" Width="500" SelectionBrush="{x:Null}" FontFamily="pack://application:,,,/Font/#MedievalSharp" Foreground="White" BorderBrush="{x:Null}" FontSize="30" Height="36" MaxLength="20" PasswordChar="*" PasswordChanged="psBContraseniaChanged" RenderTransformOrigin="0.5,0.5">
+            <PasswordBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.779"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.32"/>
+                </TransformGroup>
+            </PasswordBox.RenderTransform>
+            <PasswordBox.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
-            </TextBox.Background>
-        </TextBox>
+            </PasswordBox.Background>
+        </PasswordBox>
         <Button x:Name="btnGuardarUsuario" Content="{DynamicResource btnGuardarUsuario}" HorizontalAlignment="Left" Margin="552,604,0,0" VerticalAlignment="Top" Width="182" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="btnGuardarUsuario_Click"  >
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>

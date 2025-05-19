@@ -93,14 +93,6 @@
     <system:String x:Key="txtBlkMensajeModificacionUsuarioCorrecto1">¡Se han modificado los datos</system:String>
     <system:String x:Key="txtBlkMensajeModificacionUsuarioCorrecto2">del Usuario correctamente!</system:String>
     <system:String x:Key="btnAceptarModificacionUsuarioCorrecto">Aceptar</system:String>
-    <!-- CorreoElectronicoErroneo -->
-    <system:String x:Key="txtBlkTituloCorreoErroneo1">¡Correo electrónico</system:String>
-    <system:String x:Key="txtBlkTituloCorreoErroneo2">erróneo!</system:String>
-    <system:String x:Key="txtBlkMensajeCorreoElectronicoErroneo1">¡Error! ¡El Correo Electrónico</system:String>
-    <system:String x:Key="txtBlkMensajeCorreoElectronicoErroneo2">ingresado ya está registrado en el</system:String>
-    <system:String x:Key="txtBlkMensajeCorreoElectronicoErroneo3">sistema! Ingresa una diferente para</system:String>
-    <system:String x:Key="txtBlkMensajeCorreoElectronicoErroneo4">continuar o inténtalo más tarde</system:String>
-    <system:String x:Key="btnAceptarCorreoErroneo">Aceptar</system:String>
     <!-- EliminarUsuario -->
     <system:String x:Key="txtBlkTituloEliminarUsuario1">¿Eliminar Usuario?</system:String>
     <system:String x:Key="txtBlkMensajeEliminarUsuario1">¡Eliminando registro! Estás por eliminar</system:String>
@@ -116,4 +108,39 @@
     <system:String x:Key="txtBlkMensajePartidaCancelada1">¡La partida fue cancelada</system:String>
     <system:String x:Key="txtBlkMensajePartidaCancelada2">por uno de los Jugadores!</system:String>
     <system:String x:Key="btnAceptarPalabraCancelada">Aceptar</system:String>
+    <!-- CorreoElectronicoErroneo -->
+    <system:String x:Key="txtBlkTituloCorreoErroneo1">¡Correo electrónico</system:String>
+    <system:String x:Key="txtBlkTituloCorreoErroneo2">erróneo!</system:String>
+    <system:String x:Key="txtBlkMensajeCorreoElectronicoErroneo1">¡Error! ¡El formato del Correo</system:String>
+    <system:String x:Key="txtBlkMensajeCorreoElectronicoErroneo2"> es ejemplo@ejemplo.com!</system:String>
+    <system:String x:Key="txtBlkMensajeCorreoElectronicoErroneo3">Corrigelo para continuar</system:String>
+    <system:String x:Key="btnAceptarCorreoErroneo">Aceptar</system:String>
+    <!-- CorreoElectronicoEnUso -->
+    <system:String x:Key="txtBlkTituloCorreoEnUso1">¡Correo electrónico</system:String>
+    <system:String x:Key="txtBlkTituloCorreoEnUso2">registrado!</system:String>
+    <system:String x:Key="txtBlkMensajeCorreoElectronicoEnUso1">¡Error! ¡El Correo Electrónico</system:String>
+    <system:String x:Key="txtBlkMensajeCorreoElectronicoEnUso2">ingresado ya está registrado en el</system:String>
+    <system:String x:Key="txtBlkMensajeCorreoElectronicoEnUso3">sistema! Ingresa una diferente para</system:String>
+    <system:String x:Key="txtBlkMensajeCorreoElectronicoEnUso4">continuar o inténtalo más tarde</system:String>
+    <system:String x:Key="btnAceptarCorreoEnUso">Aceptar</system:String>
+    <!-- CampoErroneo -->
+    <system:String x:Key="txtBlkTituloCamposErroneos1">¡Campo erróneo!</system:String>
+    <system:String x:Key="txtBlkMensajeCamposErroneo1">¡Error! ¡El formato del campo no</system:String>
+    <system:String x:Key="txtBlkMensajeCamposErroneo2">es válido! Corrigelo para continuar</system:String>
+    <system:String x:Key="btnAceptarCampoErroneo">Aceptar</system:String>
+    <!-- FechaNacimientoErroneo -->
+    <system:String x:Key="txtBlkTituloFechaNacimientoErroneo1">¡Fecha de nacimiento</system:String>
+    <system:String x:Key="txtBlkTituloFechaNacimientoErroneo2">errónea!</system:String>
+    <system:String x:Key="txtBlkMensajeFechaNacimientoErronea1">¡Error! ¡El formato debe </system:String>
+    <system:String x:Key="txtBlkMensajeFechaNacimientoErronea2">ser dd-MM-aaaa. Corrigela </system:String>
+    <system:String x:Key="txtBlkMensajeFechaNacimientoErronea3">para continuar</system:String>
+    <system:String x:Key="btnAceptarFechaNacimientoErronea">Aceptar</system:String>
+    <!-- ContraseniaErroneo-->
+    <system:String x:Key="txtBlkTituloContraseniaErroneo1">¡Contraseña</system:String>
+    <system:String x:Key="txtBlkTituloContraseniaErroneo2">errónea!</system:String>
+    <system:String x:Key="txtBlkMensajeContraseniaErroneo1">¡Error! ¡La contraseña debe ser de 8</system:String>
+    <system:String x:Key="txtBlkMensajeContraseniaErroneo2">letras, tener una mayúscula, una</system:String>
+    <system:String x:Key="txtBlkMensajeContraseniaErroneo3"> minúscula y un caracter especial!</system:String>
+    <system:String x:Key="txtBlkMensajeContraseniaErroneo4">Corrigelo para continuar</system:String>
+    <system:String x:Key="btnAceptarContraseniaErroneo">Aceptar</system:String>
 </ResourceDictionary>
