@@ -24,5 +24,15 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         {
             InitializeComponent();
         }
+
+        private void GuardarRegistroUsuario(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Regresar(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

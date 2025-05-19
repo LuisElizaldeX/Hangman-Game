@@ -24,5 +24,30 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         {
             InitializeComponent();
         }
+
+        private void CategoriaMusica(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Modificar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CategoriaVideojuegos(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CategoriaPeliculas(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelarCreacionPartida(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

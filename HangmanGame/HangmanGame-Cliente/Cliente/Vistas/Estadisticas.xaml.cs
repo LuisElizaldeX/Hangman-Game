@@ -24,5 +24,10 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         {
             InitializeComponent();
         }
+
+        private void Regresar(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

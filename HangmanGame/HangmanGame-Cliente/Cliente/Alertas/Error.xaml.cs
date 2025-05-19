@@ -24,5 +24,10 @@ namespace HangmanGame_Cliente.Alertas
         {
             InitializeComponent();
         }
+
+        private void Aceptar(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

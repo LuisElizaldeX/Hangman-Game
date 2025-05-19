@@ -24,5 +24,20 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         {
             InitializeComponent();
         }
+
+        private void Modificar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GenerarPartida(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void IngresarCodigoPartida(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
