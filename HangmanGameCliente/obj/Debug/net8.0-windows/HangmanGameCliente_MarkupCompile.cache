@@ -8,12 +8,12 @@ C:\Users\danie\Desktop\Hangman-Game\HangmanGameCliente\obj\Debug\net8.0-windows\
 HangmanGameCliente
 none
 false
-TRACE;RELEASE;NET;NET8_0;NETCOREAPP
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\danie\Desktop\Hangman-Game\HangmanGameCliente\App.xaml
 121560406732
 
-28-1903399315
-396-423673854
+15-1957003289
+198-211836927
 Cliente\Alertas\Correcto.xaml;Cliente\Alertas\Derrota.xaml;Cliente\Alertas\Error.xaml;Cliente\Alertas\Victoria.xaml;Cliente\Vistas\Estadisticas.xaml;Cliente\Vistas\FormularioPartida.xaml;Cliente\Vistas\FormularioUsuario.xaml;Cliente\Vistas\IniciarSesion.xaml;Cliente\Vistas\ListaPartidasDisponibles.xaml;Cliente\Vistas\PartidaAhorcado.xaml;Cliente\Vistas\SalaDeEspera.xaml;MainWindow.xaml;
 
 True

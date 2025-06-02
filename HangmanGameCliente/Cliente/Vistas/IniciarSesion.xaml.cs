@@ -24,5 +24,6 @@ namespace HangmanGameCliente.Paginas
         {
             InitializeComponent();
         }
+
     }
 }

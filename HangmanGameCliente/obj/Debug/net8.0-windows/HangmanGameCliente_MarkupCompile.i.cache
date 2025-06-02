@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\danie\Desktop\Hangman-Game\HangmanGameCliente\obj\Debug\net8.0-windows\
+D:\HangmanGame\HangGame\HangmanGameCliente\obj\Debug\net8.0-windows\
 HangmanGameCliente
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\danie\Desktop\Hangman-Game\HangmanGameCliente\App.xaml
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+D:\HangmanGame\HangGame\HangmanGameCliente\App.xaml
 121560406732
 
 17-1360940861
-198-211836927
+202-350700360
 Cliente\Alertas\Correcto.xaml;Cliente\Alertas\Derrota.xaml;Cliente\Alertas\Error.xaml;Cliente\Alertas\Victoria.xaml;Cliente\Vistas\Estadisticas.xaml;Cliente\Vistas\FormularioPartida.xaml;Cliente\Vistas\FormularioUsuario.xaml;Cliente\Vistas\IniciarSesion.xaml;Cliente\Vistas\ListaPartidasDisponibles.xaml;Cliente\Vistas\PartidaAhorcado.xaml;Cliente\Vistas\SalaDeEspera.xaml;MainWindow.xaml;
 
-True
+False
 
