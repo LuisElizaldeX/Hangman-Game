@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace Biblioteca.DTO
 {
     [DataContract]
-    public class ResponseDTO
+    public class ResponseEstadisticaDTO
     {
         [DataMember]
         public bool success { get; set; }
         [DataMember]
         public string message { get; set; }
         [DataMember]
-        public JugadorDTO data { get; set; }
+        public EstadisticaDTO data { get; set; }
     }
 }

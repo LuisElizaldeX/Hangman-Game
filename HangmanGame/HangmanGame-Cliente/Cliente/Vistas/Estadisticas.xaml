@@ -42,7 +42,7 @@
                     <GridViewColumn Header="Nickname" Width="250">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding nickname}" 
+                                <TextBlock Text="{Binding Nickname}" 
                             Foreground="Black" 
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Center" 
@@ -51,10 +51,10 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Puntuacón" Width="300">
+                    <GridViewColumn Header="Resultado" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding puntuacion}" 
+                                <TextBlock Text="{Binding Resultado}" 
                             Foreground="Black" 
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Center" 
@@ -65,10 +65,24 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Fecha de jugada" Width="300">
+                    <GridViewColumn Header="Puntuacion" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding fechaPartida}" 
+                                <TextBlock Text="{Binding Puntos}" 
+                            Foreground="Black" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            FontSize="18"
+                            FontFamily="Georgia" 
+                            TextWrapping="Wrap"
+                            MaxWidth="280"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Fecha de juego" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding FechaCreacion, StringFormat=d}" 
                             Foreground="Black" 
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Center" 

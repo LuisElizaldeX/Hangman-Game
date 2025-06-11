@@ -1,19 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Biblioteca.DTO
 {
+    [DataContract]
     public class JugadorDTO
     {
-        public string Usuario { get; set; }
-        public string nombre { get; set; }
-        public DateTime fecha_nacimiento { get; set; }
-        public int telefono { get; set; }
+        [DataMember]
+        public int id_jugador { get; set; }
+        [DataMember]
         public string correo { get; set; }
-        public string contrasñea { get; set; }
+        [DataMember]
+        public string contrasñea { get; set; } // Solo para la solicitud
+        [DataMember]
+        public string usuario { get; set; }
+        [DataMember]
+        public string nombre { get; set; }
+        [DataMember]
+        public DateTime fecha_nacimiento { get; set; }
+        [DataMember]
+        public int telefono { get; set; }
+        [DataMember]
         public int puntuacion { get; set; }
     }
 }
