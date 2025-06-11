@@ -17,6 +17,9 @@
         <AssociationConnector Association="HangmanModelo.FK_gamematch_challenger" ManuallyRouted="false" />
         <AssociationConnector Association="HangmanModelo.FK_gamematch_guesser" ManuallyRouted="false" />
         <AssociationConnector Association="HangmanModelo.FK_gamematch_word" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HangmanModelo.resultado" Width="1.5" PointX="5.25" PointY="1.75" />
+        <AssociationConnector Association="HangmanModelo.FK__resultado__id_ju__5CD6CB2B" />
+        <AssociationConnector Association="HangmanModelo.FK__resultado__id_pa__5DCAEF64" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

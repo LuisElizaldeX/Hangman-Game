@@ -14,6 +14,12 @@ namespace HangmanGame_Servidor.Modelo
     
     public partial class partida
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public partida()
+        {
+            this.resultado = new HashSet<resultado>();
+        }
+    
         public int id_partida { get; set; }
         public string codigo { get; set; }
         public string idioma { get; set; }
@@ -22,11 +28,14 @@ namespace HangmanGame_Servidor.Modelo
         public Nullable<int> id_adivinador { get; set; }
         public Nullable<int> id_estado_partida { get; set; }
         public Nullable<int> id_idioma_partida { get; set; }
+        public Nullable<System.DateTime> fecha_creacion { get; set; }
     
         public virtual estado_partida estado_partida { get; set; }
         public virtual idioma_partida idioma_partida { get; set; }
         public virtual jugador jugador { get; set; }
         public virtual jugador jugador1 { get; set; }
         public virtual palabra palabra { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<resultado> resultado { get; set; }
     }
 }

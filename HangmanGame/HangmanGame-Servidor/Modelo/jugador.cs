@@ -19,6 +19,7 @@ namespace HangmanGame_Servidor.Modelo
         {
             this.partida = new HashSet<partida>();
             this.partida1 = new HashSet<partida>();
+            this.resultado = new HashSet<resultado>();
         }
     
         public int id_jugador { get; set; }
@@ -34,5 +35,7 @@ namespace HangmanGame_Servidor.Modelo
         public virtual ICollection<partida> partida { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<partida> partida1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<resultado> resultado { get; set; }
     }
 }

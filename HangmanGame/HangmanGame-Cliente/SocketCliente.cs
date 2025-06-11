@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Net.Sockets;
+using System.ServiceModel.Channels;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace HangmanGame_Cliente
@@ -11,31 +12,96 @@ namespace HangmanGame_Cliente
     {
         private TcpClient client;
         private NetworkStream stream;
+        private bool isListening;
+        private CancellationTokenSource cts;
+        public event Action<string> ConnectionLost;
+        public event Action<string> MessageReceived;
+        public bool IsConnected => client?.Connected ?? false;
 
         public async Task ConectarAsync(string ip, int port)
         {
             client = new TcpClient();
-            await client.ConnectAsync(ip, port);
-            stream = client.GetStream();
+            try
+            {
+                await client.ConnectAsync(ip, port);
+                stream = client.GetStream();
+                isListening = true;
+                cts = new CancellationTokenSource();
+                _ = Task.Run(() => ListenAsync(cts.Token)); // Iniciar escucha pasiva
+            }
+            catch(Exception ex)
+            {
+                OnConnectionLost(ex.Message);
+            }
         }
 
-        public async Task<string> SendMessageAsync(string message)
+        public async Task SendMessageAsync(string message)
         {
-            if (client == null || !client.Connected)
-                throw new InvalidOperationException("No conectado al servidor.");
+            if (client?.Connected ?? false)
+            {
+                try
+                {
+                    byte[] buffer = Encoding.UTF8.GetBytes(message);
+                    await stream.WriteAsync(buffer, 0, buffer.Length);
+                    await stream.FlushAsync();
+                    Console.WriteLine($"SocketCliente: Mensaje enviado desde cliente: {message}");
+                }
+                catch (Exception ex)
+                {
+                    OnConnectionLost($"Error al enviar mensaje: {ex.Message}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("SocketCliente: No se puede enviar mensaje, cliente no conectado.");
+            }
+        }
 
-            byte[] data = Encoding.UTF8.GetBytes(message);
-            await stream.WriteAsync(data, 0, data.Length);
-
-            byte[] buffer = new byte[1024];
-            int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
-            return Encoding.UTF8.GetString(buffer, 0, bytesRead);
+        private async Task ListenAsync(CancellationToken cancellationToken)
+        {
+            try
+            {
+                byte[] buffer = new byte[1024];
+                while (isListening && client?.Connected == true && !cancellationToken.IsCancellationRequested)
+                {
+                    int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cancellationToken);
+                    if (bytesRead > 0)
+                    {
+                        string mensaje = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                        Console.WriteLine($"SocketCliente: Mensaje recibido en cliente: {mensaje}");
+                        MessageReceived?.Invoke(mensaje);
+                    }
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                Console.WriteLine("SocketCliente: Escucha cancelada correctamente.");
+            }
+            catch (Exception ex)
+            {
+                OnConnectionLost($"Error al enviar mensaje: {ex.Message}");
+            }
+            finally
+            {
+                Console.WriteLine("SocketCliente: Escucha finalizada.");
+                stream?.Dispose();
+            }
         }
 
         public void Desconectar()
         {
-            stream?.Close();
+            Console.WriteLine("SocketCliente: Desconectando...");
+            isListening = false;
+            cts?.Cancel();
+            stream?.Dispose();
             client?.Close();
+            cts?.Dispose();
+        }
+
+        private void OnConnectionLost(string message)
+        {
+            ConnectionLost?.Invoke(message);
+            Console.WriteLine($"Conexión perdida: {message}");
         }
     }
 }

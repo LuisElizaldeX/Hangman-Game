@@ -31,5 +31,6 @@ namespace HangmanGame_Servidor.Modelo
         public virtual DbSet<jugador> jugador { get; set; }
         public virtual DbSet<palabra> palabra { get; set; }
         public virtual DbSet<partida> partida { get; set; }
+        public virtual DbSet<resultado> resultado { get; set; }
     }
 }

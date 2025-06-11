@@ -1,33 +1,129 @@
-﻿using System;
+﻿using Biblioteca.DTO;
+using HangmanGame_Cliente.HangmanServicioReferencia;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.ServiceModel;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HangmanGame_Cliente.Cliente.Vistas
 {
-    /// <summary>
-    /// Lógica de interacción para Estadisticas.xaml
-    /// </summary>
     public partial class Estadisticas : Page
     {
+        private HangmanServiceClient cliente;
+        private SocketCliente socketCliente;
+        private bool isInitialized;
+        JugadorDTO jugadorDTO;
+
         public Estadisticas()
         {
             InitializeComponent();
+            cliente = new HangmanServiceClient();
+            socketCliente = new SocketCliente();
+            Loaded += Estadistica_Loaded;
+            Unloaded += Estadistica_Unloaded;
+        }
+
+        private void Estadistica_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (isInitialized) return; // Evitar inicialización múltiple
+            isInitialized = true;
+
+            var mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow == null)
+            {
+                MessageBox.Show("Error: No se encontró MainWindow.");
+            }
+            jugadorDTO = mainWindow.GetJugadorAutenticado();
+            if (jugadorDTO == null)
+            {
+                MessageBox.Show("Error: No se encontró el jugador autenticado. MainWindow HashCode: " + mainWindow.GetHashCode());
+                mainWindow.CambiarPagina(new IniciarSesion());
+            }
+            else
+            {
+                MessageBox.Show("Jugador encontrado con ID: " + jugadorDTO.id_jugador + " en ventana: " + mainWindow.GetHashCode());
+            }
+
+            Task.Run(async () =>
+            {
+                try
+                {
+                    await socketCliente.ConectarAsync("127.0.0.1", 12345);
+                    await socketCliente.SendMessageAsync("MONITOR_ESTADISTICAS"); // Enviar mensaje para registrarse en el lobby
+                    socketCliente.ConnectionLost += OnConnectionLost;
+                    //Dispatcher.Invoke(() => MessageBox.Show($"Conectado al servidor de sockets para {codigoPartida} con ID {idJugadorActual}"));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                    Dispatcher.Invoke(() => OnConnectionLost(ex.Message));
+                }
+            });
+
+            CargarEstadisticas();
+        }
+
+        private void Estadistica_Unloaded(object sender, RoutedEventArgs e)
+        {
+            socketCliente.Desconectar();
+            try { cliente.Close(); } catch { cliente.Abort(); }
+        }
+
+        private void CargarEstadisticas()
+        {
+            try
+            {
+                ResponseEstadisticaDTO response = cliente.ObtenerEstadisticasPorJugador(jugadorDTO.id_jugador);
+                if (response != null && response.success && response.data != null)
+                {
+                    var estadisticasDTO = response.data;
+                    if (estadisticasDTO != null && estadisticasDTO.Estadisticas != null)
+                    {
+                        listViewPartidas.ItemsSource = estadisticasDTO.Estadisticas;
+
+                        int totalPuntos = estadisticasDTO.Estadisticas.Sum(e => e.Puntos);
+                        labelPuntosTotales.Content = $"Puntos totales: {totalPuntos} pts";
+                    }
+                    else
+                    {
+                        listViewPartidas.ItemsSource = new List<EstadisticaDTO> { new EstadisticaDTO { Nickname = "No hay partidas disponibles" } };
+                        labelPuntosTotales.Content = "Puntos totales: 0 pts";
+                    }
+                }
+                else
+                {
+                    listViewPartidas.ItemsSource = new List<EstadisticaDTO> { new EstadisticaDTO { Nickname = "No se pudieron cargar las estadísticas" } };
+                    labelPuntosTotales.Content = "Puntos totales: 0 pts";
+                }
+            }
+            catch (Exception ex)
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    MessageBox.Show($"Error al cargar estadísticas: {ex.Message}");
+                    labelPuntosTotales.Content = "Puntos totales: 0 pts";
+                });
+            }
         }
 
         private void Regresar(object sender, RoutedEventArgs e)
         {
-
+            var mainWindow = Window.GetWindow(this) as MainWindow;
+            mainWindow?.CambiarPagina(new ListaPartidasDisponibles());
         }
+
+        private void OnConnectionLost(string message)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                var mainWindow = Window.GetWindow(this) as MainWindow;
+                mainWindow?.HandleConnectionLost(message ?? "Se ha perdido la conexión con el servidor.");
+            });
+        }
+
     }
 }

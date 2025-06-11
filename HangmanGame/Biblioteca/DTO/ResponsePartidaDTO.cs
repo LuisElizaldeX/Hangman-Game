@@ -8,13 +8,22 @@ using System.Threading.Tasks;
 namespace Biblioteca.DTO
 {
     [DataContract]
-    public class ResponseDTO
+    public class ResponsePartidaDTO
     {
         [DataMember]
         public bool success { get; set; }
         [DataMember]
         public string message { get; set; }
         [DataMember]
-        public JugadorDTO data { get; set; }
+        public PartidaDTO data { get; set; }
+        [DataMember]
+        public PartidaDTO partida { get; set; } 
+    }
+
+    [DataContract]
+    public class PartidasDTO
+    {
+        [DataMember]
+        public List<PartidaDTO> Partidas { get; set; }
     }
 }

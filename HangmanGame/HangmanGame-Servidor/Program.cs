@@ -1,136 +1,71 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Net;
-using System.Text;
+using Biblioteca.Servicios;
+using System.ServiceModel;
+using System.ServiceModel.Description;
 using System.Threading.Tasks;
-using HangmanGame_Servidor.Modelo;
-using Newtonsoft.Json;
-using Biblioteca.DTO;
-using System.IO;
-using System.Data.Entity;
 
 namespace HangmanGame_Servidor
 {
     internal class Program
     {
+        private static SocketServidor socketServidor;
+
         static async Task Main(string[] args)
         {
-            TcpListener server = new TcpListener(IPAddress.Any, 8001);
-            server.Start();
-            Console.WriteLine("Servidor iniciado. Escuchando en el puerto 8001...");
+            // Iniciar el servidor de sockets en un puerto diferente (12345)
+            socketServidor = new SocketServidor(12345);
+            Task socketTask = socketServidor.StartAsync();
 
-            try
+            // Iniciar el host de WCF
+            using (ServiceHost host = new ServiceHost(typeof(HangmanServicio)))
             {
-                while (true)
+                // Configurar el endpoint principal
+                host.AddServiceEndpoint(
+                    typeof(IHangmanService),
+                    new NetTcpBinding { Security = { Mode = SecurityMode.None } },
+                    "net.tcp://localhost:8001/HangmanService");
+
+                // Habilitar metadatos
+                ServiceMetadataBehavior metadataBehavior = new ServiceMetadataBehavior();
+                metadataBehavior.HttpGetEnabled = false; // No usamos HTTP
+                metadataBehavior.MetadataExporter.PolicyVersion = PolicyVersion.Policy15;
+                host.Description.Behaviors.Add(metadataBehavior);
+
+                // Agregar un endpoint para metadatos (usando mex)
+                host.AddServiceEndpoint(
+                    ServiceMetadataBehavior.MexContractName,
+                    MetadataExchangeBindings.CreateMexTcpBinding(),
+                    "net.tcp://localhost:8001/HangmanService/mex");
+
+                try
                 {
-                    TcpClient client = await server.AcceptTcpClientAsync();
-                    Console.WriteLine("Cliente conectado desde {0}", client.Client.RemoteEndPoint);
-                    _ = Task.Run(() => HandleClient(client)); // Manejar en un hilo separado
+                    host.Open();
+                    Console.WriteLine("Servicio WCF iniciado en net.tcp://localhost:8001/HangmanService");
+                    Console.WriteLine("Metadatos disponibles en net.tcp://localhost:8001/HangmanService/mex");
+                    Console.WriteLine("Servidor de sockets iniciado en puerto 12345");
+                    Console.WriteLine("Presiona cualquier tecla para detener el servidor...");
+                    Console.ReadKey();
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error fatal en el servidor: " + ex.Message);
-            }
-            finally
-            {
-                server.Stop();
-                Console.WriteLine("Servidor detenido.");
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al iniciar el servicio: {ex.Message}");
+                }
+                finally
+                {
+                    // Detener el servidor de sockets y cerrar el host de WCF
+                    socketServidor.Stop();
+                    host.Close();
+                    Console.WriteLine("Servicio WCF detenido.");
+                    Console.WriteLine("Servidor de sockets detenido.");
+                    await socketTask;
+                }
             }
         }
 
-        static async Task HandleClient(TcpClient client)
+        // Método estático para que HangmanServicio acceda al servidor de sockets
+        public static async Task NotificarUnionRetador(string codigoPartida, string nicknameRetador)
         {
-            NetworkStream stream = null;
-            try
-            {
-                stream = client.GetStream();
-                byte[] buffer = new byte[1024];
-                int bytesRead;
-
-                while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
-                {
-                    string message = Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
-                    Console.WriteLine("Mensaje recibido: " + message);
-
-                    if (string.IsNullOrEmpty(message))
-                    {
-                        Console.WriteLine("Mensaje vacío recibido. Ignorando.");
-                        continue;
-                    }
-
-                    // Deserializar el mensaje
-                    var jugadorDTO = JsonConvert.DeserializeObject<JugadorDTO>(message);
-                    if (jugadorDTO == null)
-                    {
-                        Console.WriteLine("Error al deserializar el mensaje. Enviando error al cliente.");
-                        string errorResponse = JsonConvert.SerializeObject(new { success = false, message = "Error al procesar los datos" });
-                        await SendResponse(client, errorResponse);
-                        continue;
-                    }
-
-                    string correo = jugadorDTO.correo;
-                    string contrasena = jugadorDTO.contrasñea;
-
-                    using (var context = new HangmanEntidades())
-                    {
-                        var jugador = await context.jugador
-                            .FirstOrDefaultAsync(j => j.correo == correo && j.contrasena == contrasena);
-
-                        if (jugador != null)
-                        {
-                            // Construir un nuevo JugadorDTO con los datos recuperados
-                            var jugadorResponseDTO = new JugadorDTO
-                            {
-                                correo = jugador.correo,
-                                Usuario = jugador.usuario,
-                                nombre = jugador.nombre,
-                                fecha_nacimiento = jugador.fecha_nacimiento ?? DateTime.MinValue, // Manejo de null
-                                telefono = jugador.telefono ?? 0, // Manejo de null
-                                puntuacion = jugador.puntuacion ?? 0 // Manejo de null
-                            };
-
-                            // Serializar y enviar respuesta
-                            string responseJson = JsonConvert.SerializeObject(new { success = true, data = jugadorResponseDTO });
-                            await SendResponse(client, responseJson);
-                        }
-                        else
-                        {
-                            string response = JsonConvert.SerializeObject(new { success = false, message = "NO SE ENCONTRO" });
-                            await SendResponse(client, response);
-                        }
-                    }
-                }
-            }
-            catch (SocketException ex)
-            {
-                Console.WriteLine("Error de socket: " + ex.Message);
-            }
-            catch (IOException ex)
-            {
-                Console.WriteLine("Error de E/S: " + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error inesperado: " + ex.Message);
-            }
-            finally
-            {
-                stream?.Dispose();
-                client.Close();
-                Console.WriteLine("Cliente desconectado.");
-            }
-        }
-
-        static async Task SendResponse(TcpClient client, string response)
-        {
-            if (client?.Connected ?? false)
-            {
-                byte[] responseBytes = Encoding.UTF8.GetBytes(response);
-                await client.GetStream().WriteAsync(responseBytes, 0, responseBytes.Length);
-            }
+            await socketServidor.NotificarUnionRetador(codigoPartida, nicknameRetador);
         }
     }
 }

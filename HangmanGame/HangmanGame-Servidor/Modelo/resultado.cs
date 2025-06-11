@@ -12,18 +12,15 @@ namespace HangmanGame_Servidor.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class estado_partida
+    public partial class resultado
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public estado_partida()
-        {
-            this.partida = new HashSet<partida>();
-        }
+        public int id_resultado { get; set; }
+        public int id_jugador { get; set; }
+        public int id_partida { get; set; }
+        public bool gano { get; set; }
+        public int puntos { get; set; }
     
-        public int id_estado_partida { get; set; }
-        public string nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<partida> partida { get; set; }
+        public virtual jugador jugador { get; set; }
+        public virtual partida partida { get; set; }
     }
 }
