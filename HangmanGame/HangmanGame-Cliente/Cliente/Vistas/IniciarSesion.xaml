@@ -14,7 +14,7 @@
         </Grid.Background>
         <Image x:Name="imgTituloES" HorizontalAlignment="Center" Height="164" Margin="0,29,0,0" VerticalAlignment="Top" Width="776" Source="/Cliente/Recursos/hangmanLogoSPN.png" RenderTransformOrigin="0.784,-0.329" Visibility="Visible"/>
         <Image x:Name="imgTituloEN" HorizontalAlignment="Center" Height="164" Margin="0,29,0,0" VerticalAlignment="Top" Width="776" Source="/Cliente/Recursos/hangmanLogoENG.png" RenderTransformOrigin="0.784,-0.329" Visibility="Collapsed"/>
-        <Button x:Name="btnIdioma" Tag="en" Content="{DynamicResource btnIdioma}" HorizontalAlignment="Left" Margin="27,47,0,0" VerticalAlignment="Top" Width="154" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="btnCambiarIdioma_Click">
+        <Button x:Name="btnIdioma" Tag="en" Content="{DynamicResource btnIdioma}" HorizontalAlignment="Left" Margin="27,47,0,0" VerticalAlignment="Top" Width="154" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnCambiarIdioma_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>
@@ -44,7 +44,7 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnEntrar" Content="{DynamicResource btnEntrar}" HorizontalAlignment="Center" Margin="0,536,0,0" VerticalAlignment="Top" Width="154" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="btnEntrar_Click">
+        <Button x:Name="btnEntrar" Content="{DynamicResource btnEntrar}" HorizontalAlignment="Center" Margin="0,536,0,0" VerticalAlignment="Top" Width="154" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnEntrar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>

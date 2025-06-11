@@ -42,7 +42,7 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <Button x:Name="btnCancelarIniciarPartida" Content="{DynamicResource btnCancelarIniciarPartida}" HorizontalAlignment="Left" Margin="582,604,0,0" VerticalAlignment="Top" Width="182" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="btnCancelarIniciarPartida_Click" >
+        <Button x:Name="btnCancelarIniciarPartida" Content="{DynamicResource btnCancelarIniciarPartida}" HorizontalAlignment="Left" Margin="582,604,0,0" VerticalAlignment="Top" Width="182" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnCancelarIniciarPartida_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>

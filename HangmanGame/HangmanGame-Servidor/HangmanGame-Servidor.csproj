@@ -56,9 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comunicacion\IJugadorService.cs" />
-    <Compile Include="Dominio\JugadorDTO.cs" />
-    <Compile Include="Logica\JugadorService.cs" />
     <Compile Include="Modelo\categoria.cs">
       <DependentUpon>ModeloDatosHangman.tt</DependentUpon>
     </Compile>

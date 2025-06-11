@@ -93,15 +93,6 @@
     <system:String x:Key="txtBlkMensajeModificacionUsuarioCorrecto1">The Player's data has been </system:String>
     <system:String x:Key="txtBlkMensajeModificacionUsuarioCorrecto2">modified successfully!</system:String>
     <system:String x:Key="btnAceptarModificacionUsuarioCorrecto">OK</system:String>
-    <!-- EliminarUsuario -->
-    <system:String x:Key="txtBlkTituloEliminarUsuario1">Delete Player?</system:String>
-    <system:String x:Key="txtBlkMensajeEliminarUsuario1">Deleting Player! You're about to</system:String>
-    <system:String x:Key="txtBlkMensajeEliminarUsuario2">delete the actual Player,</system:String>
-    <system:String x:Key="txtBlkMensajeEliminarUsuario3">which means that all his</system:String>
-    <system:String x:Key="txtBlkMensajeEliminarUsuario4">related data will be logically </system:String>
-    <system:String x:Key="txtBlkMensajeEliminarUsuario5">eliminated on the system continue?</system:String>
-    <system:String x:Key="btnAceptarEliminarUsuario">OK</system:String>
-    <system:String x:Key="btnCancelarEliminarUsuario">Cancel</system:String>
     <!-- PartidaCancelada -->
     <system:String x:Key="txtBlkTituloPalabraCancelada1">Cancelled</system:String>
     <system:String x:Key="txtBlkTituloPalabraCancelada2">match!</system:String>

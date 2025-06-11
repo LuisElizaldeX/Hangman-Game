@@ -17,6 +17,11 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
+        <Button x:Name="btnIdioma" Tag="en" Content="{DynamicResource btnIdioma}" HorizontalAlignment="Left" Margin="27,35,0,0" VerticalAlignment="Top" Width="154" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnCambiarIdioma_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
+            </Button.Background>
+        </Button>
         <ListView Name="listViewPartidas" Margin="236,181,294,266" BorderBrush="Black" Foreground="#E5000000" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="12" BorderThickness="1,1,1,1" SnapsToDevicePixels="False" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.Resources>
                 <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -77,12 +82,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnGenerarPartida" Content="{DynamicResource btnGenerarPartida}" HorizontalAlignment="Left" Margin="224,530,0,0" VerticalAlignment="Top" Width="326" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="btnGenerarPartida_Click" >
+        <Button x:Name="btnGenerarPartida" Content="{DynamicResource btnGenerarPartida}" HorizontalAlignment="Left" Margin="224,530,0,0" VerticalAlignment="Top" Width="326" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnGenerarPartida_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnIngresarCodigo" Content="{DynamicResource btnIngresarCodigo}" HorizontalAlignment="Left" Margin="664,530,0,0" VerticalAlignment="Top" Width="310" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="btnIngresarCodigo_Click">
+        <Button x:Name="btnIngresarCodigo" Content="{DynamicResource btnIngresarCodigo}" HorizontalAlignment="Left" Margin="664,530,0,0" VerticalAlignment="Top" Width="310" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnIngresarCodigo_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>

@@ -2,11 +2,12 @@
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\App.xaml;;
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\CamposErroneos.xaml;;
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\CamposVacios.xaml;;
+FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\ContraseniaErronea.xaml;;
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\CorreoElectronicoEnUso.xaml;;
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\CorreoElectronicoErroneo.xaml;;
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\CreacionUsuarioCorrecto.xaml;;
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\CredencialesEroneas.xaml;;
-FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\EliminarUsuario.xaml;;
+FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\FechaNacimientoErroneo.xaml;;
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\InicioSesionExitoso.xaml;;
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\ModificacionUsuarioCorrecto.xaml;;
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\PalabraAdivinada.xaml;;
@@ -22,6 +23,4 @@ FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Vis
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Vistas\PartidaAhorcado.xaml;;
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Vistas\SalaDeEspera.xaml;;
 FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\MainWindow.xaml;;
-FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\FechaNacimientoErroneo.xaml;;
-FC:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\Cliente\Alertas\ContraseniaErronea.xaml;;
 

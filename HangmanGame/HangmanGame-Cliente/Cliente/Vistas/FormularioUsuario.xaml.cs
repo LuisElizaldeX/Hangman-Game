@@ -1,11 +1,11 @@
 ﻿using HangmanGame_Cliente.Cliente.Alertas;
-using HangmanGame_Cliente.Cliente.Dominio;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Xml.Linq;
 
 namespace HangmanGame_Cliente.Cliente.Vistas
 {
@@ -17,6 +17,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         public FormularioUsuario()
         {
             InitializeComponent();
+            cargarInformacion();
         }
 
         private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
@@ -154,9 +155,9 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         }
 
         private void txtNombreCompletoChanged(object sender, TextChangedEventArgs e) {
-            if (txtNombreCompleto.Text.Length > 30)
+            if (txtNombreCompleto.Text.Length > 28)
             {
-                txtNombreCompleto.Text = txtNombreCompleto.Text.Substring(0, 30);
+                txtNombreCompleto.Text = txtNombreCompleto.Text.Substring(0, 28);
                 txtNombreCompleto.CaretIndex = txtNombreCompleto.Text.Length;
             }
         }
@@ -181,9 +182,9 @@ namespace HangmanGame_Cliente.Cliente.Vistas
 
         private void txtCorreoChanged(object sender, TextChangedEventArgs e) 
         {
-            if (txtCorreo.Text.Length > 30)
+            if (txtCorreo.Text.Length > 28)
             {
-                txtCorreo.Text = txtCorreo.Text.Substring(0, 30);
+                txtCorreo.Text = txtCorreo.Text.Substring(0, 28);
                 txtCorreo.CaretIndex = txtCorreo.Text.Length;
             }
         }
@@ -194,6 +195,17 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             {
                 psBContrasenia.Password = psBContrasenia.Password.Substring(0, 8);
             }
+        }
+
+        public void cargarInformacion()
+        {/*
+            txtUsuario.Text = activePlayer.Username;
+            txtNombreCompleto.Text = activePlayer.Name;
+            txtFechaNacimiento.Text = activePlayer.Birthday.ToString("dd-MM-yyyy");
+            txtTelefono.Text = activePlayer.Phonenumber;
+            txtCorreo.Text = activePlayer.Email;
+            bloquearCORREO
+            psBContrasenia.Password = activePlayer.Password;*/
         }
 
         private void MostrarAlertaBloqueante(Window alerta)

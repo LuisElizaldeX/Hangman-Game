@@ -93,15 +93,6 @@
     <system:String x:Key="txtBlkMensajeModificacionUsuarioCorrecto1">¡Se han modificado los datos</system:String>
     <system:String x:Key="txtBlkMensajeModificacionUsuarioCorrecto2">del Usuario correctamente!</system:String>
     <system:String x:Key="btnAceptarModificacionUsuarioCorrecto">Aceptar</system:String>
-    <!-- EliminarUsuario -->
-    <system:String x:Key="txtBlkTituloEliminarUsuario1">¿Eliminar Usuario?</system:String>
-    <system:String x:Key="txtBlkMensajeEliminarUsuario1">¡Eliminando registro! Estás por eliminar</system:String>
-    <system:String x:Key="txtBlkMensajeEliminarUsuario2">el registro actual, lo que significa que</system:String>
-    <system:String x:Key="txtBlkMensajeEliminarUsuario3">los datos relacionados se quedarán</system:String>
-    <system:String x:Key="txtBlkMensajeEliminarUsuario4">eliminados lógicamente dentro del</system:String>
-    <system:String x:Key="txtBlkMensajeEliminarUsuario5">sistema, ¿deseas continuar?</system:String>
-    <system:String x:Key="btnAceptarEliminarUsuario">Aceptar</system:String>
-    <system:String x:Key="btnCancelarEliminarUsuario">Cancelar</system:String>
     <!-- PartidaCancelada -->
     <system:String x:Key="txtBlkTituloPalabraCancelada1">¡Partida</system:String>
     <system:String x:Key="txtBlkTituloPalabraCancelada2">cancelada!</system:String>

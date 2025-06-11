@@ -41,7 +41,6 @@ C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cl
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\CorreoElectronicoErroneo.g.cs
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\CreacionUsuarioCorrecto.g.cs
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\CredencialesEroneas.g.cs
-C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\EliminarUsuario.g.cs
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\InicioSesionExitoso.g.cs
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\ModificacionUsuarioCorrecto.g.cs
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\PalabraAdivinada.g.cs
@@ -55,7 +54,6 @@ C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cl
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\CorreoElectronicoErroneo.baml
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\CreacionUsuarioCorrecto.baml
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\CredencialesEroneas.baml
-C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\EliminarUsuario.baml
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\InicioSesionExitoso.baml
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\ModificacionUsuarioCorrecto.baml
 C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Cliente\obj\Debug\Cliente\Alertas\PartidaCancelada.baml
