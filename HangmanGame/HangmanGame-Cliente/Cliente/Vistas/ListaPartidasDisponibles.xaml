@@ -47,7 +47,7 @@
                     <GridViewColumn Header="Nickname" Width="250">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding nickname}" 
+                                <TextBlock Text="{Binding Nickname}" 
                             Foreground="Black" 
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Center" 
@@ -59,7 +59,7 @@
                     <GridViewColumn Header="Fecha de realización" Width="300">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding fechaPartida}" 
+                                <TextBlock Text="{Binding FechaPartida}" 
                             Foreground="Black" 
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Center" 
@@ -75,7 +75,7 @@
                             <DataTemplate>
                                 <Button Content="Unirse" Width="149" Height="40" 
                          Background="#00008B" Foreground="White" FontSize="16" 
-                         FontFamily="pack://application:,,,/Font/#MedievalSharp" FontWeight="Bold" Click="Modificar"/>
+                         FontFamily="pack://application:,,,/Font/#MedievalSharp" FontWeight="Bold" Click="Unirse"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -87,7 +87,7 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnIngresarCodigo" Content="{DynamicResource btnIngresarCodigo}" HorizontalAlignment="Left" Margin="664,530,0,0" VerticalAlignment="Top" Width="310" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnIngresarCodigo_Click">
+        <Button Content="Ver estadísticas" HorizontalAlignment="Left" Margin="676,530,0,0" VerticalAlignment="Top" Width="310" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="VerEstadisticas">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>

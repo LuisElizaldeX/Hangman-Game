@@ -44,9 +44,14 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -66,6 +71,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Cliente\Alertas\CamposErroneos.xaml">
+    <Compile Include="Connected Services\HangmanServicioReferencia\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad.cs" />
+    <Compile Include="SocketCliente.cs" />
+    <Compile Include="Utilidades\Singleton.cs" />
+    <Page Include="Cliente\Alertas\Correcto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -259,7 +273,25 @@
       <LastGenOutput>Resources.es.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Font\MedievalSharp-Regular.ttf" />
+    <None Include="Connected Services\HangmanServicioReferencia\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HangmanServicioReferencia\Biblioteca.DTO.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HangmanServicioReferencia\service.wsdl" />
+    <None Include="Connected Services\HangmanServicioReferencia\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HangmanServicioReferencia\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Biblioteca.DTO.EstadisticaDTO.datasource" />
+    <None Include="Properties\DataSources\Biblioteca.DTO.ResponseDTO.datasource" />
+    <None Include="Properties\DataSources\Biblioteca.DTO.ResponsePalabrasConIdDTO.datasource" />
+    <None Include="Properties\DataSources\Biblioteca.DTO.ResponsePartidaDTO.datasource" />
+    <None Include="Properties\DataSources\Biblioteca.DTO.ResponseResultadoDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -324,6 +356,46 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Cliente\Recursos\textboxBackground.png" />
+    <ProjectReference Include="..\Biblioteca\Biblioteca.csproj">
+      <Project>{a1ae744f-128d-4632-917c-cdf4e1c8f353}</Project>
+      <Name>Biblioteca</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\HangmanServicioReferencia\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HangmanServicioReferencia\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HangmanServicioReferencia\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HangmanServicioReferencia\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cliente\Recursos\botaizq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cliente\Recursos\botader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cliente\Recursos\brazoder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cliente\Recursos\brazoizq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cliente\Recursos\casco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cliente\Recursos\pechera.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

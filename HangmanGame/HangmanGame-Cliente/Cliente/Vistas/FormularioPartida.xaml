@@ -12,22 +12,32 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Cliente/Recursos/makingMatchBackground.png"/>
         </Grid.Background>
-        <Button x:Name="btnCategoriaMusica" Content="{DynamicResource btnCategoriaMusica}" HorizontalAlignment="Left" Margin="47,193,0,0" VerticalAlignment="Top" Width="182" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnCategoriaMusica_Click">
+        <!-- Botones de categoría -->
+        <Button Content="Musica" HorizontalAlignment="Left" Margin="47,193,0,0" VerticalAlignment="Top" Width="182" Height="66" 
+                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="White" BorderBrush="{x:Null}" 
+                Click="CategoriaMusica">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnCategoriaSeries" Content="{DynamicResource btnCategoriaSeries}" HorizontalAlignment="Left" Margin="47,276,0,0" VerticalAlignment="Top" Width="179" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnCategoriaSeries_Click" >
+        <Button Content="Series" HorizontalAlignment="Left" Margin="47,276,0,0" VerticalAlignment="Top" Width="244" Height="66" 
+                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="White" BorderBrush="{x:Null}" 
+                Click="CategoriaSeries">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnCategoriaPeliculas" Content="{DynamicResource btnCategoriaPeliculas}" HorizontalAlignment="Left" Margin="47,354,0,0" VerticalAlignment="Top" Width="182" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnCategoriaPeliculas_Click" >
+        <Button Content="Peliculas" HorizontalAlignment="Left" Margin="47,354,0,0" VerticalAlignment="Top" Width="182" Height="66" 
+                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="White" BorderBrush="{x:Null}" 
+                Click="CategoriaPeliculas">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>
         </Button>
-        <ListView Name="listViewPalabras" Margin="392,175,138,272" BorderBrush="Black" Foreground="#E5000000" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="12" BorderThickness="1,1,1,1" SnapsToDevicePixels="False" d:ItemsSource="{d:SampleData ItemCount=3}">
+        <!-- ListView para palabras -->
+        <ListView x:Name="listViewPalabras" Margin="392,175,138,272" BorderBrush="Black" Foreground="#E5000000" 
+                  FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="12" BorderThickness="1,1,1,1" 
+                  SnapsToDevicePixels="False">
             <ListView.Resources>
                 <Style TargetType="{x:Type GridViewColumnHeader}">
                     <Setter Property="Background" Value="White"/>
@@ -49,37 +59,23 @@
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header=" " Width="230">
+                    <GridViewColumn Header="Palabra" DisplayMemberBinding="{Binding}" Width="230"/>
+                    <GridViewColumn Header="Acción">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Unirse" Width="149" Height="40" 
-                         Background="#00008B" Foreground="White" FontSize="16" 
-                         FontFamily="pack://application:,,,/Font/#MedievalSharp" FontWeight="Bold" Click="Modificar"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header=" " Width="230">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Unirse" Width="149" Height="40" 
-                         Background="#00008B" Foreground="White" FontSize="16" 
-                         FontFamily="pack://application:,,,/Font/#MedievalSharp" FontWeight="Bold" Click="Modificar"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header=" " Width="230">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Unirse" Width="149" Height="40" 
-                         Background="#00008B" Foreground="White" FontSize="16" 
-                         FontFamily="pack://application:,,,/Font/#MedievalSharp" FontWeight="Bold" Click="Modificar"/>
+                                <Button Content="Seleccionar" Click="SeleccionarPalabra_Click" Width="149" Height="40" 
+                                        Background="#00008B" Foreground="White" FontSize="16" 
+                                        FontFamily="pack://application:,,,/Font/#MedievalSharp" FontWeight="Bold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnCancelarCreacionPartida" Content="{DynamicResource btnCancelarCreacionPartida}" HorizontalAlignment="Left" Margin="538,602,0,0" VerticalAlignment="Top" Width="212" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnCancelarCreacionPartida_Click" >
+        <!-- Botón Cancelar -->
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="552,604,0,0" VerticalAlignment="Top" Width="182" Height="66" 
+                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="White" BorderBrush="{x:Null}" 
+                Click="CancelarCreacionPartida">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>

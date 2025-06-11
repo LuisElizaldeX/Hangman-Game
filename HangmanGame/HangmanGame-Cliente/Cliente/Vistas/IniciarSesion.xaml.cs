@@ -1,81 +1,130 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using Biblioteca.DTO;
+using HangmanGame_Cliente.Utilidades;
+using HangmanGame_Cliente.HangmanServicioReferencia;
+using System;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HangmanGame_Cliente.Cliente.Vistas
 {
+    /// <summary>
+    /// Lógica de interacción para IniciarSesion.xaml
+    /// </summary>
     public partial class IniciarSesion : Page
     {
-        public event EventHandler<string> IdiomaSeleccionado;
-        private string idioma;
+
+        private HangmanServiceClient cliente;
 
         public IniciarSesion()
         {
             InitializeComponent();
-            EstablecerIdioma("es");
-            ActualizarTitulo();
+            cliente = new HangmanServiceClient(); 
         }
 
-        private void btnCambiarIdioma_Click(object sender, RoutedEventArgs e)
+        private void DarAltaUsuario(object sender, RoutedEventArgs e)
         {
-            var currentCulture = Thread.CurrentThread.CurrentUICulture.Name;
-            var newCulture = currentCulture == "en" ? "es" : "en";
-            EstablecerIdioma(newCulture);
-            ActualizarTitulo();
-            IdiomaSeleccionado?.Invoke(this, newCulture == "en" ? "Ingles" : "Spanish");
+            
         }
 
-        private void btnEntrar_Click(object sender, RoutedEventArgs e)
+        private void InicioSesion(object sender, RoutedEventArgs e)
         {
+            string correo = cuadroTextoCorreo.Text;
+            string contrasena = cuadroContrasenaContrasena.Password;
 
-        }
-
-        private void btnRegistrarse_Click(object sender, RoutedEventArgs e)
-        {
-            var formularioUsuarioVista = new FormularioUsuario();
-            NavigationService?.Navigate(formularioUsuarioVista);
-        }
-        private void EstablecerIdioma(string idioma)
-        {
-            try
+            if (!Seguridad.EsCadenaVacia(correo) && !Seguridad.EsCadenaVacia(contrasena))
             {
-                var culture = new CultureInfo(idioma);
-                Thread.CurrentThread.CurrentCulture = culture;
-                Thread.CurrentThread.CurrentUICulture = culture;
-
-                Application.Current.Resources.MergedDictionaries.Clear();
-                ResourceDictionary resourceDictionary = new ResourceDictionary
+                if (!ExistenDatosInvalidos(correo, contrasena))
                 {
-                    Source = new Uri($"/Dictionary-{idioma}.xaml", UriKind.Relative)
-                };
-                Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+                    try
+                    {
+                        ResponseDTO response = cliente.Autenticacion(correo, contrasena);
 
-                this.idioma = idioma;
+                        if (response != null && response.success && response.data != null)
+                        {
+                            var jugadorDTO = response.data as JugadorDTO;
+                            if (jugadorDTO != null)
+                            {
+                                var mainWindow = Window.GetWindow(this) as MainWindow;
+                                if (mainWindow != null)
+                                {
+                                    mainWindow.SetJugadorAutenticado(jugadorDTO);
+                                    var jugadorAutenticado = mainWindow.GetJugadorAutenticado();
+                                    if (jugadorAutenticado != null)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Error: JugadorAutenticado es null después de setearlo.");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error: No se encontró MainWindow.");
+                                }
+                                string mensaje = "Datos válidos. Jugador autenticado:\n" +
+                                              $"Correo: {jugadorDTO.correo ?? "No disponible"}\n" +
+                                              $"Usuario: {jugadorDTO.usuario ?? "No disponible"}\n" +
+                                              $"Nombre: {jugadorDTO.nombre ?? "No disponible"}\n" +
+                                              $"Fecha de Nacimiento: {(jugadorDTO.fecha_nacimiento != default(DateTime) ? jugadorDTO.fecha_nacimiento.ToString("yyyy-MM-dd") : "No disponible")}\n" +
+                                              $"Teléfono: {jugadorDTO.telefono}\n" +
+                                              $"Puntuación: {jugadorDTO.puntuacion}";
+                                MessageBox.Show(mensaje);
+                                if (mainWindow != null)
+                                {
+                                    mainWindow.CambiarPagina(new ListaPartidasDisponibles());
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error: No se pudo convertir los datos del jugador.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Credenciales no encontradas o error: {response?.message ?? "Sin mensaje"}");
+                        }
+                    }
+                    catch (CommunicationException ex)
+                    {
+                        MessageBox.Show($"Error de comunicación con el servidor: {ex.Message}. Verifica que el servidor esté en ejecución.");
+                    }
+                    catch (TimeoutException ex)
+                    {
+                        MessageBox.Show($"Tiempo de espera agotado: {ex.Message}. Verifica la conexión.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error inesperado: {ex.Message}");
+                    }
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Error al cambiar el idioma: {ex.Message}");
+                MessageBox.Show("Campos vacíos");
             }
         }
 
-        private void ActualizarTitulo()
+        private bool ExistenDatosInvalidos(string correo, string contrasena)
         {
-            bool isEnglish = Thread.CurrentThread.CurrentUICulture.Name == "en";
-            imgTituloEN.Visibility = isEnglish ? Visibility.Visible : Visibility.Collapsed;
-            imgTituloES.Visibility = isEnglish ? Visibility.Collapsed : Visibility.Visible;
+            bool hayCamposInvalidos = false;
+
+            if (Seguridad.ExistenCaracteresInvalidosParaContrasena(contrasena))
+            {
+                MessageBox.Show("Contraseña inválida"); // COLOCAR ALERTA
+                hayCamposInvalidos = true;
+            }
+
+            if (!hayCamposInvalidos && Seguridad.
+                ExistenCaracteresInvalidosParaCorreo(correo))
+            {
+                MessageBox.Show("Correo inválido"); // COLOCAR ALERTA
+                hayCamposInvalidos = true;
+            }
+
+            return hayCamposInvalidos;
         }
+
     }
 }

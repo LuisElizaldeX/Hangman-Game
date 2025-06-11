@@ -214,5 +214,15 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             alerta.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             alerta.ShowDialog();
         }
+
+        private void GuardarRegistroUsuario(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Regresar(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

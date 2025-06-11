@@ -44,7 +44,7 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnEntrar" Content="{DynamicResource btnEntrar}" HorizontalAlignment="Center" Margin="0,536,0,0" VerticalAlignment="Top" Width="154" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnEntrar_Click">
+        <Button Content="Entrar" HorizontalAlignment="Center" Margin="0,536,0,0" VerticalAlignment="Top" Width="154" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="InicioSesion">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>
