@@ -30,3 +30,4 @@ D:\HangmanGame\HangGame\HangmanGame\HangmanGame-Servidor\obj\Debug\HangmanGame-S
 D:\HangmanGame\HangGame\HangmanGame\HangmanGame-Servidor\obj\Debug\HangmanGame-Servidor.csproj.CopyComplete
 D:\HangmanGame\HangGame\HangmanGame\HangmanGame-Servidor\obj\Debug\HangmanGame-Servidor.exe
 D:\HangmanGame\HangGame\HangmanGame\HangmanGame-Servidor\obj\Debug\HangmanGame-Servidor.pdb
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\obj\Debug\HangmanGame-Servidor.exe.config

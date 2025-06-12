@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangame\\hangmangame-cliente\\idiomahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|solutionrelative:hangmangame-cliente\\idiomahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2A1A9659-3E71-4708-BA9C-D58B28CA83E0}|HangmanGame-Servidor\\HangmanGame-Servidor.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangame\\hangmangame-servidor\\socketservidor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A1A9659-3E71-4708-BA9C-D58B28CA83E0}|HangmanGame-Servidor\\HangmanGame-Servidor.csproj|solutionrelative:hangmangame-servidor\\socketservidor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangame\\hangmangame-cliente\\cliente\\vistas\\listapartidasdisponibles.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|solutionrelative:hangmangame-cliente\\cliente\\vistas\\listapartidasdisponibles.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangame\\hangmangame-cliente\\cliente\\vistas\\iniciarsesion.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|solutionrelative:hangmangame-cliente\\cliente\\vistas\\iniciarsesion.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangame\\hangmangame-cliente\\socketcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|solutionrelative:hangmangame-cliente\\socketcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,41 +42,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IniciarSesion.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\Cliente\\Vistas\\IniciarSesion.xaml.cs",
-              "RelativeDocumentMoniker": "HangmanGame-Cliente\\Cliente\\Vistas\\IniciarSesion.xaml.cs",
-              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\Cliente\\Vistas\\IniciarSesion.xaml.cs",
-              "RelativeToolTip": "HangmanGame-Cliente\\Cliente\\Vistas\\IniciarSesion.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "SocketServidor.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Servidor\\SocketServidor.cs",
+              "RelativeDocumentMoniker": "HangmanGame-Servidor\\SocketServidor.cs",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Servidor\\SocketServidor.cs",
+              "RelativeToolTip": "HangmanGame-Servidor\\SocketServidor.cs",
+              "ViewState": "AgIAAAIBAAAAAAAAAAAIwB4BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T03:42:34.352Z",
+              "WhenOpened": "2025-06-12T17:24:13.213Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ListaPartidasDisponibles.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\Cliente\\Vistas\\ListaPartidasDisponibles.xaml.cs",
-              "RelativeDocumentMoniker": "HangmanGame-Cliente\\Cliente\\Vistas\\ListaPartidasDisponibles.xaml.cs",
-              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\Cliente\\Vistas\\ListaPartidasDisponibles.xaml.cs",
-              "RelativeToolTip": "HangmanGame-Cliente\\Cliente\\Vistas\\ListaPartidasDisponibles.xaml.cs",
-              "ViewState": "AgIAAK0AAAAAAAAAAAAswBQAAAA9AAAAAAAAAA==",
+              "Title": "SocketCliente.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\SocketCliente.cs",
+              "RelativeDocumentMoniker": "HangmanGame-Cliente\\SocketCliente.cs",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\SocketCliente.cs",
+              "RelativeToolTip": "HangmanGame-Cliente\\SocketCliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T03:41:46.489Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IdiomaHelper.cs",
-              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\IdiomaHelper.cs",
-              "RelativeDocumentMoniker": "HangmanGame-Cliente\\IdiomaHelper.cs",
-              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\IdiomaHelper.cs",
-              "RelativeToolTip": "HangmanGame-Cliente\\IdiomaHelper.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T03:37:01.865Z",
+              "WhenOpened": "2025-06-12T17:23:48.522Z",
               "EditorCaption": ""
             }
           ]

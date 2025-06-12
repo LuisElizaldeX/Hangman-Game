@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangame\\hangmangame-cliente\\idiomahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|solutionrelative:hangmangame-cliente\\idiomahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangame\\hangmangame-cliente\\cliente\\vistas\\formulariousuario.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|solutionrelative:hangmangame-cliente\\cliente\\vistas\\formulariousuario.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangame\\hangmangame-cliente\\cliente\\vistas\\listapartidasdisponibles.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\hangmangame-cliente\\cliente\\vistas\\listapartidasdisponibles.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|solutionrelative:hangmangame-cliente\\cliente\\vistas\\listapartidasdisponibles.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|c:\\users\\danie\\desktop\\hangman-game\\hangmangame\\hangmangame-cliente\\cliente\\vistas\\iniciarsesion.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3122E820-99FB-41BD-B2D9-2E4CE0972B55}|HangmanGame-Cliente\\HangmanGame-Cliente.csproj|solutionrelative:hangmangame-cliente\\cliente\\vistas\\iniciarsesion.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,19 +18,39 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IniciarSesion.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\Cliente\\Vistas\\IniciarSesion.xaml.cs",
-              "RelativeDocumentMoniker": "HangmanGame-Cliente\\Cliente\\Vistas\\IniciarSesion.xaml.cs",
-              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\Cliente\\Vistas\\IniciarSesion.xaml.cs",
-              "RelativeToolTip": "HangmanGame-Cliente\\Cliente\\Vistas\\IniciarSesion.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "FormularioUsuario.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\Cliente\\Vistas\\FormularioUsuario.xaml.cs",
+              "RelativeDocumentMoniker": "HangmanGame-Cliente\\Cliente\\Vistas\\FormularioUsuario.xaml.cs",
+              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\Cliente\\Vistas\\FormularioUsuario.xaml.cs",
+              "RelativeToolTip": "HangmanGame-Cliente\\Cliente\\Vistas\\FormularioUsuario.xaml.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAswGAAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T03:42:34.352Z",
+              "WhenOpened": "2025-06-12T15:36:15.936Z",
               "EditorCaption": ""
             },
             {
@@ -47,21 +63,7 @@
               "RelativeToolTip": "HangmanGame-Cliente\\Cliente\\Vistas\\ListaPartidasDisponibles.xaml.cs",
               "ViewState": "AgIAAK0AAAAAAAAAAAAswBQAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T03:41:46.489Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IdiomaHelper.cs",
-              "DocumentMoniker": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\IdiomaHelper.cs",
-              "RelativeDocumentMoniker": "HangmanGame-Cliente\\IdiomaHelper.cs",
-              "ToolTip": "C:\\Users\\danie\\Desktop\\Hangman-Game\\HangmanGame\\HangmanGame-Cliente\\IdiomaHelper.cs",
-              "RelativeToolTip": "HangmanGame-Cliente\\IdiomaHelper.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T03:37:01.865Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T03:41:46.489Z"
             }
           ]
         }
