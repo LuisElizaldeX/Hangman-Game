@@ -74,6 +74,12 @@ namespace HangmanGame_Cliente.HangmanServicioReferencia {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHangmanService/ActualizarJugador", ReplyAction="http://tempuri.org/IHangmanService/ActualizarJugadorResponse")]
         System.Threading.Tasks.Task<Biblioteca.DTO.ResponseDTO> ActualizarJugadorAsync(Biblioteca.DTO.JugadorDTO jugadorDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHangmanService/CancelarPartida", ReplyAction="http://tempuri.org/IHangmanService/CancelarPartidaResponse")]
+        Biblioteca.DTO.ResponsePartidaDTO CancelarPartida(string codigoPartida);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHangmanService/CancelarPartida", ReplyAction="http://tempuri.org/IHangmanService/CancelarPartidaResponse")]
+        System.Threading.Tasks.Task<Biblioteca.DTO.ResponsePartidaDTO> CancelarPartidaAsync(string codigoPartida);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -181,6 +187,14 @@ namespace HangmanGame_Cliente.HangmanServicioReferencia {
         
         public System.Threading.Tasks.Task<Biblioteca.DTO.ResponseDTO> ActualizarJugadorAsync(Biblioteca.DTO.JugadorDTO jugadorDTO) {
             return base.Channel.ActualizarJugadorAsync(jugadorDTO);
+        }
+        
+        public Biblioteca.DTO.ResponsePartidaDTO CancelarPartida(string codigoPartida) {
+            return base.Channel.CancelarPartida(codigoPartida);
+        }
+        
+        public System.Threading.Tasks.Task<Biblioteca.DTO.ResponsePartidaDTO> CancelarPartidaAsync(string codigoPartida) {
+            return base.Channel.CancelarPartidaAsync(codigoPartida);
         }
     }
 }

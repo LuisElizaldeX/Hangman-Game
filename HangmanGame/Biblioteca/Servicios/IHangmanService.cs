@@ -27,5 +27,7 @@ namespace Biblioteca.Servicios
         ResponseDTO RegistrarJugador(JugadorDTO jugadorDTO);
         [OperationContract]
         ResponseDTO ActualizarJugador(JugadorDTO jugadorDTO);
+        [OperationContract]
+        ResponsePartidaDTO CancelarPartida(string codigoPartida);
     }
 }
