@@ -12,12 +12,12 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Cliente/Recursos/makingMatchBackground.png"/>
         </Grid.Background>
-        <Label Content="Lista de espera" HorizontalAlignment="Left" Margin="410,25,0,0" VerticalAlignment="Top" Height="80" Width="527" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="60" HorizontalContentAlignment="Center">
+        <Label Content="{DynamicResource lblTituloSalaEspera}" HorizontalAlignment="Left" Margin="410,25,0,0" VerticalAlignment="Top" Height="80" Width="527" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="60" HorizontalContentAlignment="Center">
             <Label.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <Label Content="El código de la partida es:" HorizontalAlignment="Left" Margin="430,148,0,0" VerticalAlignment="Top" Height="52" Width="487" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center">
+        <Label Content="{DynamicResource lblAnuncioCodigoPartida}" HorizontalAlignment="Left" Margin="430,148,0,0" VerticalAlignment="Top" Height="52" Width="487" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center">
             <Label.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
@@ -27,18 +27,18 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <Label x:Name="lbAvisoPartida" HorizontalAlignment="Left" Margin="288,292,0,0" VerticalAlignment="Top" Height="123" Width="772" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden">
+        <Label x:Name="lbAvisoPartida" HorizontalAlignment="Left" Margin="288,292,0,0" VerticalAlignment="Top" Height="123" Width="772" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >
             <Label.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
             <TextBlock x:Name="tbAvisoPartida" TextAlignment="Center"> Estas por comenzar una partida<LineBreak/> con tlacho, ¿estás listo?</TextBlock>
         </Label>
-        <Label x:Name="lbRetador" Content="¡The Maker se ha unido a la partida!" HorizontalAlignment="Left" Margin="330,442,0,0" VerticalAlignment="Top" Height="52" Width="684" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center" Visibility="Hidden">
+        <Label x:Name="lbRetador" Content="¡The Maker se ha unido a la partida!" HorizontalAlignment="Left" Margin="330,442,0,0" VerticalAlignment="Top" Height="52" Width="684" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center" >
             <Label.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="458,604,0,0" VerticalAlignment="Top" Width="182" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="CancelarCreacionPartida">
+        <Button Content="{DynamicResource btnCancelarIniciarPartida}" HorizontalAlignment="Left" Margin="583,604,0,0" VerticalAlignment="Top" Width="182" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="CancelarCreacionPartida">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>

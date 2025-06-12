@@ -62,6 +62,18 @@ namespace HangmanGame_Cliente.HangmanServicioReferencia {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHangmanService/ObtenerEstadisticasPorJugador", ReplyAction="http://tempuri.org/IHangmanService/ObtenerEstadisticasPorJugadorResponse")]
         System.Threading.Tasks.Task<Biblioteca.DTO.ResponseEstadisticaDTO> ObtenerEstadisticasPorJugadorAsync(int idJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHangmanService/RegistrarJugador", ReplyAction="http://tempuri.org/IHangmanService/RegistrarJugadorResponse")]
+        Biblioteca.DTO.ResponseDTO RegistrarJugador(Biblioteca.DTO.JugadorDTO jugadorDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHangmanService/RegistrarJugador", ReplyAction="http://tempuri.org/IHangmanService/RegistrarJugadorResponse")]
+        System.Threading.Tasks.Task<Biblioteca.DTO.ResponseDTO> RegistrarJugadorAsync(Biblioteca.DTO.JugadorDTO jugadorDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHangmanService/ActualizarJugador", ReplyAction="http://tempuri.org/IHangmanService/ActualizarJugadorResponse")]
+        Biblioteca.DTO.ResponseDTO ActualizarJugador(Biblioteca.DTO.JugadorDTO jugadorDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHangmanService/ActualizarJugador", ReplyAction="http://tempuri.org/IHangmanService/ActualizarJugadorResponse")]
+        System.Threading.Tasks.Task<Biblioteca.DTO.ResponseDTO> ActualizarJugadorAsync(Biblioteca.DTO.JugadorDTO jugadorDTO);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -153,6 +165,22 @@ namespace HangmanGame_Cliente.HangmanServicioReferencia {
         
         public System.Threading.Tasks.Task<Biblioteca.DTO.ResponseEstadisticaDTO> ObtenerEstadisticasPorJugadorAsync(int idJugador) {
             return base.Channel.ObtenerEstadisticasPorJugadorAsync(idJugador);
+        }
+        
+        public Biblioteca.DTO.ResponseDTO RegistrarJugador(Biblioteca.DTO.JugadorDTO jugadorDTO) {
+            return base.Channel.RegistrarJugador(jugadorDTO);
+        }
+        
+        public System.Threading.Tasks.Task<Biblioteca.DTO.ResponseDTO> RegistrarJugadorAsync(Biblioteca.DTO.JugadorDTO jugadorDTO) {
+            return base.Channel.RegistrarJugadorAsync(jugadorDTO);
+        }
+        
+        public Biblioteca.DTO.ResponseDTO ActualizarJugador(Biblioteca.DTO.JugadorDTO jugadorDTO) {
+            return base.Channel.ActualizarJugador(jugadorDTO);
+        }
+        
+        public System.Threading.Tasks.Task<Biblioteca.DTO.ResponseDTO> ActualizarJugadorAsync(Biblioteca.DTO.JugadorDTO jugadorDTO) {
+            return base.Channel.ActualizarJugadorAsync(jugadorDTO);
         }
     }
 }

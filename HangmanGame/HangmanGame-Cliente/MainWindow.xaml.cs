@@ -1,4 +1,5 @@
 ﻿using Biblioteca.DTO;
+using HangmanGame_Cliente.Cliente.Alertas;
 using HangmanGame_Cliente.Cliente.Vistas;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,6 @@ using System.Windows.Shapes;
 
 namespace HangmanGame_Cliente
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private Page paginaActual;
@@ -57,7 +55,7 @@ namespace HangmanGame_Cliente
             Dispatcher.Invoke(() =>
             {
                 CambiarPagina(new IniciarSesion());
-
+                MostrarAlertaBloqueante(new SinConexionServidor());
             });
         }
 
@@ -93,6 +91,11 @@ namespace HangmanGame_Cliente
                 return default;
             }
         }
-
+        private void MostrarAlertaBloqueante(Window alerta)
+        {
+            alerta.Owner = Window.GetWindow(this);
+            alerta.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            alerta.ShowDialog();
+        }
     }
 }

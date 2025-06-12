@@ -1,0 +1,16 @@
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\bin\Debug\HangmanGame-Servidor.exe.config
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\bin\Debug\HangmanGame-Servidor.exe
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\bin\Debug\HangmanGame-Servidor.pdb
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\bin\Debug\Biblioteca.dll
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\bin\Debug\EntityFramework.dll
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\bin\Debug\Newtonsoft.Json.dll
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\bin\Debug\Biblioteca.pdb
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\bin\Debug\EntityFramework.xml
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\bin\Debug\Newtonsoft.Json.xml
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\obj\Debug\HangmanGame-Servidor.csproj.AssemblyReference.cache
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\obj\Debug\HangmanGame-Servidor.csproj.CoreCompileInputs.cache
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\obj\Debug\HangmanG.746F14C9.Up2Date
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\obj\Debug\HangmanGame-Servidor.exe
+C:\Users\danie\Desktop\Hangman-Game\HangmanGame\HangmanGame-Servidor\obj\Debug\HangmanGame-Servidor.pdb

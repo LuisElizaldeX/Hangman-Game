@@ -70,27 +70,72 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Cliente\Alertas\CamposErroneos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Compile Include="Connected Services\HangmanServicioReferencia\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="IdiomaHelper.cs" />
     <Compile Include="Seguridad.cs" />
     <Compile Include="SocketCliente.cs" />
     <Compile Include="Utilidades\Singleton.cs" />
-    <Page Include="Cliente\Alertas\Correcto.xaml">
+    <Page Include="Cliente\Alertas\CamposVacios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Cliente\Alertas\Derrota.xaml">
+    <Page Include="Cliente\Alertas\ContraseniaErronea.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Cliente\Alertas\Error.xaml">
+    <Page Include="Cliente\Alertas\CorreoElectronicoEnUso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Cliente\Alertas\Victoria.xaml">
+    <Page Include="Cliente\Alertas\CorreoElectronicoErroneo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\CreacionUsuarioCorrecto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\CredencialesEroneas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\FechaNacimientoErroneo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\InicioSesionExitoso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\ModificacionUsuarioCorrecto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\PalabraAdivinada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\PalabraNoAdivinada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\PartidaCancelada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\SinConexionBaseDatos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cliente\Alertas\SinConexionServidor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,25 +167,66 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Dictionary-en.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionary-es.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Cliente\Alertas\Correcto.xaml.cs">
-      <DependentUpon>Correcto.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Cliente\Alertas\Derrota.xaml.cs">
-      <DependentUpon>Derrota.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Cliente\Alertas\Error.xaml.cs">
-      <DependentUpon>Error.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Cliente\Alertas\Victoria.xaml.cs">
-      <DependentUpon>Victoria.xaml</DependentUpon>
+    <Compile Include="Cliente\Alertas\CamposErroneos.xaml.cs">
+      <DependentUpon>CamposErroneos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\CamposVacios.xaml.cs">
+      <DependentUpon>CamposVacios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\ContraseniaErronea.xaml.cs">
+      <DependentUpon>ContraseniaErronea.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\CorreoElectronicoEnUso.xaml.cs">
+      <DependentUpon>CorreoElectronicoEnUso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\CorreoElectronicoErroneo.xaml.cs">
+      <DependentUpon>CorreoElectronicoErroneo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\CreacionUsuarioCorrecto.xaml.cs">
+      <DependentUpon>CreacionUsuarioCorrecto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\CredencialesEroneas.xaml.cs">
+      <DependentUpon>CredencialesEroneas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\FechaNacimientoErroneo.xaml.cs">
+      <DependentUpon>FechaNacimientoErroneo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\InicioSesionExitoso.xaml.cs">
+      <DependentUpon>InicioSesionExitoso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\ModificacionUsuarioCorrecto.xaml.cs">
+      <DependentUpon>ModificacionUsuarioCorrecto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\PalabraAdivinada.xaml.cs">
+      <DependentUpon>PalabraAdivinada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\PalabraNoAdivinada.xaml.cs">
+      <DependentUpon>PalabraNoAdivinada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\PartidaCancelada.xaml.cs">
+      <DependentUpon>PartidaCancelada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\SinConexionBaseDatos.xaml.cs">
+      <DependentUpon>SinConexionBaseDatos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Alertas\SinConexionServidor.xaml.cs">
+      <DependentUpon>SinConexionServidor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cliente\Vistas\Estadisticas.xaml.cs">
       <DependentUpon>Estadisticas.xaml</DependentUpon>
@@ -172,19 +258,19 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="Properties\Resources.es.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
+      <DependentUpon>Resources.es.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Include="Properties\Resources.es.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources.es.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Font\MedievalSharp-Regular.ttf" />
     <None Include="Connected Services\HangmanServicioReferencia\Arrays.xsd">
@@ -203,6 +289,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Biblioteca.DTO.EstadisticaDTO.datasource" />
     <None Include="Properties\DataSources\Biblioteca.DTO.ResponseDTO.datasource" />
+    <None Include="Properties\DataSources\Biblioteca.DTO.ResponseEstadisticaDTO.datasource" />
     <None Include="Properties\DataSources\Biblioteca.DTO.ResponsePalabrasConIdDTO.datasource" />
     <None Include="Properties\DataSources\Biblioteca.DTO.ResponsePartidaDTO.datasource" />
     <None Include="Properties\DataSources\Biblioteca.DTO.ResponseResultadoDTO.datasource" />
@@ -266,6 +353,10 @@
     <Resource Include="Cliente\Recursos\titleBackground.png" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cliente\Recursos\textboxBackground.png" />
     <ProjectReference Include="..\Biblioteca\Biblioteca.csproj">
       <Project>{a1ae744f-128d-4632-917c-cdf4e1c8f353}</Project>
       <Name>Biblioteca</Name>

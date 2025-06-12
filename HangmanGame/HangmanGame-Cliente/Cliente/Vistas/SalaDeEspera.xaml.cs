@@ -9,9 +9,7 @@ using System.Windows.Threading;
 
 namespace HangmanGame_Cliente.Cliente.Vistas
 {
-    /// <summary>
-    /// Lógica de interacción para SalaDeEspera.xaml
-    /// </summary>
+
     public partial class SalaDeEspera : Page
     {
         private HangmanServiceClient cliente;

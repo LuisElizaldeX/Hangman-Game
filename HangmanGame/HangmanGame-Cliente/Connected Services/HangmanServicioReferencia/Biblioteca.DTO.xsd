@@ -11,7 +11,7 @@
   <xs:element name="ResponseDTO" nillable="true" type="tns:ResponseDTO" />
   <xs:complexType name="JugadorDTO">
     <xs:sequence>
-      <xs:element minOccurs="0" name="contrasñea" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="contraseña" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="fecha_nacimiento" type="xs:dateTime" />
       <xs:element minOccurs="0" name="id_jugador" type="xs:int" />
@@ -107,14 +107,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ResultadoDTO" nillable="true" type="tns:ResultadoDTO" />
-  <xs:complexType name="ArrayOfEstadisticaDTO">
+  <xs:complexType name="ResponseEstadisticaDTO">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="EstadisticaDTO" nillable="true" type="tns:EstadisticaDTO" />
+      <xs:element minOccurs="0" name="data" nillable="true" type="tns:EstadisticaDTO" />
+      <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="success" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfEstadisticaDTO" nillable="true" type="tns:ArrayOfEstadisticaDTO" />
+  <xs:element name="ResponseEstadisticaDTO" nillable="true" type="tns:ResponseEstadisticaDTO" />
   <xs:complexType name="EstadisticaDTO">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Estadisticas" nillable="true" type="tns:ArrayOfEstadisticaDTO" />
       <xs:element minOccurs="0" name="FechaCreacion" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Nickname" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Puntos" type="xs:int" />
@@ -122,4 +125,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EstadisticaDTO" nillable="true" type="tns:EstadisticaDTO" />
+  <xs:complexType name="ArrayOfEstadisticaDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EstadisticaDTO" nillable="true" type="tns:EstadisticaDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEstadisticaDTO" nillable="true" type="tns:ArrayOfEstadisticaDTO" />
 </xs:schema>

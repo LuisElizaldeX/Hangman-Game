@@ -15,7 +15,7 @@ namespace Biblioteca.DTO
         [DataMember]
         public string correo { get; set; }
         [DataMember]
-        public string contrasñea { get; set; } // Solo para la solicitud
+        public string contraseña { get; set; } // Solo para la solicitud
         [DataMember]
         public string usuario { get; set; }
         [DataMember]
@@ -23,7 +23,7 @@ namespace Biblioteca.DTO
         [DataMember]
         public DateTime fecha_nacimiento { get; set; }
         [DataMember]
-        public int telefono { get; set; }
+        public string telefono { get; set; }
         [DataMember]
         public int puntuacion { get; set; }
     }
