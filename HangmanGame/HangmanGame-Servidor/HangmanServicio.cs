@@ -555,5 +555,43 @@ namespace HangmanGame_Servidor
                 };
             }
         }
+
+        public ResponsePartidaDTO CancelarPartida(string codigoPartida)
+        {
+            try
+            {
+                using (var context = new HangmanEntidades())
+                {
+                    var partida = context.partida
+                        .FirstOrDefault(p => p.codigo == codigoPartida);
+
+                    if (partida == null)
+                    {
+                        return new ResponsePartidaDTO
+                        {
+                            success = false,
+                            message = "Partida no encontrada o no pertenece al adivino"
+                        };
+                    }
+
+                    partida.id_estado_partida = 3; // Cancelada
+                    context.SaveChanges();
+
+                    return new ResponsePartidaDTO
+                    {
+                        success = true,
+                        message = "Partida cancelada exitosamente"
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponsePartidaDTO
+                {
+                    success = false,
+                    message = $"Error al cancelar la partida: {ex.Message}"
+                };
+            }
+        }
     }
 }

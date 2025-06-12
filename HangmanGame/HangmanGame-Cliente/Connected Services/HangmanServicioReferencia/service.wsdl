@@ -82,6 +82,12 @@
   <wsdl:message name="IHangmanService_ActualizarJugador_OutputMessage">
     <wsdl:part name="parameters" element="tns:ActualizarJugadorResponse" />
   </wsdl:message>
+  <wsdl:message name="IHangmanService_CancelarPartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarPartida" />
+  </wsdl:message>
+  <wsdl:message name="IHangmanService_CancelarPartida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarPartidaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IHangmanService">
     <wsdl:operation name="Autenticacion">
       <wsdl:input wsam:Action="http://tempuri.org/IHangmanService/Autenticacion" message="tns:IHangmanService_Autenticacion_InputMessage" />
@@ -122,6 +128,10 @@
     <wsdl:operation name="ActualizarJugador">
       <wsdl:input wsam:Action="http://tempuri.org/IHangmanService/ActualizarJugador" message="tns:IHangmanService_ActualizarJugador_InputMessage" />
       <wsdl:output wsam:Action="http://tempuri.org/IHangmanService/ActualizarJugadorResponse" message="tns:IHangmanService_ActualizarJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarPartida">
+      <wsdl:input wsam:Action="http://tempuri.org/IHangmanService/CancelarPartida" message="tns:IHangmanService_CancelarPartida_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IHangmanService/CancelarPartidaResponse" message="tns:IHangmanService_CancelarPartida_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IHangmanService" type="tns:IHangmanService">
@@ -211,6 +221,15 @@
     </wsdl:operation>
     <wsdl:operation name="ActualizarJugador">
       <soap12:operation soapAction="http://tempuri.org/IHangmanService/ActualizarJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarPartida">
+      <soap12:operation soapAction="http://tempuri.org/IHangmanService/CancelarPartida" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

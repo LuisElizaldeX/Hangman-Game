@@ -72,17 +72,6 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             {
                 try
                 {
-                    var jugadorNuevo = new JugadorDTO()
-                    {
-
-                        usuario = txtUsuario.Text,
-                        nombre = txtNombreCompleto.Text,
-                        fecha_nacimiento = DateTime.ParseExact(txtFechaNacimiento.Text, "dd-MM-yyyy", null),
-                        telefono = txtTelefono.Text,
-                        correo = txtCorreo.Text,
-                        contraseña = psBContrasenia.Password
-                    };
-
                     ResponseDTO response;
 
                     if (esEdicion)
@@ -98,9 +87,25 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                             contraseña = psBContrasenia.Password
                         };
                         response = cliente.ActualizarJugador(jugadorActual);
+
+                        var mainWindow = Window.GetWindow(this) as MainWindow;
+                        mainWindow.SetJugadorAutenticado(jugadorActual);
+                        //var jugadorAutenticado = mainWindow.GetJugadorAutenticado();
+
                     }
                     else
                     {
+                        var jugadorNuevo = new JugadorDTO()
+                        {
+
+                            usuario = txtUsuario.Text,
+                            nombre = txtNombreCompleto.Text,
+                            fecha_nacimiento = DateTime.ParseExact(txtFechaNacimiento.Text, "dd-MM-yyyy", null),
+                            telefono = txtTelefono.Text,
+                            correo = txtCorreo.Text,
+                            contraseña = psBContrasenia.Password
+                        };
+
                         response = cliente.RegistrarJugador(jugadorNuevo);
                     }
 

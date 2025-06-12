@@ -1,7 +1,6 @@
 ﻿using Biblioteca.DTO;
 using HangmanGame_Cliente.Cliente.Alertas;
 using HangmanGame_Cliente.HangmanServicioReferencia;
-using HangmanGame_Cliente.Utilidades;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
@@ -130,7 +129,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                         MessageBox.Show($"Código recibido {partes[1]} no coincide con {codigoPartida}");
                     }
                 }
-                else if (message.StartsWith("PARTIDA_CANCELADA:"))
+                else if (message.StartsWith("PARTIDA_DESECHADA:"))
                 {
                     var partes = message.Split(':');
                     if (partes.Length >= 2 && partes[1] == codigoPartida)
@@ -160,7 +159,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 }
                 else
                 {
-                    MessageBox.Show($"Mensaje no reconocido: {message}");
+                    Console.WriteLine($"Mensaje no reconocido: {message}");
                 }
             });
         }
@@ -246,10 +245,22 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         {
             try
             {
-                string mensaje = $"PARTIDA_CANCELADA:{codigoPartida}";
-                //MessageBox.Show("Vamos a enviar mensaje de cancelacion");
-                await socketCliente.SendMessageAsync(mensaje);
-                await Task.Delay(500);
+                if (jugadorDTO != null)
+                {
+                    ResponsePartidaDTO response = await Task.Run(() => cliente.CancelarPartida(codigoPartida));
+                    if (response != null && response.success)
+                    {
+                        string mensaje = $"PARTIDA_DESECHADA:{codigoPartida}";
+                        await socketCliente.SendMessageAsync(mensaje);
+                        await Task.Delay(500); 
+                        var mainWindow = Window.GetWindow(this) as MainWindow;
+                        mainWindow?.CambiarPagina(new ListaPartidasDisponibles());
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error al cancelar: {response.message}");
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -261,12 +272,9 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         {
             try
             {
-                isListening = false; // Desuscribirse de mensajes
-                //MessageBox.Show("Me estoy desuscribiendo, soy: " + jugadorDTO.id_jugador);
+                isListening = false; 
                 socketCliente.MessageReceived -= OnMessageReceived;
-                //MessageBox.Show("Ya me desuscribí");
                 await socketCliente.SendMessageAsync($"INICIAR_PARTIDA:{codigoPartida}");
-                //MessageBox.Show($"Mensaje INICIAR_PARTIDA enviado. Socket conectado: {socketCliente.IsConnected}");
 
                 var mainWindow = Application.Current.MainWindow as MainWindow;
                 if (mainWindow != null)

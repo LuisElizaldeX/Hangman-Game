@@ -74,7 +74,8 @@ namespace HangmanGame_Cliente.Cliente.Vistas
 
         private void OnMessageReceived(string message)
         {
-            if (message.StartsWith("NUEVA_PARTIDA:"))
+            if (message.StartsWith("NUEVA_PARTIDA:") || 
+                message.StartsWith("PARTIDA_DESECHADA:"))
             {
                 var partes = message.Split(':');
                 if (partes.Length >= 2)

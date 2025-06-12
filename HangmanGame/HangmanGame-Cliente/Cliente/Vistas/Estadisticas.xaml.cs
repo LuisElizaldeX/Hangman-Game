@@ -43,10 +43,6 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 MessageBox.Show("Error: No se encontró el jugador autenticado. MainWindow HashCode: " + mainWindow.GetHashCode());
                 mainWindow.CambiarPagina(new IniciarSesion());
             }
-            else
-            {
-                MessageBox.Show("Jugador encontrado con ID: " + jugadorDTO.id_jugador + " en ventana: " + mainWindow.GetHashCode());
-            }
 
             Task.Run(async () =>
             {

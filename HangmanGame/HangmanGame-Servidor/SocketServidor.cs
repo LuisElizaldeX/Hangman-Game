@@ -123,10 +123,19 @@ namespace HangmanGame_Servidor
                             await NotificarClientes(codigo, message);
                         }
                     }
-                    else if (message.StartsWith("NUEVA_PARTIDA:"))
+                    else
                     {
-                        // Enviar a todos los clientes, incluidos los del "lobby"
-                        await BroadcastToAll(message);
+                        if (message.StartsWith("NUEVA_PARTIDA:"))
+                        {
+                            // Enviar a todos los clientes, incluidos los del "lobby"
+                            await BroadcastToAll(message);
+                        }
+
+                        if (message.StartsWith("PARTIDA_DESECHADA:"))
+                        {
+                            // Enviar a todos los clientes, incluidos los del "lobby"
+                            await BroadcastToAll(message);
+                        }
                     }
                 }
             }

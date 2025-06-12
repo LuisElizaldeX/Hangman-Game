@@ -17,7 +17,7 @@
       <xs:element minOccurs="0" name="id_jugador" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="puntuacion" type="xs:int" />
-      <xs:element minOccurs="0" name="telefono" type="xs:int" />
+      <xs:element minOccurs="0" name="telefono" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -79,6 +79,7 @@
       <xs:element minOccurs="0" name="Palabra" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Partidas" nillable="true" type="tns:ArrayOfPartidaDTO" />
       <xs:element minOccurs="0" name="Pista" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PistaEn" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
