@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="89e92a5c22dd436fbbf330b0f85f9218" Name="Diagram1">
-        <EntityTypeShape EntityType="HangmanModelo.categoria" Width="1.5" PointX="1.5" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HangmanModelo.estado_partida" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HangmanModelo.idioma_partida" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HangmanModelo.jugador" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HangmanModelo.palabra" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HangmanModelo.partida" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="HangmanModelo.FK_word_category" ManuallyRouted="false" />
-        <AssociationConnector Association="HangmanModelo.FK_gamematch_match_status" ManuallyRouted="false" />
-        <AssociationConnector Association="HangmanModelo.FK_gamematch_match_language" ManuallyRouted="false" />
-        <AssociationConnector Association="HangmanModelo.FK_gamematch_challenger" ManuallyRouted="false" />
-        <AssociationConnector Association="HangmanModelo.FK_gamematch_guesser" ManuallyRouted="false" />
-        <AssociationConnector Association="HangmanModelo.FK_gamematch_word" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="HangmanModelo.resultado" Width="1.5" PointX="5.25" PointY="1.75" />
-        <AssociationConnector Association="HangmanModelo.FK__resultado__id_ju__5CD6CB2B" />
-        <AssociationConnector Association="HangmanModelo.FK__resultado__id_pa__5DCAEF64" />
+      <Diagram DiagramId="f8dc0202568a43d0986613e2befe962e" Name="Diagram1">
+        <EntityTypeShape EntityType="HangmanModel.categoria" Width="1.5" PointX="1.5" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangmanModel.estado_partida" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangmanModel.idioma_partida" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangmanModel.jugador" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangmanModel.palabra" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangmanModel.partida" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangmanModel.resultado" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="HangmanModel.FK_word_category" ManuallyRouted="false" />
+        <AssociationConnector Association="HangmanModel.FK_gamematch_match_status" ManuallyRouted="false" />
+        <AssociationConnector Association="HangmanModel.FK_gamematch_match_language" ManuallyRouted="false" />
+        <AssociationConnector Association="HangmanModel.FK__resultado__id_ju__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="HangmanModel.FK_gamematch_challenger" ManuallyRouted="false" />
+        <AssociationConnector Association="HangmanModel.FK_gamematch_guesser" ManuallyRouted="false" />
+        <AssociationConnector Association="HangmanModel.FK_gamematch_word" ManuallyRouted="false" />
+        <AssociationConnector Association="HangmanModel.FK__resultado__id_pa__4AB81AF0" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

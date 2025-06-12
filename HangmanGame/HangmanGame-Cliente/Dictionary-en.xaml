@@ -5,10 +5,10 @@
     <system:String x:Key="lblCorreo">E-mail:</system:String>
     <system:String x:Key="lblContrasenia">Password:</system:String>
     <system:String x:Key="btnRegistrarse">Don't have an account? Create one here!</system:String>
-    <system:String x:Key="btnEntrar">Log In</system:String>
     <system:String x:Key="btnIdioma">Spanish</system:String>
+    <system:String x:Key="btnEntrar">Enter</system:String>
     <!-- FormularioUsuario -->
-    <system:String x:Key="lblTituloFormularioPerfil">Create profile</system:String>
+    <system:String x:Key="lblTituloFormularioPerfil">My Profile</system:String>
     <system:String x:Key="lblNickname">User:</system:String>
     <system:String x:Key="lblNombreCompleto">Full name:</system:String>
     <system:String x:Key="lblFechaNacimiento">Birth date:</system:String>
@@ -25,16 +25,17 @@
     <system:String x:Key="btnCategoriaSeries">TV Series</system:String>
     <system:String x:Key="btnCancelarCreacionPartida">Cancel</system:String>
     <!-- ListaPartidasDisponibles -->
-    <system:String x:Key="lblTituloListaPartidasDisponibles">Available mathces</system:String>
+    <system:String x:Key="lblTituloListaPartidasDisponibles">Available matches</system:String>
     <system:String x:Key="btnGenerarPartida">Create match</system:String>
     <system:String x:Key="btnIngresarCodigo">Enter code</system:String>
+    <system:String x:Key="btnModificarPerfil">Edit profile</system:String>
+    <system:String x:Key="btnVerEstadisticas">Stats</system:String>
     <!-- SalaDeEspera -->
     <system:String x:Key="lblTituloSalaEspera">Waiting room</system:String>
     <system:String x:Key="lblAnuncioCodigoPartida">Match code is:</system:String>
-    <system:String x:Key="lblPreComenzarPartida1">You're about to start a match with</system:String>
-    <system:String x:Key="lblPreComenzarPartida2">NICKNAME, are you ready?</system:String>
-    <system:String x:Key="lblJugadorUnido">NICKNAME has joined to the match!</system:String>
     <system:String x:Key="btnCancelarIniciarPartida">Cancel</system:String>
+    <!-- Partida -->
+    <system:String x:Key="btnAbandonarPartida">Leave</system:String>
     <!-- Alertas -->
     <!-- PalabraAdivinada -->
     <system:String x:Key="txtBlkTituloPalabraAdivinada1">Word</system:String>

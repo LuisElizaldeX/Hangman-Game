@@ -71,18 +71,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Cliente\Alertas\CamposErroneos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Compile Include="Connected Services\HangmanServicioReferencia\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="IdiomaHelper.cs" />
     <Compile Include="Seguridad.cs" />
     <Compile Include="SocketCliente.cs" />
     <Compile Include="Utilidades\Singleton.cs" />
-    <Page Include="Cliente\Alertas\Correcto.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Cliente\Alertas\CamposVacios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -289,6 +289,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Biblioteca.DTO.EstadisticaDTO.datasource" />
     <None Include="Properties\DataSources\Biblioteca.DTO.ResponseDTO.datasource" />
+    <None Include="Properties\DataSources\Biblioteca.DTO.ResponseEstadisticaDTO.datasource" />
     <None Include="Properties\DataSources\Biblioteca.DTO.ResponsePalabrasConIdDTO.datasource" />
     <None Include="Properties\DataSources\Biblioteca.DTO.ResponsePartidaDTO.datasource" />
     <None Include="Properties\DataSources\Biblioteca.DTO.ResponseResultadoDTO.datasource" />

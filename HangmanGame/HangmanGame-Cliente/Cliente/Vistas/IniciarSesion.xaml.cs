@@ -1,8 +1,11 @@
 ﻿using Biblioteca.DTO;
-using HangmanGame_Cliente.Utilidades;
+using HangmanGame_Cliente.Cliente.Alertas;
 using HangmanGame_Cliente.HangmanServicioReferencia;
 using System;
+using System.Data.Entity.Core;
+using System.Globalization;
 using System.ServiceModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -15,16 +18,13 @@ namespace HangmanGame_Cliente.Cliente.Vistas
     {
 
         private HangmanServiceClient cliente;
-
+        public event EventHandler<string> IdiomaSeleccionado;
+        private string idioma;
         public IniciarSesion()
         {
             InitializeComponent();
+            ActualizarTitulo();
             cliente = new HangmanServiceClient(); 
-        }
-
-        private void DarAltaUsuario(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         private void InicioSesion(object sender, RoutedEventArgs e)
@@ -86,6 +86,10 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                             MessageBox.Show($"Credenciales no encontradas o error: {response?.message ?? "Sin mensaje"}");
                         }
                     }
+                    catch (EntityCommandExecutionException ex)
+                    {
+                        MessageBox.Show($"Error de ejecución de EntityFramework: {ex.InnerException?.Message ?? ex.Message}");
+                    }
                     catch (CommunicationException ex)
                     {
                         MessageBox.Show($"Error de comunicación con el servidor: {ex.Message}. Verifica que el servidor esté en ejecución.");
@@ -112,19 +116,46 @@ namespace HangmanGame_Cliente.Cliente.Vistas
 
             if (Seguridad.ExistenCaracteresInvalidosParaContrasena(contrasena))
             {
-                MessageBox.Show("Contraseña inválida"); // COLOCAR ALERTA
+                MostrarAlertaBloqueante(new CamposErroneos());
+                //MessageBox.Show("Contraseña inválida"); // COLOCAR ALERTA
                 hayCamposInvalidos = true;
             }
 
             if (!hayCamposInvalidos && Seguridad.
                 ExistenCaracteresInvalidosParaCorreo(correo))
             {
-                MessageBox.Show("Correo inválido"); // COLOCAR ALERTA
+                MostrarAlertaBloqueante(new CamposErroneos());
+                //MessageBox.Show("Correo inválido"); // COLOCAR ALERTA
                 hayCamposInvalidos = true;
             }
 
             return hayCamposInvalidos;
         }
 
+        private void btnCambiarIdioma_Click(object sender, RoutedEventArgs e)
+        {
+            IdiomaHelper.AlternarIdioma();
+            ActualizarTitulo();
+            IdiomaSeleccionado?.Invoke(this, IdiomaHelper.IdiomaActual == "en" ? "Ingles" : "Spanish");
+        }
+
+        private void btnRegistrarse_Click(object sender, RoutedEventArgs e)
+        {
+            var formularioUsuarioVista = new FormularioUsuario(false);
+            NavigationService?.Navigate(formularioUsuarioVista);
+        }
+        private void ActualizarTitulo()
+        {
+            bool isEnglish = Thread.CurrentThread.CurrentUICulture.Name == "en";
+            imgTituloEN.Visibility = isEnglish ? Visibility.Visible : Visibility.Collapsed;
+            imgTituloES.Visibility = isEnglish ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void MostrarAlertaBloqueante(Window alerta)
+        {
+            alerta.Owner = Window.GetWindow(this);
+            alerta.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            alerta.ShowDialog();
+        }
     }
 }

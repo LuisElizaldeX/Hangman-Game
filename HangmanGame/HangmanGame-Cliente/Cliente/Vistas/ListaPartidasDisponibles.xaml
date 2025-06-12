@@ -82,12 +82,17 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnGenerarPartida" Content="{DynamicResource btnGenerarPartida}" HorizontalAlignment="Left" Margin="224,530,0,0" VerticalAlignment="Top" Width="326" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="btnGenerarPartida_Click" >
+        <Button x:Name="btnGenerarPartida" Content="{DynamicResource btnGenerarPartida}" HorizontalAlignment="Left" Margin="158,526,0,0" VerticalAlignment="Top" Width="326" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="GenerarPartida" >
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>
         </Button>
-        <Button Content="Ver estadísticas" HorizontalAlignment="Left" Margin="676,530,0,0" VerticalAlignment="Top" Width="310" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="White" BorderBrush="{x:Null}" Click="VerEstadisticas">
+        <Button Content="{DynamicResource btnVerEstadisticas}" HorizontalAlignment="Left" Margin="492,526,0,0" VerticalAlignment="Top" Width="310" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="VerEstadisticas">
+            <Button.Background>
+                <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="{DynamicResource btnModificarPerfil}" HorizontalAlignment="Left" Margin="814,526,0,0" VerticalAlignment="Top" Width="310" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="ModificarPerfil">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>

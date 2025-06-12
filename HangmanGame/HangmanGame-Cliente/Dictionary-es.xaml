@@ -5,10 +5,10 @@
     <system:String x:Key="lblCorreo">Correo electrónico:</system:String>
     <system:String x:Key="lblContrasenia">Contraseña:</system:String>
     <system:String x:Key="btnRegistrarse">¿No tienes una cuenta? ¡Registrate aquí!</system:String>
-    <system:String x:Key="btnEntrar">Entrar</system:String>
     <system:String x:Key="btnIdioma">Inglés</system:String>
+    <system:String x:Key="btnEntrar">Entrar</system:String>
     <!-- FormularioUsuario -->
-    <system:String x:Key="lblTituloFormularioPerfil">Dar de alta perfil</system:String>
+    <system:String x:Key="lblTituloFormularioPerfil">Mi Perfil</system:String>
     <system:String x:Key="lblNickname">Usuario:</system:String>
     <system:String x:Key="lblNombreCompleto">Nombre completo:</system:String>
     <system:String x:Key="lblFechaNacimiento">Fecha de nacimiento:</system:String>
@@ -21,20 +21,21 @@
     <system:String x:Key="lblPuntosTotales">Puntos totales: 660 pts</system:String>
     <!-- FormularioPartida -->
     <system:String x:Key="btnCategoriaMusica">Musica</system:String>
+    <system:String x:Key="btnCategoriaSeries">Series</system:String>
     <system:String x:Key="btnCategoriaPeliculas">Peliculas</system:String>
-    <system:String x:Key="btnCategoriaSeries">Series TV</system:String>
     <system:String x:Key="btnCancelarCreacionPartida">Cancelar</system:String>
     <!-- ListaPartidasDisponibles -->
     <system:String x:Key="lblTituloListaPartidasDisponibles">Lista de partidas disponibles</system:String>
     <system:String x:Key="btnGenerarPartida">Generar partida</system:String>
     <system:String x:Key="btnIngresarCodigo">Ingresar código</system:String>
+    <system:String x:Key="btnModificarPerfil">Modificar perfil</system:String>
+    <system:String x:Key="btnVerEstadisticas">Ver estadísticas</system:String>
     <!-- SalaDeEspera -->
     <system:String x:Key="lblTituloSalaEspera">Sala de espera</system:String>
     <system:String x:Key="lblAnuncioCodigoPartida">El código de la partida es:</system:String>
-    <system:String x:Key="lblPreComenzarPartida1">Estas por comenzar una partida con</system:String>
-    <system:String x:Key="lblPreComenzarPartida2">NICKNAME, ¿estás listo?</system:String>
-    <system:String x:Key="lblJugadorUnido">¡NICKNAME se ha unido a la partida!</system:String>
     <system:String x:Key="btnCancelarIniciarPartida">Cancelar</system:String>
+    <!-- Partida -->
+    <system:String x:Key="btnAbandonarPartida">Abandonar</system:String>
     <!-- Alertas -->
     <!-- PalabraAdivinada -->
     <system:String x:Key="txtBlkTituloPalabraAdivinada1">¡Adivinaste la</system:String>

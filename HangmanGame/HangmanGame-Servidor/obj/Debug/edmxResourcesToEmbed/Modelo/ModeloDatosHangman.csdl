@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="HangmanModelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="HangmanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="categoria">
     <Key>
       <PropertyRef Name="id_categoria" />
@@ -14,7 +14,7 @@
       <PropertyRef Name="id_estado_partida" />
     </Key>
     <Property Name="id_estado_partida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="partida" Relationship="Self.FK_gamematch_match_status" FromRole="estado_partida" ToRole="partida" />
   </EntityType>
   <EntityType Name="idioma_partida">
@@ -33,10 +33,11 @@
     <Property Name="usuario" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
     <Property Name="nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="fecha_nacimiento" Type="DateTime" Precision="0" />
-    <Property Name="telefono" Type="Int32" />
+    <Property Name="telefono" Type="String" />
     <Property Name="correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="contrasena" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="puntuacion" Type="Int32" />
+    <NavigationProperty Name="resultado" Relationship="Self.FK__resultado__id_ju__49C3F6B7" FromRole="jugador" ToRole="resultado" />
     <NavigationProperty Name="partida" Relationship="Self.FK_gamematch_challenger" FromRole="jugador" ToRole="partida" />
     <NavigationProperty Name="partida1" Relationship="Self.FK_gamematch_guesser" FromRole="jugador" ToRole="partida" />
   </EntityType>
@@ -66,11 +67,25 @@
     <Property Name="id_adivinador" Type="Int32" />
     <Property Name="id_estado_partida" Type="Int32" />
     <Property Name="id_idioma_partida" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
     <NavigationProperty Name="estado_partida" Relationship="Self.FK_gamematch_match_status" FromRole="partida" ToRole="estado_partida" />
     <NavigationProperty Name="idioma_partida" Relationship="Self.FK_gamematch_match_language" FromRole="partida" ToRole="idioma_partida" />
     <NavigationProperty Name="jugador" Relationship="Self.FK_gamematch_challenger" FromRole="partida" ToRole="jugador" />
     <NavigationProperty Name="jugador1" Relationship="Self.FK_gamematch_guesser" FromRole="partida" ToRole="jugador" />
     <NavigationProperty Name="palabra" Relationship="Self.FK_gamematch_word" FromRole="partida" ToRole="palabra" />
+    <NavigationProperty Name="resultado" Relationship="Self.FK__resultado__id_pa__4AB81AF0" FromRole="partida" ToRole="resultado" />
+  </EntityType>
+  <EntityType Name="resultado">
+    <Key>
+      <PropertyRef Name="id_resultado" />
+    </Key>
+    <Property Name="id_resultado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_jugador" Type="Int32" Nullable="false" />
+    <Property Name="id_partida" Type="Int32" Nullable="false" />
+    <Property Name="gano" Type="Boolean" Nullable="false" />
+    <Property Name="puntos" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="jugador" Relationship="Self.FK__resultado__id_ju__49C3F6B7" FromRole="resultado" ToRole="jugador" />
+    <NavigationProperty Name="partida" Relationship="Self.FK__resultado__id_pa__4AB81AF0" FromRole="resultado" ToRole="partida" />
   </EntityType>
   <Association Name="FK_word_category">
     <End Role="categoria" Type="Self.categoria" Multiplicity="0..1">
@@ -114,6 +129,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__resultado__id_ju__49C3F6B7">
+    <End Role="jugador" Type="Self.jugador" Multiplicity="1" />
+    <End Role="resultado" Type="Self.resultado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jugador">
+        <PropertyRef Name="id_jugador" />
+      </Principal>
+      <Dependent Role="resultado">
+        <PropertyRef Name="id_jugador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_gamematch_challenger">
     <End Role="jugador" Type="Self.jugador" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -154,6 +181,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__resultado__id_pa__4AB81AF0">
+    <End Role="partida" Type="Self.partida" Multiplicity="1" />
+    <End Role="resultado" Type="Self.resultado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="partida">
+        <PropertyRef Name="id_partida" />
+      </Principal>
+      <Dependent Role="resultado">
+        <PropertyRef Name="id_partida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="HangmanEntidades" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="categoria" EntityType="Self.categoria" />
     <EntitySet Name="estado_partida" EntityType="Self.estado_partida" />
@@ -161,6 +200,7 @@
     <EntitySet Name="jugador" EntityType="Self.jugador" />
     <EntitySet Name="palabra" EntityType="Self.palabra" />
     <EntitySet Name="partida" EntityType="Self.partida" />
+    <EntitySet Name="resultado" EntityType="Self.resultado" />
     <AssociationSet Name="FK_word_category" Association="Self.FK_word_category">
       <End Role="categoria" EntitySet="categoria" />
       <End Role="palabra" EntitySet="palabra" />
@@ -173,6 +213,10 @@
       <End Role="idioma_partida" EntitySet="idioma_partida" />
       <End Role="partida" EntitySet="partida" />
     </AssociationSet>
+    <AssociationSet Name="FK__resultado__id_ju__49C3F6B7" Association="Self.FK__resultado__id_ju__49C3F6B7">
+      <End Role="jugador" EntitySet="jugador" />
+      <End Role="resultado" EntitySet="resultado" />
+    </AssociationSet>
     <AssociationSet Name="FK_gamematch_challenger" Association="Self.FK_gamematch_challenger">
       <End Role="jugador" EntitySet="jugador" />
       <End Role="partida" EntitySet="partida" />
@@ -184,6 +228,10 @@
     <AssociationSet Name="FK_gamematch_word" Association="Self.FK_gamematch_word">
       <End Role="palabra" EntitySet="palabra" />
       <End Role="partida" EntitySet="partida" />
+    </AssociationSet>
+    <AssociationSet Name="FK__resultado__id_pa__4AB81AF0" Association="Self.FK__resultado__id_pa__4AB81AF0">
+      <End Role="partida" EntitySet="partida" />
+      <End Role="resultado" EntitySet="resultado" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

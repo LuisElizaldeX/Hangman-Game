@@ -27,7 +27,6 @@ namespace HangmanGame_Servidor.Modelo
         public string descripcion { get; set; }
         public string descripcion_en { get; set; }
         public Nullable<int> id_categoria { get; set; }
-        public string pista_en { get; set; }
     
         public virtual categoria categoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

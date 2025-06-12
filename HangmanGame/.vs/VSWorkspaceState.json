@@ -1,12 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Biblioteca",
     "\\HangmanGame-Cliente",
-    "\\HangmanGame-Cliente\\Cliente",
-    "\\HangmanGame-Cliente\\Cliente\\Alertas",
-    "\\HangmanGame-Cliente\\Cliente\\Vistas",
-    "\\HangmanGame-Servidor",
-    "\\HangmanGame-Servidor\\Modelo"
+    "\\HangmanGame-Servidor"
   ],
   "SelectedNode": "\\HangmanGame.sln",
   "PreviewInSolutionExplorer": false

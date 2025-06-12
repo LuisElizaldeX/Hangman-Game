@@ -2,6 +2,7 @@
 using Biblioteca.Servicios;
 using HangmanGame_Servidor.Modelo;
 using System;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace HangmanGame_Servidor
@@ -25,7 +26,7 @@ namespace HangmanGame_Servidor
                             correo = jugador.correo,
                             usuario = jugador.usuario,
                             nombre = jugador.nombre,
-                            telefono = jugador.telefono ?? 0,
+                            telefono = jugador.telefono,
                             puntuacion = jugador.puntuacion ?? 0
                         };
 
@@ -129,7 +130,7 @@ namespace HangmanGame_Servidor
                         id_palabra = idPalabra,
                         id_adivinador = idAdivinador, // Anfitrión
                         id_retador = null, // Todavía no hay retador
-                        id_estado_partida = 6, // Asumimos que 1 es "esperando"
+                        id_estado_partida = 6, // Asumimos que 6 es "esperando"
                         fecha_creacion = DateTime.Now
                     };
 
@@ -154,15 +155,35 @@ namespace HangmanGame_Servidor
                     };
                 }
             }
-            catch (Exception ex)
+            catch (DbUpdateException ex)
             {
+                // Captura de errores internos (como restricciones SQL)
+                var inner = ex.InnerException;
+                string fullError = ex.Message;
+
+                while (inner != null)
+                {
+                    fullError += " --> " + inner.Message;
+                    inner = inner.InnerException;
+                }
+
                 return new ResponsePartidaDTO
                 {
                     success = false,
-                    message = $"Error al crear la partida: {ex.Message}"
+                    message = $"Error de base de datos al crear la partida: {fullError}"
+                };
+            }
+            catch (Exception ex)
+            {
+                // Otros errores no relacionados con EF
+                return new ResponsePartidaDTO
+                {
+                    success = false,
+                    message = $"Error general al crear la partida: {ex.Message}"
                 };
             }
         }
+
 
         public ResponsePartidaDTO ObtenerPartidasDisponibles()
         {
@@ -459,7 +480,78 @@ namespace HangmanGame_Servidor
                 };
             }
         }
-                
+        public ResponseDTO RegistrarJugador(JugadorDTO nuevoJugador)
+        {
+            try
+            {
+                using (var context = new HangmanEntidades())
+                {
+                    var recordPlayer = new jugador
+                    {
+                        usuario = nuevoJugador.usuario,
+                        nombre = nuevoJugador.nombre,
+                        fecha_nacimiento = nuevoJugador.fecha_nacimiento,
+                        telefono = nuevoJugador.telefono,
+                        correo = nuevoJugador.correo,
+                        contrasena = nuevoJugador.contraseña,
+                        puntuacion = 0
+                    };
 
+                    context.jugador.Add(recordPlayer);
+                    context.SaveChanges();
+
+                    return new ResponseDTO
+                    {
+                        success = true,
+                        message = "Jugador registrado exitosamente."
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDTO
+                {
+                    success = false,
+                    message = $"Error al registrar jugador: {ex.Message}"
+                };
+            }
+        }
+            
+        public ResponseDTO ActualizarJugador(JugadorDTO jugadorActualizado)
+        {
+            try
+            {
+                using (var context = new HangmanEntidades())
+                {
+                    var jugador = context.jugador.FirstOrDefault(j => j.id_jugador == jugadorActualizado.id_jugador);
+                    if (jugador == null)
+                    {
+                        return new ResponseDTO
+                        {
+                            success = false,
+                            message = "Jugador no encontrado."
+                        };
+                    }
+                    jugador.usuario = jugadorActualizado.usuario;
+                    jugador.nombre = jugadorActualizado.nombre;
+                    jugador.fecha_nacimiento = jugadorActualizado.fecha_nacimiento;
+                    jugador.telefono = jugadorActualizado.telefono;
+                    context.SaveChanges();
+                    return new ResponseDTO
+                    {
+                        success = true,
+                        message = "Jugador actualizado exitosamente."
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDTO
+                {
+                    success = false,
+                    message = $"Error al actualizar jugador: {ex.Message}"
+                };
+            }
+        }
     }
 }

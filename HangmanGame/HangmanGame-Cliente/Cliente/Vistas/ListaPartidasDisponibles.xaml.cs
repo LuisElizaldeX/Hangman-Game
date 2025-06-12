@@ -2,6 +2,8 @@
 using HangmanGame_Cliente.HangmanServicioReferencia;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +17,8 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         private SocketCliente socketCliente;
         private JugadorDTO jugadorDTO;
         private bool isInitialized;
+        private string idioma;
+        public event EventHandler<string> IdiomaSeleccionado;
 
         public ListaPartidasDisponibles()
         {
@@ -170,5 +174,16 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             });
         }
 
+        private void btnCambiarIdioma_Click(object sender, RoutedEventArgs e)
+        {
+            IdiomaHelper.AlternarIdioma();
+            IdiomaSeleccionado?.Invoke(this, IdiomaHelper.IdiomaActual == "en" ? "Ingles" : "Spanish");
+        }
+
+        private void ModificarPerfil(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Window.GetWindow(this) as MainWindow;
+            mainWindow?.CambiarPagina(new FormularioUsuario(true));
+        }
     }
 }

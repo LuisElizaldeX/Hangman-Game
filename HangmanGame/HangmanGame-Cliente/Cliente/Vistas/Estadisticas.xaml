@@ -96,12 +96,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label x:Name="lblPuntosTotales" Content="{DynamicResource lblPuntosTotales}" HorizontalAlignment="Left" Margin="332,460,0,0" VerticalAlignment="Top" Height="52" Width="684" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center">
+        <Label x:Name="labelPuntosTotales" Content="{DynamicResource lblPuntosTotales}" HorizontalAlignment="Left" Margin="332,460,0,0" VerticalAlignment="Top" Height="52" Width="684" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center">
             <Label.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <Button x:Name="btnRegresar" Content="Button" HorizontalAlignment="Left" Margin="51,23,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="82" Width="156" Click="btnRegresar_Click">
+        <Button x:Name="btnRegresar" Content="Button" HorizontalAlignment="Left" Margin="51,23,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="82" Width="156" Click="Regresar">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/backBackground.png"/>
             </Button.Background>

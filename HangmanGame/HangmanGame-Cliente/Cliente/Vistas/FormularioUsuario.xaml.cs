@@ -1,7 +1,10 @@
-﻿using HangmanGame_Cliente.Cliente.Alertas;
+﻿using Biblioteca.DTO;
+using HangmanGame_Cliente.Cliente.Alertas;
+using HangmanGame_Cliente.HangmanServicioReferencia;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -13,10 +16,31 @@ namespace HangmanGame_Cliente.Cliente.Vistas
     {
         SolidColorBrush rojo = new SolidColorBrush(Colors.Red);
         SolidColorBrush transparente = new SolidColorBrush(Colors.Transparent);
+        private HangmanServiceClient cliente;
+        private JugadorDTO jugadorExistente;
+        private bool isInitialized;
+        private bool esEdicion = false;
 
-        public FormularioUsuario()
+        public FormularioUsuario(bool esEdicion)
         {
             InitializeComponent();
+            this.esEdicion = esEdicion;
+            Loaded += FormularioUsuario_Loaded;
+            cliente = new HangmanServiceClient();
+        }
+
+        private void FormularioUsuario_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (isInitialized) return;
+            isInitialized = true;
+
+            var mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow == null)
+            {
+                MessageBox.Show("Error: No se encontró MainWindow.");
+                return;
+            }
+            jugadorExistente = mainWindow.GetJugadorAutenticado();
             cargarInformacion();
         }
 
@@ -25,19 +49,56 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             if (ValidarCampos())
             {
                 try
-                {/*
-                    var nuevoJugador = new JugadorDTO()
+                {
+                    var jugadorNuevo = new JugadorDTO()
                     {
-                        Usuario = txtUsuario.Text,
-                        Nombre = txtNombreCompleto.Text,
-                        FechaNacimiento = DateTime.ParseExact(txtFechaNacimiento.Text, "dd-MM-yyyy", null),
-                        Telefono = int.Parse(txtTelefono.Text,),
-                        Correo = txtCorreo.Text,
-                        Contrasena = psBContrasenia.Password
+
+                        usuario = txtUsuario.Text,
+                        nombre = txtNombreCompleto.Text,
+                        fecha_nacimiento = DateTime.ParseExact(txtFechaNacimiento.Text, "dd-MM-yyyy", null),
+                        telefono = txtTelefono.Text,
+                        correo = txtCorreo.Text,
+                        contraseña = psBContrasenia.Password
                     };
-                    
-                    MostrarAlertaBloqueante(new CreacionUsuarioCorrecto());
-                    NavigationService?.GoBack();*/
+
+                    ResponseDTO response;
+
+                    if (esEdicion)
+                    {
+                        var jugadorActual = new JugadorDTO()
+                        {
+                            id_jugador = jugadorExistente.id_jugador,
+                            usuario = txtUsuario.Text,
+                            nombre = txtNombreCompleto.Text,
+                            fecha_nacimiento = DateTime.ParseExact(txtFechaNacimiento.Text, "dd-MM-yyyy", null),
+                            telefono = txtTelefono.Text,
+                            correo = txtCorreo.Text,
+                            contraseña = psBContrasenia.Password
+                        };
+                        response = cliente.ActualizarJugador(jugadorActual);
+                    }
+                    else
+                    {
+                        response = cliente.RegistrarJugador(jugadorNuevo);
+                    }
+
+                    if (response != null && response.success)
+                    {
+                        if (esEdicion)
+                        {
+                            MostrarAlertaBloqueante(new ModificacionUsuarioCorrecto());
+                        }
+                        else
+                        {
+                            MostrarAlertaBloqueante(new CreacionUsuarioCorrecto());
+                        }
+
+                        NavigationService?.GoBack();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error al {(esEdicion ? "actualizar" : "registrar")} usuario: {response?.message ?? "Sin mensaje"}");
+                    }
                 }
                 catch (FormatException ex)
                 {
@@ -48,10 +109,6 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 {
                     MostrarAlertaBloqueante(new SinConexionServidor());
                     Console.WriteLine("Error: " + ex.Message);
-                }
-                finally
-                {
-                    NavigationService?.GoBack();
                 }
             }
         }
@@ -70,7 +127,6 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             txtCorreo.BorderBrush = transparente;
             psBContrasenia.BorderBrush = transparente;
         }
-
         private bool ValidarCampos()
         {
             limpiarBordes();
@@ -85,8 +141,13 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             List<bool> camposVacios = new List<bool>
             {
                 usuarioVacio, nombreVacio, fechaVacia,
-                telefonoVacio, correoVacio, contraseniaVacia
+                telefonoVacio, correoVacio
             };
+
+            if (!esEdicion || (!contraseniaVacia && !string.IsNullOrEmpty(psBContrasenia.Password)))
+            {
+                camposVacios.Add(contraseniaVacia);
+            }
 
             if (camposVacios.Contains(true))
             {
@@ -95,13 +156,13 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 if (fechaVacia) txtFechaNacimiento.BorderBrush = rojo;
                 if (telefonoVacio) txtTelefono.BorderBrush = rojo;
                 if (correoVacio) txtCorreo.BorderBrush = rojo;
-                if (contraseniaVacia) psBContrasenia.BorderBrush = rojo;
+                if (contraseniaVacia || !string.IsNullOrEmpty(psBContrasenia.Password)) psBContrasenia.BorderBrush = rojo;
 
                 MostrarAlertaBloqueante(new CamposVacios());
                 return false;
             }
 
-            if (!Regex.IsMatch(txtUsuario.Text, @"^[a-zA-Z0-9]+$")) // Validar que no contenga caracteres especiales ni espacios
+            if (!Regex.IsMatch(txtUsuario.Text, @"^[a-zA-Z0-9]+$"))
             {
                 txtUsuario.BorderBrush = rojo;
                 MostrarAlertaBloqueante(new CamposErroneos());
@@ -115,36 +176,40 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 return false;
             }
 
-            if (!DateTime.TryParseExact(txtFechaNacimiento.Text, "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out _)) // Validar que la fecha tenga el formato dd-MM-yyyy
+            if (!DateTime.TryParseExact(txtFechaNacimiento.Text, "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out _))
             {
                 txtFechaNacimiento.BorderBrush = rojo;
                 MostrarAlertaBloqueante(new FechaNacimientoErroneo());
                 return false;
             }
 
-            if (!Regex.IsMatch(txtTelefono.Text, @"^\d{10}$")) // Validar que el teléfono tenga 10 dígitos
+            if (!Regex.IsMatch(txtTelefono.Text, @"^\d{10}$"))
             {
                 txtTelefono.BorderBrush = rojo;
                 MostrarAlertaBloqueante(new CamposErroneos());
                 return false;
             }
 
-            if (!Regex.IsMatch(txtCorreo.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$")) //Validar que tengan la estructura sea algo@algo.algo, sin permitir espacios ni múltiples símbolos @.
+            if (!Regex.IsMatch(txtCorreo.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
                 txtCorreo.BorderBrush = rojo;
                 MostrarAlertaBloqueante(new CorreoElectronicoErroneo());
                 return false;
             }
-
-            if (psBContrasenia.Password.Length < 8)
+            
+            if ((!string.IsNullOrEmpty(psBContrasenia.Password)))
             {
-                psBContrasenia.BorderBrush = rojo;
-                MostrarAlertaBloqueante(new ContraseniaErronea());
-                return false;
+                string pattern = "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$";
+                if (!Regex.IsMatch(psBContrasenia.Password, pattern))
+                {
+                    psBContrasenia.BorderBrush = rojo;
+                    MostrarAlertaBloqueante(new ContraseniaErronea());
+                    return false;
+                }
             }
+
             return true;
         }
-
         private void txtUsuarioChanged(object sender, TextChangedEventArgs e) //Valida que el nombre de usuario no exceda los 20 caracteres
         {
             if (txtUsuario.Text.Length > 20)
@@ -189,23 +254,19 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             }
         }
 
-        private void psBContraseniaChanged(object sender, RoutedEventArgs e)
-        {
-            if (psBContrasenia.Password.Length > 8)
-            {
-                psBContrasenia.Password = psBContrasenia.Password.Substring(0, 8);
-            }
-        }
-
         public void cargarInformacion()
-        {/*
-            txtUsuario.Text = activePlayer.Username;
-            txtNombreCompleto.Text = activePlayer.Name;
-            txtFechaNacimiento.Text = activePlayer.Birthday.ToString("dd-MM-yyyy");
-            txtTelefono.Text = activePlayer.Phonenumber;
-            txtCorreo.Text = activePlayer.Email;
-            bloquearCORREO
-            psBContrasenia.Password = activePlayer.Password;*/
+        {
+            if (jugadorExistente != null)
+            {
+                txtUsuario.Text = jugadorExistente.usuario;
+                txtNombreCompleto.Text = jugadorExistente.nombre;
+                txtFechaNacimiento.Text = jugadorExistente.fecha_nacimiento.ToString("dd-MM-yyyy");
+                txtTelefono.Text = jugadorExistente.telefono.ToString();
+                txtCorreo.Text = jugadorExistente.correo;
+                txtCorreo.IsEnabled = false;
+                psBContrasenia.Password = jugadorExistente.contraseña;
+                psBContrasenia.IsEnabled = false;
+            }
         }
 
         private void MostrarAlertaBloqueante(Window alerta)

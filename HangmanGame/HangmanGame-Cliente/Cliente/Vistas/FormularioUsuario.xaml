@@ -72,13 +72,13 @@
                 <ImageBrush ImageSource="/Cliente/Recursos/textboxBackground.png"/>
             </TextBox.Background>
         </TextBox>
-        <Label Content="e.j. Daniel Mongeote Tlachy" HorizontalAlignment="Left" Margin="754,547,0,0" VerticalAlignment="Top" Foreground="#FF00FF6D" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="28" Width="360"/>
+        <Label Content="e.j. HangmanUser17@" HorizontalAlignment="Left" Margin="844,547,0,0" VerticalAlignment="Top" Foreground="#FF00FF6D" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="28" Width="282"/>
         <Label x:Name="lblContraseniaFormulario" Content="{DynamicResource lblContraseniaFormulario}" HorizontalAlignment="Left" Margin="721,435,0,0" VerticalAlignment="Top" Height="52" Width="426" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" HorizontalContentAlignment="Center">
             <Label.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
         </Label>
-        <PasswordBox x:Name="psBContrasenia" HorizontalAlignment="Left" Margin="684,509,0,0" VerticalAlignment="Top" Width="500" SelectionBrush="{x:Null}" FontFamily="pack://application:,,,/Font/#MedievalSharp" Foreground="White" BorderBrush="{x:Null}" FontSize="30" Height="36" MaxLength="20" PasswordChar="*" PasswordChanged="psBContraseniaChanged" RenderTransformOrigin="0.5,0.5">
+        <PasswordBox x:Name="psBContrasenia" HorizontalAlignment="Left" Margin="684,509,0,0" VerticalAlignment="Top" Width="500" SelectionBrush="{x:Null}" FontFamily="pack://application:,,,/Font/#MedievalSharp" Foreground="White" BorderBrush="{x:Null}" FontSize="30" Height="36" MaxLength="20" PasswordChar="*" RenderTransformOrigin="0.5,0.5">
             <PasswordBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

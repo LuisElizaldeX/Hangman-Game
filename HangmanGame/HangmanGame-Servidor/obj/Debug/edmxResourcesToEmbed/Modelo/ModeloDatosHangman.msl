@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="HangmanModeloStoreContainer" CdmEntityContainer="HangmanEntidades">
+  <EntityContainerMapping StorageEntityContainer="HangmanModelStoreContainer" CdmEntityContainer="HangmanEntidades">
     <EntitySetMapping Name="categoria">
-      <EntityTypeMapping TypeName="HangmanModelo.categoria">
+      <EntityTypeMapping TypeName="HangmanModel.categoria">
         <MappingFragment StoreEntitySet="categoria">
           <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -11,7 +11,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="estado_partida">
-      <EntityTypeMapping TypeName="HangmanModelo.estado_partida">
+      <EntityTypeMapping TypeName="HangmanModel.estado_partida">
         <MappingFragment StoreEntitySet="estado_partida">
           <ScalarProperty Name="id_estado_partida" ColumnName="id_estado_partida" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -19,7 +19,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="idioma_partida">
-      <EntityTypeMapping TypeName="HangmanModelo.idioma_partida">
+      <EntityTypeMapping TypeName="HangmanModel.idioma_partida">
         <MappingFragment StoreEntitySet="idioma_partida">
           <ScalarProperty Name="id_idioma_partida" ColumnName="id_idioma_partida" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -27,7 +27,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="jugador">
-      <EntityTypeMapping TypeName="HangmanModelo.jugador">
+      <EntityTypeMapping TypeName="HangmanModel.jugador">
         <MappingFragment StoreEntitySet="jugador">
           <ScalarProperty Name="id_jugador" ColumnName="id_jugador" />
           <ScalarProperty Name="usuario" ColumnName="usuario" />
@@ -41,7 +41,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="palabra">
-      <EntityTypeMapping TypeName="HangmanModelo.palabra">
+      <EntityTypeMapping TypeName="HangmanModel.palabra">
         <MappingFragment StoreEntitySet="palabra">
           <ScalarProperty Name="id_palabra" ColumnName="id_palabra" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -54,7 +54,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="partida">
-      <EntityTypeMapping TypeName="HangmanModelo.partida">
+      <EntityTypeMapping TypeName="HangmanModel.partida">
         <MappingFragment StoreEntitySet="partida">
           <ScalarProperty Name="id_partida" ColumnName="id_partida" />
           <ScalarProperty Name="codigo" ColumnName="codigo" />
@@ -64,6 +64,18 @@
           <ScalarProperty Name="id_adivinador" ColumnName="id_adivinador" />
           <ScalarProperty Name="id_estado_partida" ColumnName="id_estado_partida" />
           <ScalarProperty Name="id_idioma_partida" ColumnName="id_idioma_partida" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="resultado">
+      <EntityTypeMapping TypeName="HangmanModel.resultado">
+        <MappingFragment StoreEntitySet="resultado">
+          <ScalarProperty Name="id_resultado" ColumnName="id_resultado" />
+          <ScalarProperty Name="id_jugador" ColumnName="id_jugador" />
+          <ScalarProperty Name="id_partida" ColumnName="id_partida" />
+          <ScalarProperty Name="gano" ColumnName="gano" />
+          <ScalarProperty Name="puntos" ColumnName="puntos" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

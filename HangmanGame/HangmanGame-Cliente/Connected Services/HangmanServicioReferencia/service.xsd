@@ -94,6 +94,7 @@
         <xs:element minOccurs="0" name="idJugador" type="xs:int" />
         <xs:element minOccurs="0" name="idPartida" type="xs:int" />
         <xs:element minOccurs="0" name="gano" type="xs:boolean" />
+        <xs:element minOccurs="0" name="esAbandono" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -114,7 +115,35 @@
   <xs:element name="ObtenerEstadisticasPorJugadorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Biblioteca.DTO" minOccurs="0" name="ObtenerEstadisticasPorJugadorResult" nillable="true" type="q8:ArrayOfEstadisticaDTO" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Biblioteca.DTO" minOccurs="0" name="ObtenerEstadisticasPorJugadorResult" nillable="true" type="q8:ResponseEstadisticaDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Biblioteca.DTO" minOccurs="0" name="jugadorDTO" nillable="true" type="q9:JugadorDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Biblioteca.DTO" minOccurs="0" name="RegistrarJugadorResult" nillable="true" type="q10:ResponseDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Biblioteca.DTO" minOccurs="0" name="jugadorDTO" nillable="true" type="q11:JugadorDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Biblioteca.DTO" minOccurs="0" name="ActualizarJugadorResult" nillable="true" type="q12:ResponseDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

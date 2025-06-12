@@ -13,22 +13,22 @@
             <ImageBrush ImageSource="/Cliente/Recursos/makingMatchBackground.png"/>
         </Grid.Background>
         <!-- Botones de categoría -->
-        <Button Content="Musica" HorizontalAlignment="Left" Margin="47,193,0,0" VerticalAlignment="Top" Width="182" Height="66" 
-                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="White" BorderBrush="{x:Null}" 
+        <Button x:Name="btnCategoriaMusica" Content="{DynamicResource btnCategoriaMusica}" HorizontalAlignment="Left" Margin="47,193,0,0" VerticalAlignment="Top" Width="182" Height="66" 
+                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="Black" BorderBrush="{x:Null}" 
                 Click="CategoriaMusica">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>
         </Button>
-        <Button Content="Series" HorizontalAlignment="Left" Margin="47,276,0,0" VerticalAlignment="Top" Width="244" Height="66" 
-                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="White" BorderBrush="{x:Null}" 
+        <Button Content="{DynamicResource btnCategoriaSeries}" HorizontalAlignment="Left" Margin="47,276,0,0" VerticalAlignment="Top" Width="182" Height="66" 
+                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="#FF292929" BorderBrush="{x:Null}" 
                 Click="CategoriaSeries">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
             </Button.Background>
         </Button>
-        <Button Content="Peliculas" HorizontalAlignment="Left" Margin="47,354,0,0" VerticalAlignment="Top" Width="182" Height="66" 
-                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="White" BorderBrush="{x:Null}" 
+        <Button Content="{DynamicResource btnCategoriaPeliculas}" HorizontalAlignment="Left" Margin="47,354,0,0" VerticalAlignment="Top" Width="182" Height="66" 
+                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="Black" BorderBrush="{x:Null}" 
                 Click="CategoriaPeliculas">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>
@@ -73,8 +73,8 @@
             </ListView.View>
         </ListView>
         <!-- Botón Cancelar -->
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="552,604,0,0" VerticalAlignment="Top" Width="182" Height="66" 
-                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="White" BorderBrush="{x:Null}" 
+        <Button Content="{DynamicResource btnCancelarCreacionPartida}" HorizontalAlignment="Left" Margin="552,604,0,0" VerticalAlignment="Top" Width="182" Height="66" 
+                FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="40" Foreground="Black" BorderBrush="{x:Null}" 
                 Click="CancelarCreacionPartida">
             <Button.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/buttonBackground.png"/>

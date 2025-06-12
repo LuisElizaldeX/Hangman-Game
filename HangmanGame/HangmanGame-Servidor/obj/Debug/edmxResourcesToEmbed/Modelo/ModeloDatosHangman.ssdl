@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="HangmanModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="HangmanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="categoria">
     <Key>
       <PropertyRef Name="id_categoria" />
@@ -13,7 +13,7 @@
       <PropertyRef Name="id_estado_partida" />
     </Key>
     <Property Name="id_estado_partida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="idioma_partida">
     <Key>
@@ -30,7 +30,7 @@
     <Property Name="usuario" Type="varchar" MaxLength="12" />
     <Property Name="nombre" Type="varchar" MaxLength="40" />
     <Property Name="fecha_nacimiento" Type="date" />
-    <Property Name="telefono" Type="int" />
+    <Property Name="telefono" Type="varchar" MaxLength="15" />
     <Property Name="correo" Type="varchar" MaxLength="45" />
     <Property Name="contrasena" Type="varchar" MaxLength="20" />
     <Property Name="puntuacion" Type="int" />
@@ -59,7 +59,42 @@
     <Property Name="id_adivinador" Type="int" />
     <Property Name="id_estado_partida" Type="int" />
     <Property Name="id_idioma_partida" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
   </EntityType>
+  <EntityType Name="resultado">
+    <Key>
+      <PropertyRef Name="id_resultado" />
+    </Key>
+    <Property Name="id_resultado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_jugador" Type="int" Nullable="false" />
+    <Property Name="id_partida" Type="int" Nullable="false" />
+    <Property Name="gano" Type="bit" Nullable="false" />
+    <Property Name="puntos" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__resultado__id_ju__49C3F6B7">
+    <End Role="jugador" Type="Self.jugador" Multiplicity="1" />
+    <End Role="resultado" Type="Self.resultado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jugador">
+        <PropertyRef Name="id_jugador" />
+      </Principal>
+      <Dependent Role="resultado">
+        <PropertyRef Name="id_jugador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__resultado__id_pa__4AB81AF0">
+    <End Role="partida" Type="Self.partida" Multiplicity="1" />
+    <End Role="resultado" Type="Self.resultado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="partida">
+        <PropertyRef Name="id_partida" />
+      </Principal>
+      <Dependent Role="resultado">
+        <PropertyRef Name="id_partida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_gamematch_challenger">
     <End Role="jugador" Type="Self.jugador" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -142,13 +177,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="HangmanModeloStoreContainer">
+  <EntityContainer Name="HangmanModelStoreContainer">
     <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="estado_partida" EntityType="Self.estado_partida" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="idioma_partida" EntityType="Self.idioma_partida" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="jugador" EntityType="Self.jugador" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="palabra" EntityType="Self.palabra" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="partida" EntityType="Self.partida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="resultado" EntityType="Self.resultado" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__resultado__id_ju__49C3F6B7" Association="Self.FK__resultado__id_ju__49C3F6B7">
+      <End Role="jugador" EntitySet="jugador" />
+      <End Role="resultado" EntitySet="resultado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__resultado__id_pa__4AB81AF0" Association="Self.FK__resultado__id_pa__4AB81AF0">
+      <End Role="partida" EntitySet="partida" />
+      <End Role="resultado" EntitySet="resultado" />
+    </AssociationSet>
     <AssociationSet Name="FK_gamematch_challenger" Association="Self.FK_gamematch_challenger">
       <End Role="jugador" EntitySet="jugador" />
       <End Role="partida" EntitySet="partida" />

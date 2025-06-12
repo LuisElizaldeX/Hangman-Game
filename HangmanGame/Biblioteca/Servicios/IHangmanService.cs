@@ -23,5 +23,9 @@ namespace Biblioteca.Servicios
         ResponseResultadoDTO GuardarResultado(int idJugador, int idPartida, bool gano, bool esAbandono = false);
         [OperationContract]
         ResponseEstadisticaDTO ObtenerEstadisticasPorJugador(int idJugador);
+        [OperationContract]
+        ResponseDTO RegistrarJugador(JugadorDTO jugadorDTO);
+        [OperationContract]
+        ResponseDTO ActualizarJugador(JugadorDTO jugadorDTO);
     }
 }
