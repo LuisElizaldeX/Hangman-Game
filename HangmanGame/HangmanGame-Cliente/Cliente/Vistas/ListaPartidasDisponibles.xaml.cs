@@ -24,13 +24,12 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         {
             InitializeComponent();
             cliente = new HangmanServiceClient();
-            socketCliente = new SocketCliente();
             CargarPartidas();
             Loaded += ListaPartidasDisponibles_Loaded;
             Unloaded += ListaPartidasDisponibles_Unloaded;
         }
 
-        private void ListaPartidasDisponibles_Loaded(object sender, RoutedEventArgs e)
+        private async void ListaPartidasDisponibles_Loaded(object sender, RoutedEventArgs e)
         {
             if (isInitialized) return; 
             isInitialized = true;
@@ -49,29 +48,27 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 return;
             }
 
-            Task.Run(async () =>
+            socketCliente = new SocketCliente();
+            socketCliente.ConnectionLost += OnConnectionLost;
+            socketCliente.MessageReceived += OnMessageReceived;
+
+            try
             {
-                try
-                {
-                    await socketCliente.ConectarAsync("127.0.0.1", 12345);
-                    await socketCliente.SendMessageAsync("REGISTRO_LOBBY"); // Enviar mensaje para registrarse en el lobby
-                    socketCliente.MessageReceived += OnMessageReceived;
-                    socketCliente.ConnectionLost += OnConnectionLost;
-                    //Dispatcher.Invoke(() => MessageBox.Show($"Conectado al servidor de sockets para {codigoPartida} con ID {idJugadorActual}"));
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                    Dispatcher.Invoke(() => OnConnectionLost(ex.Message));
-                }
-            });
+                await socketCliente.ConectarAsync("127.0.0.1", 12345);
+                await socketCliente.SendMessageAsync("REGISTRO_LOBBY");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al conectar al servidor de sockets: " + ex.Message);
+                OnConnectionLost(ex.Message);
+            }
 
             CargarPartidas();
         }
 
         private void ListaPartidasDisponibles_Unloaded(object sender, RoutedEventArgs e)
         {
-            socketCliente.Desconectar();
+            socketCliente?.Desconectar();
             try { cliente.Close(); } catch { cliente.Abort(); }
         }
 

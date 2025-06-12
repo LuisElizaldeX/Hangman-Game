@@ -1,4 +1,5 @@
 ﻿using Biblioteca.DTO;
+using HangmanGame_Cliente.Cliente.Alertas;
 using HangmanGame_Cliente.HangmanServicioReferencia;
 using HangmanGame_Cliente.Utilidades;
 using System;
@@ -85,8 +86,8 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                     bool esAnfitrion = idJugadorActual == estadoPartida.partida.IdAdivinador;
                     if (esAnfitrion)
                     {
-                        tbAvisoPartida.Text = $"Estás por comenzar una partida con \n{nicknameRetador}, ¿estás listo?";
-                        lbRetador.Content = $"¡{nicknameRetador} se ha unido a la partida!";
+                        AjustarTextos(nicknameRetador);
+
                         btnComenzar.Visibility = Visibility.Visible;
                         lbAvisoPartida.Visibility = Visibility.Visible;
                         lbRetador.Visibility = Visibility.Visible;
@@ -94,8 +95,8 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                     else
                     {
                         string nicknameAnfitrion = estadoPartida.partida.Nickname;
-                        tbAvisoPartida.Text = $"Estás por comenzar una partida con \n{nicknameAnfitrion}, ¿estás listo?";
-                        lbRetador.Content = $"¡Te has unido a la sala, pronto comenzará!";
+                        AjustarTextos(nicknameAnfitrion);
+
                         lbRetador.Visibility = Visibility.Visible;
                         lbAvisoPartida.Visibility = Visibility.Visible;
                         btnComenzar.Visibility = Visibility.Hidden;
@@ -134,7 +135,6 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                     var partes = message.Split(':');
                     if (partes.Length >= 2 && partes[1] == codigoPartida)
                     {
-                        MessageBox.Show($"PARTIDA_CANCELADA recibido para ID {idJugadorActual} con código {codigoPartida}");
                         isListening = false;
                         socketCliente.MessageReceived -= OnMessageReceived;
 
@@ -145,8 +145,8 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                         var mainWindow = Application.Current.MainWindow as MainWindow;
                         if (mainWindow != null)
                         {
+                            MostrarAlertaBloqueante(new PartidaCancelada());
                             mainWindow.CambiarPagina(new ListaPartidasDisponibles());
-                            // COLOCAR ALERTA DE PARTIDA CANCELADA SI ES QUE LA HAY
                         }
                         else
                         {
@@ -165,6 +165,21 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             });
         }
 
+
+        private void AjustarTextos(string nickname)
+        {
+            if (IdiomaHelper.IdiomaActual.Equals("es"))
+            {
+                tbAvisoPartida.Text = $"Estás por comenzar una partida con \n{nickname}, ¿estás listo?";
+                lbRetador.Content = $"¡{nickname} se ha unido a la partida!";
+            }
+            else
+            {
+                tbAvisoPartida.Text = $"You're about to start a match with \n{nickname}, ¿are you ready?";
+                lbRetador.Content = $"¡{nickname} has joined the match!";
+            }
+        }
+
         private void VerificarEstadoPartida()
         {
             try
@@ -175,19 +190,17 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 {
                     var partida = response.partida;
                     bool esAnfitrion = idJugadorActual == partida.IdAdivinador;
-                    //MessageBox.Show($"Verificación inicial - Es anfitrión: {esAnfitrion}, ID Adivinador: {partida.IdAdivinador}, Tu ID: {jugadorDTO.id_jugador}");
                     if (partida.IdEstadoPartida == 7)
                     {
                         if (esAnfitrion)
                         {
-                            tbAvisoPartida.Text = $"Estás por comenzar una partida con \n{partida.NicknameRetador}, ¿estás listo?";
-                            lbRetador.Content = $"¡{partida.NicknameRetador} se ha unido a la partida!";
-                            
+                            AjustarTextos(partida.NicknameRetador);
+                            /*tbAvisoPartida.Text = $"Estás por comenzar una partida con \n{partida.NicknameRetador}, ¿estás listo?";
+                            lbRetador.Content = $"¡{partida.NicknameRetador} se ha unido a la partida!";*/
                         }
                         else
                         {
-                            tbAvisoPartida.Text = $"Estás por comenzar una partida con \n{partida.Nickname}, ¿estás listo?";
-                            lbRetador.Content = $"¡Te has unido a la sala jeje, pronto comenzará!";
+                            AjustarTextos(partida.Nickname);
                             lbRetador.Visibility = Visibility.Visible;
                             lbAvisoPartida.Visibility = Visibility.Visible;
                         }
@@ -196,7 +209,14 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                     {
                         if (esAnfitrion)
                         {
-                            tbAvisoPartida.Text = "Esperando a que un retador se una...";
+                            if (IdiomaHelper.IdiomaActual.Equals("es"))
+                            {
+                                tbAvisoPartida.Text = "Esperando a que un retador se una...";
+                            }
+                            else
+                            {
+                                tbAvisoPartida.Text = "Waiting for a challenger...";
+                            }
                         }
                         else
                         {
@@ -271,6 +291,13 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 var mainWindow = Window.GetWindow(this) as MainWindow;
                 mainWindow?.HandleConnectionLost(message ?? "Se ha perdido la conexión con el servidor.");
             });
+        }
+
+        private void MostrarAlertaBloqueante(Window alerta)
+        {
+            alerta.Owner = Window.GetWindow(this);
+            alerta.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            alerta.ShowDialog();
         }
 
     }

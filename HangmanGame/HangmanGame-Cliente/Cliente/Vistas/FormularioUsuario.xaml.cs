@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Xml.Linq;
 
 namespace HangmanGame_Cliente.Cliente.Vistas
 {
@@ -17,6 +16,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         SolidColorBrush rojo = new SolidColorBrush(Colors.Red);
         SolidColorBrush transparente = new SolidColorBrush(Colors.Transparent);
         private HangmanServiceClient cliente;
+        private SocketCliente socketCliente;
         private JugadorDTO jugadorExistente;
         private bool isInitialized;
         private bool esEdicion = false;
@@ -25,11 +25,12 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         {
             InitializeComponent();
             this.esEdicion = esEdicion;
-            Loaded += FormularioUsuario_Loaded;
             cliente = new HangmanServiceClient();
+            Loaded += FormularioUsuario_Loaded;
+            Unloaded += FormularioUsuario_Unloaded;
         }
 
-        private void FormularioUsuario_Loaded(object sender, RoutedEventArgs e)
+        private async void FormularioUsuario_Loaded(object sender, RoutedEventArgs e)
         {
             if (isInitialized) return;
             isInitialized = true;
@@ -41,7 +42,28 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 return;
             }
             jugadorExistente = mainWindow.GetJugadorAutenticado();
+
+            socketCliente = new SocketCliente();
+            socketCliente.ConnectionLost += OnConnectionLost;
+
+            try
+            {
+                await socketCliente.ConectarAsync("127.0.0.1", 12345);
+                await socketCliente.SendMessageAsync("MONITOR_ESTADISTICAS");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al conectar al servidor de sockets: " + ex.Message);
+                OnConnectionLost(ex.Message);
+            }
+
             cargarInformacion();
+        }
+
+        private void FormularioUsuario_Unloaded(object sender, RoutedEventArgs e)
+        {
+            socketCliente.Desconectar();
+            try { cliente.Close(); } catch { cliente.Abort(); }
         }
 
         private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
@@ -102,13 +124,19 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 }
                 catch (FormatException ex)
                 {
-                    MostrarAlertaBloqueante(new SinConexionBaseDatos());
-                    Console.WriteLine("Error: " + ex.Message);
+                    Dispatcher.Invoke(() =>
+                    {
+                        MostrarAlertaBloqueante(new SinConexionBaseDatos());
+                        Console.WriteLine("Error: " + ex.Message);
+                    });
                 }
                 catch (Exception ex)
                 {
-                    MostrarAlertaBloqueante(new SinConexionServidor());
-                    Console.WriteLine("Error: " + ex.Message);
+                    Dispatcher.Invoke(() =>
+                    {
+                        MostrarAlertaBloqueante(new SinConexionBaseDatos());
+                        Console.WriteLine("Error: " + ex.Message);
+                    });
                 }
             }
         }
@@ -127,6 +155,8 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             txtCorreo.BorderBrush = transparente;
             psBContrasenia.BorderBrush = transparente;
         }
+
+        #region Validaciones
         private bool ValidarCampos()
         {
             limpiarBordes();
@@ -254,6 +284,8 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             }
         }
 
+        #endregion
+
         public void cargarInformacion()
         {
             if (jugadorExistente != null)
@@ -276,14 +308,13 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             alerta.ShowDialog();
         }
 
-        private void GuardarRegistroUsuario(object sender, RoutedEventArgs e)
+        private void OnConnectionLost(string message)
         {
-
-        }
-
-        private void Regresar(object sender, RoutedEventArgs e)
-        {
-
+            Dispatcher.Invoke(() =>
+            {
+                var mainWindow = Window.GetWindow(this) as MainWindow;
+                mainWindow?.HandleConnectionLost(message ?? "Se ha perdido la conexión con el servidor.");
+            });
         }
     }
 }

@@ -53,9 +53,8 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 try
                 {
                     await socketCliente.ConectarAsync("127.0.0.1", 12345);
-                    await socketCliente.SendMessageAsync("MONITOR_ESTADISTICAS"); // Enviar mensaje para registrarse en el lobby
+                    await socketCliente.SendMessageAsync("MONITOR_ESTADISTICAS"); 
                     socketCliente.ConnectionLost += OnConnectionLost;
-                    //Dispatcher.Invoke(() => MessageBox.Show($"Conectado al servidor de sockets para {codigoPartida} con ID {idJugadorActual}"));
                 }
                 catch (Exception ex)
                 {
@@ -86,12 +85,26 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                         listViewPartidas.ItemsSource = estadisticasDTO.Estadisticas;
 
                         int totalPuntos = estadisticasDTO.Estadisticas.Sum(e => e.Puntos);
-                        labelPuntosTotales.Content = $"Puntos totales: {totalPuntos} pts";
+                        if (IdiomaHelper.IdiomaActual.Equals("es"))
+                        {
+                            labelPuntosTotales.Content = $"Puntos totales: {totalPuntos} pts";
+                        }
+                        else
+                        {
+                            labelPuntosTotales.Content = $"Total points: {totalPuntos} pts";
+                        }
                     }
                     else
                     {
                         listViewPartidas.ItemsSource = new List<EstadisticaDTO> { new EstadisticaDTO { Nickname = "No hay partidas disponibles" } };
-                        labelPuntosTotales.Content = "Puntos totales: 0 pts";
+                        if (IdiomaHelper.IdiomaActual.Equals("es"))
+                        {
+                            labelPuntosTotales.Content = "Puntos totales: 0 pts";
+                        }
+                        else
+                        {
+                            labelPuntosTotales.Content = "Total points: 0 pts";
+                        }
                     }
                 }
                 else
