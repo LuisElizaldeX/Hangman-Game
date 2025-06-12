@@ -83,7 +83,15 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 esAnfitrion = idJugadorActual == response.partida.IdAdivinador;
                 idOtroJugador = esAnfitrion ? response.partida.IdRetador : response.partida.IdAdivinador;
                 idPartidaActual = response.partida.IdPartida;
-                tbPista.Text = response.partida.Pista;
+                if (IdiomaHelper.IdiomaActual.Equals("es"))
+                {
+                    tbPista.Text = response.partida.Pista;
+                }
+                else
+                {
+                    tbPista.Text = response.partida.PistaEn;
+                }
+
                 palabra = response.partida.Palabra.ToUpper();
                 int longitudSinEspacios = palabra.Count(c => !char.IsWhiteSpace(c));
                 palabraMostrada = new char[longitudSinEspacios];
@@ -221,8 +229,6 @@ namespace HangmanGame_Cliente.Cliente.Vistas
 
                         if (intentosFallidos >= maxIntentosFallidos)
                         {
-                            MostrarAlertaBloqueante(new PalabraNoAdivinada());
-                            //MessageBox.Show("¡Perdiste! Se acabaron los intentos."); // MODIFICAR POR UNA ALERTA
                             MostrarMunecoCompleto(); 
                             await EnviarFinPartida("RETADOR_PERDIO");
                             return;
@@ -242,8 +248,6 @@ namespace HangmanGame_Cliente.Cliente.Vistas
 
                     if (palabraMostradaStr == palabraSinEspacios)
                     {
-                        MostrarAlertaBloqueante(new PalabraAdivinada());
-                        //MessageBox.Show("¡Ganaste! Adivinaste la palabra."); // MODIFICAR POR UNA ALERTA
                         await EnviarFinPartida("RETADOR_GANO");
                         return;
                     }
@@ -334,14 +338,12 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                                 {
                                     var resultadoResponse = cliente.GuardarResultado(idJugadorActual, idPartidaActual, true, false);
                                     MostrarAlertaBloqueante(new PalabraAdivinada());
-                                    //MessageBox.Show("Has ganado la partida!"); // MODIFICAR POR UNA ALERTA
                                     TerminarPartida();
                                 }
                                 else
                                 {
                                     var resultadoResponse = cliente.GuardarResultado(idJugadorActual, idPartidaActual, false, false);
                                     MostrarAlertaBloqueante(new PalabraNoAdivinada());
-                                    //MessageBox.Show("Has perdido la partida!"); // MODIFICAR POR UNA ALERTA
                                     TerminarPartida();
                                 }
                             }
@@ -350,15 +352,13 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                                 if (esAnfitrion)
                                 {
                                     var resultadoResponse = cliente.GuardarResultado(idJugadorActual, idPartidaActual, false, false);
-                                    MostrarAlertaBloqueante(new PalabraAdivinada());
-                                    //MessageBox.Show("Has perdido la partida!"); // MODIFICAR POR UNA ALERTA
+                                    MostrarAlertaBloqueante(new PalabraNoAdivinada());
                                     TerminarPartida();
                                 }
                                 else
                                 {
                                     var resultadoResponse = cliente.GuardarResultado(idJugadorActual, idPartidaActual, true, false);
-                                    MostrarAlertaBloqueante(new PalabraNoAdivinada());
-                                    //MessageBox.Show("Has ganado la partida!"); // MODIFICAR POR UNA ALERTA
+                                    MostrarAlertaBloqueante(new PalabraAdivinada());
                                     TerminarPartida();
                                 }
                             }
@@ -369,7 +369,6 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                                     var resultadoResponse = cliente.GuardarResultado(jugadorAbandono, idPartidaActual, false, true);
                                     MostrarMunecoCompleto();
                                     MostrarAlertaBloqueante(new PartidaCancelada());
-                                    //MessageBox.Show("El jugador abandonó"); // MODIFICAR POR UNA ALERTA
                                     TerminarPartida();
                                 }
                                 else
@@ -377,7 +376,6 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                                     var resultadoResponse = cliente.GuardarResultado(idJugadorActual, idPartidaActual, false, false);
                                     MostrarMunecoCompleto();
                                     MostrarAlertaBloqueante(new PartidaCancelada());
-                                    //MessageBox.Show("El jugador abandonó"); // MODIFICAR POR UNA ALERTA
                                     TerminarPartida();
                                 }
                             }

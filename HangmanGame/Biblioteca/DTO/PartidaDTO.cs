@@ -30,6 +30,8 @@ namespace Biblioteca.DTO
         [DataMember]
         public string Pista { get; set; }
         [DataMember]
+        public string PistaEn { get; set; }
+        [DataMember]
         public DateTime fecha { get; set; }
         [DataMember]
         public string FechaPartida { get; set; }

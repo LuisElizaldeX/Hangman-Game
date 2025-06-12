@@ -34,20 +34,21 @@
     <system:String x:Key="lblTituloSalaEspera">Sala de espera</system:String>
     <system:String x:Key="lblAnuncioCodigoPartida">El código de la partida es:</system:String>
     <system:String x:Key="btnCancelarIniciarPartida">Cancelar</system:String>
+    <system:String x:Key="btnComenzarIniciarPartida">Comenzar</system:String>
     <!-- Partida -->
     <system:String x:Key="btnAbandonarPartida">Abandonar</system:String>
     <!-- Alertas -->
     <!-- PalabraAdivinada -->
-    <system:String x:Key="txtBlkTituloPalabraAdivinada1">¡Adivinaste la</system:String>
-    <system:String x:Key="txtBlkTituloPalabraAdivinada2">palabra!</system:String>
-    <system:String x:Key="txtBlkMensajePalabraAdivinada1">¡Felicidades! ¡Has adivinado</system:String>
-    <system:String x:Key="txtBlkMensajePalabraAdivinada2">la palabra correctamente!</system:String>
+    <system:String x:Key="txtBlkTituloPalabraAdivinada1">¡Ganaste la</system:String>
+    <system:String x:Key="txtBlkTituloPalabraAdivinada2">partida!</system:String>
+    <system:String x:Key="txtBlkMensajePalabraAdivinada1">¡Felicidades! ¡Has salido</system:String>
+    <system:String x:Key="txtBlkMensajePalabraAdivinada2">victorioso!</system:String>
     <system:String x:Key="btnAceptarPalabraAdivinada">Aceptar</system:String>
     <!-- PalabraAdivinada -->
-    <system:String x:Key="txtBlkTituloPalabraNoAdivinada1">¡No adivinaste </system:String>
-    <system:String x:Key="txtBlkTituloPalabraNoAdivinada2">la palabra!</system:String>
+    <system:String x:Key="txtBlkTituloPalabraNoAdivinada1">¡Has perdido </system:String>
+    <system:String x:Key="txtBlkTituloPalabraNoAdivinada2">la partida!</system:String>
     <system:String x:Key="txtBlkMensajePalabraNoAdivinada1">¡Oh no! ¡Has sido ahorcado!</system:String>
-    <system:String x:Key="txtBlkMensajePalabraNoAdivinada2">La palabra era WORD</system:String>
+    <system:String x:Key="txtBlkMensajePalabraNoAdivinada2"> :( </system:String>
     <system:String x:Key="btnAceptarPalabraNoAdivinada">Aceptar</system:String>
     <!-- InicioSesionExitoso -->
     <system:String x:Key="txtBlkTituloInicioSesionExitoso1">¡Inicio de sesión</system:String>

@@ -34,20 +34,21 @@
     <system:String x:Key="lblTituloSalaEspera">Waiting room</system:String>
     <system:String x:Key="lblAnuncioCodigoPartida">Match code is:</system:String>
     <system:String x:Key="btnCancelarIniciarPartida">Cancel</system:String>
+    <system:String x:Key="btnComenzarIniciarPartida">Start</system:String>
     <!-- Partida -->
     <system:String x:Key="btnAbandonarPartida">Leave</system:String>
     <!-- Alertas -->
     <!-- PalabraAdivinada -->
-    <system:String x:Key="txtBlkTituloPalabraAdivinada1">Word</system:String>
-    <system:String x:Key="txtBlkTituloPalabraAdivinada2">guessed!</system:String>
-    <system:String x:Key="txtBlkMensajePalabraAdivinada1">Congrats! You've guessed</system:String>
-    <system:String x:Key="txtBlkMensajePalabraAdivinada2">the word successfully!</system:String>
+    <system:String x:Key="txtBlkTituloPalabraAdivinada1">You have</system:String>
+    <system:String x:Key="txtBlkTituloPalabraAdivinada2">won!</system:String>
+    <system:String x:Key="txtBlkMensajePalabraAdivinada1">Congrats! You've won</system:String>
+    <system:String x:Key="txtBlkMensajePalabraAdivinada2">the match successfully!</system:String>
     <system:String x:Key="btnAceptarPalabraAdivinada">OK</system:String>
     <!-- PalabraAdivinada -->
-    <system:String x:Key="txtBlkTituloPalabraNoAdivinada1">Word</system:String>
-    <system:String x:Key="txtBlkTituloPalabraNoAdivinada2">not guessed!</system:String>
+    <system:String x:Key="txtBlkTituloPalabraNoAdivinada1">You've</system:String>
+    <system:String x:Key="txtBlkTituloPalabraNoAdivinada2">lost!</system:String>
     <system:String x:Key="txtBlkMensajePalabraNoAdivinada1">Oh no! You've been hangmanded!</system:String>
-    <system:String x:Key="txtBlkMensajePalabraNoAdivinada2">The word was WORD</system:String>
+    <system:String x:Key="txtBlkMensajePalabraNoAdivinada2"> :( </system:String>
     <system:String x:Key="btnAceptarPalabraNoAdivinada">OK</system:String>
     <!-- InicioSesionExitoso -->
     <system:String x:Key="txtBlkTituloInicioSesionExitoso1">Log In</system:String>

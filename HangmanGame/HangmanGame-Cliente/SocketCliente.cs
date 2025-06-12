@@ -90,12 +90,21 @@ namespace HangmanGame_Cliente
 
         public void Desconectar()
         {
-            Console.WriteLine("SocketCliente: Desconectando...");
+            /*Console.WriteLine("SocketCliente: Desconectando...");
             isListening = false;
             cts?.Cancel();
             stream?.Dispose();
             client?.Close();
-            cts?.Dispose();
+            cts?.Dispose();*/
+
+            Console.WriteLine("SocketCliente: Desconectando...");
+            isListening = false; // Detener la escucha
+            cts?.Cancel(); // Cancelar la tarea de escucha
+            stream?.Close();
+            client?.Close();
+            cts?.Dispose(); // Liberar cts
+            cts = null;
+            Console.WriteLine("SocketCliente: Escucha finalizada.");
         }
 
         private void OnConnectionLost(string message)

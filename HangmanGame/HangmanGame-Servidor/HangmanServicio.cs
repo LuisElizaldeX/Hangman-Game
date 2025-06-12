@@ -325,7 +325,8 @@ namespace HangmanGame_Servidor
                                     Anfitrion = jAdivinador,
                                     Retador = jRetador,
                                     Palabra = pal,
-                                    Pista = pal.pista// Incluir la entidad palabra
+                                    Pista = pal.pista,
+                                    PistaEn = pal.descripcion_en
                                 };
 
                     var result = query.FirstOrDefault();
@@ -361,7 +362,8 @@ namespace HangmanGame_Servidor
                             IdEstadoPartida = partida.id_estado_partida ?? 0,
                             IdIdiomaPartida = partida.id_idioma_partida ?? 0,
                             Palabra = palabra?.nombre?.ToUpper(),
-                            Pista = palabra.pista
+                            Pista = palabra.pista,
+                            PistaEn = palabra.descripcion_en
                         },
                         message = "Estado de la partida obtenido"
                     };

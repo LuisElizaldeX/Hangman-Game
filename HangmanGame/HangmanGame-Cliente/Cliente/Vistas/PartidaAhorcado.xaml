@@ -11,11 +11,11 @@
         <ImageBrush ImageSource="/Cliente/Recursos/matchBackground.png"/>
     </Page.Background>
     <Grid>
-        <Label HorizontalAlignment="Left" Margin="563,19,0,0" VerticalAlignment="Top" Height="98" Width="682" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+        <Label HorizontalAlignment="Left" Margin="266,19,0,0" VerticalAlignment="Top" Height="98" Width="979" Foreground="White" FontFamily="pack://application:,,,/Font/#MedievalSharp" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             <Label.Background>
                 <ImageBrush ImageSource="/Cliente/Recursos/labelBackground.png"/>
             </Label.Background>
-            <TextBlock x:Name="tbPista" TextAlignment="Center"> Es el album de música más<LineBreak/> vendido de la historia</TextBlock>
+            <TextBlock x:Name="tbPista" TextAlignment="Center" Width="943" FontSize="26"> Es el album de música más<LineBreak/> vendido de la historia</TextBlock>
         </Label>
         <Button Content="{DynamicResource btnAbandonarPartida}" HorizontalAlignment="Left" Margin="45,605,0,0" VerticalAlignment="Top" Width="248" Height="66" FontFamily="pack://application:,,,/Font/#MedievalSharp"  FontSize="40" Foreground="Black" BorderBrush="{x:Null}" Click="AbandonarPartida">
             <Button.Background>
