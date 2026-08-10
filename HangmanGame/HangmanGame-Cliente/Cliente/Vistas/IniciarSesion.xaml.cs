@@ -1,9 +1,11 @@
 ﻿using Biblioteca.DTO;
-using HangmanGame_Cliente.Utilidades;
-using Newtonsoft.Json;
+using HangmanGame_Cliente.Cliente.Alertas;
+using HangmanGame_Cliente.HangmanServicioReferencia;
 using System;
-using System.IO;
-using System.Net.Sockets;
+using System.Data.Entity.Core;
+using System.Globalization;
+using System.ServiceModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,76 +16,90 @@ namespace HangmanGame_Cliente.Cliente.Vistas
     /// </summary>
     public partial class IniciarSesion : Page
     {
-        private SocketCliente socketCliente;
+
+        private HangmanServiceClient cliente;
+        public event EventHandler<string> IdiomaSeleccionado;
+
         public IniciarSesion()
         {
             InitializeComponent();
-            socketCliente = new SocketCliente();
+            ActualizarTitulo();
+            cliente = new HangmanServiceClient(); 
         }
 
-        private void DarAltaUsuario(object sender, RoutedEventArgs e)
-        {
-            MainWindow.CambiarPagina(new FormularioUsuario());
-        }
-
-        private async void InicioSesion(object sender, RoutedEventArgs e)
+        private void InicioSesion(object sender, RoutedEventArgs e)
         {
             string correo = cuadroTextoCorreo.Text;
             string contrasena = cuadroContrasenaContrasena.Password;
 
-            if (!Seguridad.EsCadenaVacia(correo) &&
-                !Seguridad.EsCadenaVacia(contrasena))
+            if (!Seguridad.EsCadenaVacia(correo) && !Seguridad.EsCadenaVacia(contrasena))
             {
-                if(!ExistenDatosInvalidos(correo))
+                if (!ExistenDatosInvalidos(correo, contrasena))
                 {
                     try
                     {
-                        await socketCliente.ConectarAsync("127.0.0.1", 8001);
+                        ResponseDTO response = cliente.Autenticacion(correo, contrasena);
 
-                        var jugadorDTO = new JugadorDTO
+                        if (response != null && response.success && response.data != null)
                         {
-                            correo = cuadroTextoCorreo.Text,
-                            contrasñea = cuadroContrasenaContrasena.Password
-                        };
-                        string json = JsonConvert.SerializeObject(jugadorDTO);
-                        string response = await socketCliente.SendMessageAsync(json);
+                            var jugadorDTO = response.data as JugadorDTO;
+                            if (jugadorDTO != null)
+                            {
+                                var mainWindow = Window.GetWindow(this) as MainWindow;
+                                if (mainWindow != null)
+                                {
+                                    mainWindow.SetJugadorAutenticado(jugadorDTO);
+                                    var jugadorAutenticado = mainWindow.GetJugadorAutenticado();
+                                    if (jugadorAutenticado != null)
+                                    {
 
-                        var responseDTO = JsonConvert.DeserializeObject<ResponseDTO>(response);
-                        if (responseDTO != null && responseDTO.success && responseDTO.data != null)
-                        {
-                            Singleton.Instancia.AutenticarJugador(responseDTO.data);
-                            var jugadorAutenticado = Singleton.Instancia.JugadorAutenticado;
-                            MainWindow.CambiarPagina(new ListaPartidasDisponibles());
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Error: JugadorAutenticado es null después de setearlo.");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error: No se encontró MainWindow.");
+                                }
+                                string mensaje = "Datos válidos. Jugador autenticado:\n" +
+                                              $"Correo: {jugadorDTO.Correo ?? "No disponible"}\n" +
+                                              $"Usuario: {jugadorDTO.Usuario ?? "No disponible"}\n" +
+                                              $"Nombre: {jugadorDTO.Nombre ?? "No disponible"}\n" +
+                                              $"Fecha de Nacimiento: {(jugadorDTO.FechaNacimiento != default(DateTime) ? jugadorDTO.FechaNacimiento.ToString("yyyy-MM-dd") : "No disponible")}\n" +
+                                              $"Teléfono: {jugadorDTO.Telefono}\n" +
+                                              $"Puntuación: {jugadorDTO.Puntuacion}";
+                                MessageBox.Show(mensaje);
+                                if (mainWindow != null)
+                                {
+                                    mainWindow.CambiarPagina(new ListaPartidasDisponibles());
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error: No se pudo convertir los datos del jugador.");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Credenciales no encontradas");
+                            MessageBox.Show($"Credenciales no encontradas o error: {response?.message ?? "Sin mensaje"}");
                         }
                     }
-                    catch (SocketException ex)
+                    catch (EntityCommandExecutionException ex)
                     {
-                        if (ex.SocketErrorCode == SocketError.ConnectionRefused)
-                        {
-                            MessageBox.Show("Error: El servidor no está disponible. Por favor, verifica que esté en ejecución.");
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Error de conexión: {ex.Message}. Intenta de nuevo.");
-                        }
+                        MessageBox.Show($"Error de ejecución de EntityFramework: {ex.InnerException?.Message ?? ex.Message}");
                     }
-                    catch (IOException ex)
+                    catch (CommunicationException ex)
                     {
-                        // Manejo para pérdida de conexión durante la comunicación
-                        MessageBox.Show($"Error: Se perdió la conexión con el servidor. Detalle: {ex.Message}. Intenta de nuevo.");
+                        MessageBox.Show($"Error de comunicación con el servidor: {ex.Message}. Verifica que el servidor esté en ejecución.");
                     }
-                    catch (JsonException ex)
+                    catch (TimeoutException ex)
                     {
-                        // Manejo para errores al deserializar la respuesta
-                        MessageBox.Show($"Error al procesar la respuesta del servidor: {ex.Message}.");
+                        MessageBox.Show($"Tiempo de espera agotado: {ex.Message}. Verifica la conexión.");
                     }
                     catch (Exception ex)
                     {
-                        // Manejo genérico para otros errores
                         MessageBox.Show($"Error inesperado: {ex.Message}");
                     }
                 }
@@ -94,26 +110,52 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             }
         }
 
-        private bool ExistenDatosInvalidos(string correo)
+        private bool ExistenDatosInvalidos(string correo, string contrasena)
         {
             bool hayCamposInvalidos = false;
 
-            /*
             if (Seguridad.ExistenCaracteresInvalidosParaContrasena(contrasena))
             {
-                MessageBox.Show("Contraseña inválida");
+                MostrarAlertaBloqueante(new CamposErroneos());
+                //MessageBox.Show("Contraseña inválida"); // COLOCAR ALERTA
                 hayCamposInvalidos = true;
-            }*/
+            }
 
             if (!hayCamposInvalidos && Seguridad.
                 ExistenCaracteresInvalidosParaCorreo(correo))
             {
-                MessageBox.Show("Correo inválido");
+                MostrarAlertaBloqueante(new CamposErroneos());
+                //MessageBox.Show("Correo inválido"); // COLOCAR ALERTA
                 hayCamposInvalidos = true;
             }
 
             return hayCamposInvalidos;
         }
 
+        private void btnCambiarIdioma_Click(object sender, RoutedEventArgs e)
+        {
+            IdiomaHelper.AlternarIdioma();
+            ActualizarTitulo();
+            IdiomaSeleccionado?.Invoke(this, IdiomaHelper.IdiomaActual == "en" ? "Ingles" : "Spanish");
+        }
+
+        private void btnRegistrarse_Click(object sender, RoutedEventArgs e)
+        {
+            var formularioUsuarioVista = new FormularioUsuario(false);
+            NavigationService?.Navigate(formularioUsuarioVista);
+        }
+        private void ActualizarTitulo()
+        {
+            bool isEnglish = Thread.CurrentThread.CurrentUICulture.Name == "en";
+            imgTituloEN.Visibility = isEnglish ? Visibility.Visible : Visibility.Collapsed;
+            imgTituloES.Visibility = isEnglish ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void MostrarAlertaBloqueante(Window alerta)
+        {
+            alerta.Owner = Window.GetWindow(this);
+            alerta.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            alerta.ShowDialog();
+        }
     }
 }
