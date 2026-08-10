@@ -137,7 +137,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 }
 
                 string codigo = GenerarCodigoUnico();
-                int anfitrionId = jugadorDTO.id_jugador; 
+                int anfitrionId = jugadorDTO.IdJugador; 
                 int idIdiomaPartida = 1; 
 
                 ResponsePartidaDTO response = cliente.CrearPartida(anfitrionId, palabra.IdPalabra, codigo, idIdiomaPartida);

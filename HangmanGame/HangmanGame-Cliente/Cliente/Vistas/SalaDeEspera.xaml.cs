@@ -49,7 +49,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 mainWindow.CambiarPagina(new IniciarSesion());
                 return;
             }
-            idJugadorActual = jugadorDTO.id_jugador;
+            idJugadorActual = jugadorDTO.IdJugador;
 
             Task.Run(async () =>
             {
@@ -114,14 +114,14 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                         try { cliente.Close(); } catch { cliente.Abort(); }
 
                         // Intentar obtener la ventana principal
-                        var mainWindow = Application.Current.MainWindow as MainWindow;
+                        var mainWindow = System.Windows.Application.Current.MainWindow as MainWindow;
                         if (mainWindow != null)
                         {
                             mainWindow.CambiarPagina(new PartidaAhorcado(codigoPartida));
                         }
                         else
                         {
-                            MessageBox.Show($"Error: MainWindow es null en el retador ID {idJugadorActual}. Application.Current.MainWindow: {Application.Current.MainWindow}");
+                            MessageBox.Show($"Error: MainWindow es null en el retador ID {idJugadorActual}. Application.Current.MainWindow: {System.Windows.Application.Current.MainWindow}");
                         }
                     }
                     else
@@ -141,7 +141,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                         try { cliente.Close(); } catch { cliente.Abort(); }
 
                         // Intentar obtener la ventana principal
-                        var mainWindow = Application.Current.MainWindow as MainWindow;
+                        var mainWindow = System.Windows.Application.Current.MainWindow as MainWindow;
                         if (mainWindow != null)
                         {
                             MostrarAlertaBloqueante(new PartidaCancelada());
@@ -149,7 +149,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                         }
                         else
                         {
-                            MessageBox.Show($"Error: MainWindow es null en el retador ID {idJugadorActual}. Application.Current.MainWindow: {Application.Current.MainWindow}");
+                            MessageBox.Show($"Error: MainWindow es null en el retador ID {idJugadorActual}. Application.Current.MainWindow: {System.Windows.Application.Current.MainWindow}");
                         }
                     }
                     else
@@ -276,7 +276,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 socketCliente.MessageReceived -= OnMessageReceived;
                 await socketCliente.SendMessageAsync($"INICIAR_PARTIDA:{codigoPartida}");
 
-                var mainWindow = Application.Current.MainWindow as MainWindow;
+                var mainWindow = System.Windows.Application.Current.MainWindow as MainWindow;
                 if (mainWindow != null)
                 {
                     mainWindow.CambiarPagina(new PartidaAhorcado(codigoPartida));

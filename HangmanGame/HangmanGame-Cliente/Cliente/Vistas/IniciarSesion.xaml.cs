@@ -19,7 +19,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
 
         private HangmanServiceClient cliente;
         public event EventHandler<string> IdiomaSeleccionado;
-        private string idioma;
+
         public IniciarSesion()
         {
             InitializeComponent();
@@ -64,12 +64,12 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                                     MessageBox.Show("Error: No se encontró MainWindow.");
                                 }
                                 string mensaje = "Datos válidos. Jugador autenticado:\n" +
-                                              $"Correo: {jugadorDTO.correo ?? "No disponible"}\n" +
-                                              $"Usuario: {jugadorDTO.usuario ?? "No disponible"}\n" +
-                                              $"Nombre: {jugadorDTO.nombre ?? "No disponible"}\n" +
-                                              $"Fecha de Nacimiento: {(jugadorDTO.fecha_nacimiento != default(DateTime) ? jugadorDTO.fecha_nacimiento.ToString("yyyy-MM-dd") : "No disponible")}\n" +
-                                              $"Teléfono: {jugadorDTO.telefono}\n" +
-                                              $"Puntuación: {jugadorDTO.puntuacion}";
+                                              $"Correo: {jugadorDTO.Correo ?? "No disponible"}\n" +
+                                              $"Usuario: {jugadorDTO.Usuario ?? "No disponible"}\n" +
+                                              $"Nombre: {jugadorDTO.Nombre ?? "No disponible"}\n" +
+                                              $"Fecha de Nacimiento: {(jugadorDTO.FechaNacimiento != default(DateTime) ? jugadorDTO.FechaNacimiento.ToString("yyyy-MM-dd") : "No disponible")}\n" +
+                                              $"Teléfono: {jugadorDTO.Telefono}\n" +
+                                              $"Puntuación: {jugadorDTO.Puntuacion}";
                                 MessageBox.Show(mensaje);
                                 if (mainWindow != null)
                                 {

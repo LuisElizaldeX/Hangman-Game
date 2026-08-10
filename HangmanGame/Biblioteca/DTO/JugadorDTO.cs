@@ -11,20 +11,20 @@ namespace Biblioteca.DTO
     public class JugadorDTO
     {
         [DataMember]
-        public int id_jugador { get; set; }
+        public int IdJugador { get; set; }
         [DataMember]
-        public string correo { get; set; }
+        public string Correo { get; set; }
         [DataMember]
-        public string contraseña { get; set; } // Solo para la solicitud
+        public string Contrasena { get; set; } 
         [DataMember]
-        public string usuario { get; set; }
+        public string Usuario { get; set; }
         [DataMember]
-        public string nombre { get; set; }
+        public string Nombre { get; set; }
         [DataMember]
-        public DateTime fecha_nacimiento { get; set; }
+        public DateTime FechaNacimiento { get; set; }
         [DataMember]
-        public string telefono { get; set; }
+        public string Telefono { get; set; }
         [DataMember]
-        public int puntuacion { get; set; }
+        public int Puntuacion { get; set; }
     }
 }

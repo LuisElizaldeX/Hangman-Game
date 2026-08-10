@@ -72,7 +72,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         {
             try
             {
-                ResponseEstadisticaDTO response = cliente.ObtenerEstadisticasPorJugador(jugadorDTO.id_jugador);
+                ResponseEstadisticaDTO response = cliente.ObtenerEstadisticasPorJugador(jugadorDTO.IdJugador);
                 if (response != null && response.success && response.data != null)
                 {
                     var estadisticasDTO = response.data;

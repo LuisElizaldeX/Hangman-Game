@@ -78,13 +78,13 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                     {
                         var jugadorActual = new JugadorDTO()
                         {
-                            id_jugador = jugadorExistente.id_jugador,
-                            usuario = txtUsuario.Text,
-                            nombre = txtNombreCompleto.Text,
-                            fecha_nacimiento = DateTime.ParseExact(txtFechaNacimiento.Text, "dd-MM-yyyy", null),
-                            telefono = txtTelefono.Text,
-                            correo = txtCorreo.Text,
-                            contraseña = psBContrasenia.Password
+                            IdJugador = jugadorExistente.IdJugador,
+                            Usuario = txtUsuario.Text,
+                            Nombre = txtNombreCompleto.Text,
+                            FechaNacimiento = DateTime.ParseExact(txtFechaNacimiento.Text, "dd-MM-yyyy", null),
+                            Telefono = txtTelefono.Text,
+                            Correo = txtCorreo.Text,
+                            Contrasena = psBContrasenia.Password
                         };
                         response = cliente.ActualizarJugador(jugadorActual);
 
@@ -98,12 +98,12 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                         var jugadorNuevo = new JugadorDTO()
                         {
 
-                            usuario = txtUsuario.Text,
-                            nombre = txtNombreCompleto.Text,
-                            fecha_nacimiento = DateTime.ParseExact(txtFechaNacimiento.Text, "dd-MM-yyyy", null),
-                            telefono = txtTelefono.Text,
-                            correo = txtCorreo.Text,
-                            contraseña = psBContrasenia.Password
+                            Usuario = txtUsuario.Text,
+                            Nombre = txtNombreCompleto.Text,
+                            FechaNacimiento = DateTime.ParseExact(txtFechaNacimiento.Text, "dd-MM-yyyy", null),
+                            Telefono = txtTelefono.Text,
+                            Correo = txtCorreo.Text,
+                            Contrasena = psBContrasenia.Password
                         };
 
                         response = cliente.RegistrarJugador(jugadorNuevo);
@@ -295,13 +295,13 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         {
             if (jugadorExistente != null)
             {
-                txtUsuario.Text = jugadorExistente.usuario;
-                txtNombreCompleto.Text = jugadorExistente.nombre;
-                txtFechaNacimiento.Text = jugadorExistente.fecha_nacimiento.ToString("dd-MM-yyyy");
-                txtTelefono.Text = jugadorExistente.telefono.ToString();
-                txtCorreo.Text = jugadorExistente.correo;
+                txtUsuario.Text = jugadorExistente.Usuario;
+                txtNombreCompleto.Text = jugadorExistente.Nombre;
+                txtFechaNacimiento.Text = jugadorExistente.FechaNacimiento.ToString("dd-MM-yyyy");
+                txtTelefono.Text = jugadorExistente.Telefono.ToString();
+                txtCorreo.Text = jugadorExistente.Correo;
                 txtCorreo.IsEnabled = false;
-                psBContrasenia.Password = jugadorExistente.contraseña;
+                psBContrasenia.Password = jugadorExistente.Contrasena;
                 psBContrasenia.IsEnabled = false;
             }
         }

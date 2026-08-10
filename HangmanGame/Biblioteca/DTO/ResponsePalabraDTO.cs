@@ -21,6 +21,6 @@ namespace Biblioteca.DTO
         [DataMember]
         public string message { get; set; }
         [DataMember]
-        public Palabras data { get; set; }
+        public PalabrasResponseDTO data { get; set; }
     }
 }

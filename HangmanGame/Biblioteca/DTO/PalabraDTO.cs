@@ -27,7 +27,7 @@ namespace Biblioteca.DTO
     }
 
     [DataContract]
-    public class Palabras
+    public class PalabrasResponseDTO
     {
         [DataMember]
         public List<PalabraDTO> PalabrasConId { get; set; }

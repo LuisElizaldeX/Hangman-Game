@@ -26,12 +26,12 @@ namespace HangmanGame_Cliente
                     Thread.CurrentThread.CurrentCulture = culture;
                     Thread.CurrentThread.CurrentUICulture = culture;
 
-                    Application.Current.Resources.MergedDictionaries.Clear();
+                    System.Windows.Application.Current.Resources.MergedDictionaries.Clear();
                     var resourceDictionary = new ResourceDictionary
                     {
                         Source = new Uri($"/Dictionary-{idioma}.xaml", UriKind.Relative)
                     };
-                    Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+                    System.Windows.Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
                 }
                 catch (Exception ex)
                 {

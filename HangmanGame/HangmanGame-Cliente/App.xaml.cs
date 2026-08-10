@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace HangmanGame_Cliente
 {
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         public App()
         {

@@ -14,9 +14,11 @@ namespace Biblioteca.DTO
         [DataMember]
         public string Idioma { get; set; }
         [DataMember]
+        public DateTime FechaCreacion { get; set; }
+        [DataMember]
         public int IdPalabra { get; set; }
         [DataMember]
-        public int IdRetador { get; set; }
+        public int? IdRetador { get; set; }
         [DataMember]
         public int IdAdivinador { get; set; }
         [DataMember]

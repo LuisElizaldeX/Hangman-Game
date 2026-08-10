@@ -96,7 +96,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             {
                 try
                 {
-                    int idJugador = jugadorDTO.id_jugador;
+                    int idJugador = jugadorDTO.IdJugador;
                     ResponsePartidaDTO response = cliente.UnirsePartida(partida.Codigo, idJugador);
 
                     if (response != null && response.success)
