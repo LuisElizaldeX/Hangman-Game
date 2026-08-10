@@ -90,8 +90,6 @@ namespace HangmanGame_Cliente.Cliente.Vistas
 
                         var mainWindow = Window.GetWindow(this) as MainWindow;
                         mainWindow.SetJugadorAutenticado(jugadorActual);
-                        //var jugadorAutenticado = mainWindow.GetJugadorAutenticado();
-
                     }
                     else
                     {

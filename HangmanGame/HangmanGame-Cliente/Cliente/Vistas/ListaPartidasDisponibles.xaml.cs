@@ -23,10 +23,8 @@ namespace HangmanGame_Cliente.Cliente.Vistas
         public ListaPartidasDisponibles()
         {
             InitializeComponent();
-            cliente = new HangmanServiceClient();
-            CargarPartidas();
+           
             Loaded += ListaPartidasDisponibles_Loaded;
-            Unloaded += ListaPartidasDisponibles_Unloaded;
         }
 
         private async void ListaPartidasDisponibles_Loaded(object sender, RoutedEventArgs e)
@@ -48,6 +46,7 @@ namespace HangmanGame_Cliente.Cliente.Vistas
                 return;
             }
 
+            cliente = new HangmanServiceClient();
             socketCliente = new SocketCliente();
             socketCliente.ConnectionLost += OnConnectionLost;
             socketCliente.MessageReceived += OnMessageReceived;
@@ -56,20 +55,14 @@ namespace HangmanGame_Cliente.Cliente.Vistas
             {
                 await socketCliente.ConectarAsync("127.0.0.1", 12345);
                 await socketCliente.SendMessageAsync("REGISTRO_LOBBY");
+
+                CargarPartidas();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al conectar al servidor de sockets: " + ex.Message);
                 OnConnectionLost(ex.Message);
             }
-
-            CargarPartidas();
-        }
-
-        private void ListaPartidasDisponibles_Unloaded(object sender, RoutedEventArgs e)
-        {
-            socketCliente?.Desconectar();
-            try { cliente.Close(); } catch { cliente.Abort(); }
         }
 
         private void OnMessageReceived(string message)
